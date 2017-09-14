@@ -10,4 +10,22 @@ if(empty($_GET['action']/* check if the get superglobal variable 'action' is emp
 }
 
 //require the mysql_connect.php file.  Make sure your properly configured it!
-require_once('mysql_connect.php');
+require_once('mysqlConnect.php');
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+$output = [
+    'success'=> false, //we assume we will fail
+    'errors'=>[]
+];
+
+//check the GET superglobal so you know what the front end is asking you to do
+
+switch($_GET['action']){
+    case 'readAll':
+        include_once('event_data_api/send_all_events.php');
+        break;
+
+    default:
+        array_push($output['errors'],'I don\'t even know what action you want the back end to do. (Hint: make sure you specify the \'action\' in the query string of your ajax url.)');
+}
