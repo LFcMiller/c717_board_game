@@ -1,0 +1,13 @@
+anticipated 4 needed pages:
+
+Main page
+    -layout similar to Brian's wireframe
+
+Create Event page
+
+Events Listing Page
+
+Player Profile Page
+
+We also need to think about how and when events should NOT be listed
+    leading theory is to only display events whose attendee number is LESS than the max number
