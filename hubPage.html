@@ -2,21 +2,36 @@
     <head>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-      <title>Document</title>
+      <title>hub_page</title>
       <link rel="stylesheet" href="style.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">      
     </head>
+
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid ">
+            <!--menu bar-->
             <div class="row navBar blue">
-              <i class="fa fa-bars fa-2x"></i>                
+                <header>
+                    <i class="fa fa-bars fa-2x menu_button"></i>
+                    <h1 class="white font_lg"> Host / Player </h1>
+                </header>
             </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="mainButton orange"><h1>Host A Game</h1></div>                
+            <!--host/join buttons-->
+            <div class="col-xs-6 col-md-6">
+                <div class="mainButton white-border-color orange"><h1>Host A Game</h1></div>
             </div>
-            <div class="col-xs-12 col-md-6 buttonContainer">
-                <div class="mainButton yellow"><h1>Join A Game</h1></div>                
+            <div class="col-xs-6 col-md-6 buttonContainer">
+                <div class="mainButton white-border-color green"><h1>Join A Game</h1></div>
             </div>
-          </div>
+            <!--FAQ column-->
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <h1 class="col-xs-12 col-md-12">FAQ</h1>
+                <h2 class="visible-col-xs-6 col-md-6">Host:</h2>
+                <p class="col-xs-12 col-md-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi assumenda blanditiis corporis dolor, eligendi eveniet illum in incidunt maiores minima temporibus ut! Ab eius fuga magnam nemo omnis provident sed.</p>
+                <!--<div class="white-border-color"></div>-->
+                <h2 class="visible-col-xs-6 col-md-6">Player:</h2>
+                <p class="col-xs-12 col-md-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi assumenda blanditiis corporis dolor, eligendi eveniet illum in incidunt maiores minima temporibus ut! Ab eius fuga magnam nemo omnis provident sed.</p>
+            </div>
+        </div>
     </body>
     </html>

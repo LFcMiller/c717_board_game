@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet">
+	<link rel="stylesheet" href="burgerBrian.css">
+	<link rel="stylesheet" type="text/css" href="styleBrian.css">
+	<script type="text/javascript" src="mainBrian.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid" id="navigation">	<!--navbar content main div-->
+			<div class="navbar-header">		<!--nav header div; includes hamburger menu and navbrand-->
+				<button type="button" class="navbar-toggle collapsed hamburger hamburger--spin" data-toggle="collapse" data-target=".navbar-collapse" data-parent="#accordion" aria-expanded="true">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</button>
+				<a class="navbar-brand" href="#home">BoardGameBackup</a>
+			</div>		<!--end of nav header div-->
+			<!-- having bootstrap js before jquery js makes it so the hamburger menu does not expand -->
+			<div class="collapse navbar-collapse" id="nav-option">	<!--div for nav options-->
+			<ul class="nav navbar-nav navbar-right" >
+				<li><a href="#page2">item1</a></li>
+				<li><a href="#">item2</a></li>
+				<li><a href="#">item3</a></li>
+			</ul>
+			</div>		<!--end of nav options div-->		
+		</div>		<!--end of navbar content main div-->
+	</nav>
+	
+	<div class="main-content container-fluid">	<!--div for main content or just the initial page-->
+		<div id="top-filler"></div>
+		<div id="home">
+			<div class="col-xs-12 col-sm-7">
+				<div class="row aboutSite">
+					<div class="aboutSiteContent">
+						<h4>site guide </h4> <!--change it to h4 to make it smaller or whatever-->
+						<div>Welcome, traveler!? this is seems like a total board game font</div>
+					</div>
+				</div>
+				<div class="row gameOfMonth">
+					<div class="gameOfMonthContent">
+						<h4>game of the MONTH</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-5">
+				<div class="row zipSearch">
+					<div class="zipSearchContent">
+						<h4>search for nerd companions <small><strong>/</strong> it's dangerous to go alone</small></h4>
+						<input type="text" name="">
+						<button>SEARCH</button>
+					</div>					
+				</div>
+				<div class="row featuredSection">
+					<div class="featuredSectionContent">
+						<h4>featured <small>players<strong>/</strong>reviews</small></h4>
+					</div>
+				</div>
+			</div>
+		</div> <!--end of home div-->
+
+		<div id="page2"></div>
+	</div>		<!--end main content div-->
+</body>
+
+
+</html>
