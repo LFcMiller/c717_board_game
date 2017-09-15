@@ -1,0 +1,1 @@
+This branch is meant to be used for Junior Dev content, such as Wireframes and related files. Please save your files with your name at the end of what the file is, i.e eventCreationRebecca.html. We would like you guys to practice pushing and putting in pull requests using this format. Make sure to use this naming format for HTML, CSS, and JS files, where necessary.

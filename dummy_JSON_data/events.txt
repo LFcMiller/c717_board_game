@@ -1,0 +1,20 @@
+{
+    "success": true,
+    "errors": [],
+    "data":
+        [
+            {
+                "event_ID": "1",
+                "game_name": "Settlers of Catan",
+                "general_details": "blah blah blah it's Catan yes we roll dice no we don't play nice. Go to the second floor when you get there.",
+                "street_address": "9200 Irvine Center Dr.",
+                "city": "Irvine",
+                "state": "CA",
+                "zip": "92618",
+                "lat":"33.634858",
+                "lon":"-117.740464",
+                "date":"2017-09-13",
+                "time":"7:30"
+            }
+        ]
+}

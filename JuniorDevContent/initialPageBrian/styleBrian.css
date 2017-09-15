@@ -1,0 +1,134 @@
+/*font-family: 'Press Start 2P', cursive;*/
+/*font-family: 'Yatra One', cursive;*/
+.hamburger{
+	display: none !important;	
+}
+@media screen and (max-width: 767px){  /*css for menu transition*/
+	.hamburger{
+		display: inline-block !important;
+	}
+	.navbar-nav{
+		text-align: center;
+	}
+}
+/*end of navbar hamburger css*/
+
+html, body{
+	overflow-x: hidden;
+}
+
+.navbar{
+	background-color: rgba(255,0,0, 0.65);
+	font-family: 'Press Start 2P', cursive;
+	border: 2px dashed;
+	box-sizing: border-box;
+
+}
+.navbar-brand{
+	color: red !important;
+	text-shadow: 
+	1px 1px 0 #fff,
+	-1px -1px 0 #fff,
+	2px 2px 0 #fff;
+}
+.nav>li>a:hover, .nav>li>a:focus{
+	text-decoration: none;
+	background-color: rgba(255,0,0,0) !important;
+}
+/*end of navbar css*/
+
+.main-content{
+	padding: 0 0;
+}
+
+.main-content >div:not(#top-filler){
+	height: 95vh;
+}
+
+#home{
+	background-color: rgb(240, 255, 240);
+}
+#home>div{
+	height: 100%;
+	/*border: 1px solid;*/
+}
+.aboutSite{
+	height: 60%;
+}
+.aboutSiteContent, .gameOfMonthContent, .zipSearchContent, .featuredSectionContent{
+	height: 93%;
+	margin: 1.5% 2%;
+	box-sizing: border-box;
+	border: 3px dashed;
+	/*border: 1px solid green;*/
+}
+#home h4{
+	color: white;
+	font-family: 'Press Start 2P', cursive;
+	text-shadow: 
+	1px 1px 0 #000,
+	-1px -1px 0 #000,
+	2px 2px 0 #000,
+	3px 3px 0 #000;
+}
+.aboutSiteContent{
+	background-color: rgba(153, 50, 204, 0.45);
+}
+.aboutSiteContent div{
+	font-family: 'Yatra One', cursive;
+	font-size: 24px;
+}
+.gameOfMonth{
+	height: 40%;
+}
+.gameOfMonthContent{
+	background-color: rgba(255, 165, 0, 0.45);
+}
+.zipSearch{
+	height: 30%;
+}
+.zipSearchContent{
+	background-color: rgba(135, 206, 235, 0.45);
+}
+.zipSearchContent button{
+	background-color: red;
+	color: white;
+	font-family: 'Press Start 2P', cursive;
+	box-sizing: border-box;
+	border: 2px dashed white;
+}
+.featuredSection{
+	height: 70%;
+}
+.featuredSectionContent{
+	background-color: rgba(0, 128, 0, 0.45);
+}
+.aboutSite, .zipSearch {
+	/*border: 1px solid red;*/
+}
+.gameOfMonth, .featuredSection{
+	/*border: 1px solid blue;*/
+}
+@media screen and (max-width: 767px){
+	#home>div{
+		height:50%;
+	}
+	.aboutSite{
+		height: 80%;
+	}
+	.gameOfMonth{
+		height: 20%;
+	}
+	.zipSearch{
+		height: 20%;
+	}
+	.featuredSection{
+		height: 80%;
+	}
+
+}
+/*end of home css*/
+
+#page2{
+	background-color: rgb(135, 206, 235);
+}

@@ -13,4 +13,9 @@
 - Matt
 
 ### Jr Devs
-- TBD
+- Brian
+- Cesca
+- Collin
+- Krystal
+- Matt
+- Rebecca

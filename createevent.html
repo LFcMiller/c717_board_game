@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>  
+  <script src='createevent.js'></script>
+</head>
+<body>
+  <form action="">
+    <input type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
+    <input type="text" name="numPlayers" id="numPlayers" placeholder="Number of Players Needed" required><br/>    
+    <input type="text" name="address" id="address" placeholder="Street Address" required><br/>
+    <input type="text" name="city" id="city" placeholder="City" required><br/>
+    <input type="text" name="state" id="state" maxlength="2" size="2" placeholder="--" required><br/>
+    <input type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
+    <input type="text" name="textDetails" id="textDetails" placeholder="Details about event." required><br/>
+    <input type="text" name="date" id="date" pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" placeholder="MM/DD/YYYY" required><br/>
+    <input type="text" name="time" id="time" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]) ([AaPp][Mm]))" placeholder="HH:MM AM/PM" required><br/>
+    <button>SUBMIT FORM</button>
+    <button type="button" id="submit">LOG DATA</button>
+  </form>
+</body>
+</html>
