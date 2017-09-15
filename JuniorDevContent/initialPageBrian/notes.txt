@@ -1,0 +1,65 @@
+monopoly color template:
+#353940
+#8A99A6
+#9CA678
+#D9C562
+#BF4545
+or
+https://en.wikipedia.org/wiki/Template:Monopoly_board_layout
+
+initial pg:
+header-
+	company title
+	login button
+
+body-
+	site description
+	text input: zipcode
+	button for zipcode input
+
+
+option 1: 
+navbar towards the bottom of the page that scrolls to top
+when the user scrolls down to reach different content of the page
+like to reach an about page located beneath initial pg
+ref: http://switch-company.com/#home
+
+
+body:	__________
+      /		   \
+     /              \
+    /________________\
+    
+
+
+option 2:
+	theme : relateability
+	8-bit font - does not necessarily reflect board games but
+	from the perspective of it being tied to games in general
+	and for possible expansion to the site being used for 
+	hosting lan parties/video game meet ups; and it's also retro 
+	tech looking so i guess integrating board game with technology
+	monopoly color palette - use the color palette for a well
+	known game to provide subtle familiarity
+
+submit button for zipcode search - use the dice image to act as
+button function instead of traditional button /or use 8-bit button
+
+body layout:
+			site info | search
+			-------------------
+      (featured):game of the month| reviews:(featured) groups/players/game reviews
+
+		bottom of site info section: each area with color from monopoly palette
+		insta | facebook | other sites
+
+mobile:
+		site Info	:if content is too long, gets cut and when clicked, 
+					opens modal of description; h-80% (of parent)
+		---------
+		search		:just the game name; no description; h-20%
+		---------
+		game of the month :just the game name; description cut; h-20%
+		---------
+		reviews		:whatever; h-80%
+
