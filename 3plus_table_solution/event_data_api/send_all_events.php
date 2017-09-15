@@ -11,7 +11,8 @@ $result = mysqli_query($conn, $all_event_select_query);
 
 if (empty($result)) {
     //if it is, add 'database error to errors
-    array_push($output['errors'], 'database error');
+//    array_push($output['errors'], 'database error');
+    $output['errors'][] = 'database error';
 }else{
     //check if any data came back
     if(mysqli_num_rows($result)) {

@@ -29,3 +29,5 @@ switch($_GET['action']){
     default:
         array_push($output['errors'],'I don\'t even know what action you want the back end to do. (Hint: make sure you specify the \'action\' in the query string of your ajax url.)');
 }
+
+print(json_encode($output));
