@@ -1,0 +1,16 @@
+HTML injection:
+
+$_POST['whatever'] = htmlentities($_POST['whatever']);
+
+if we want numbers only:
+$_POST['number'] = intval($_POST['number']);
+$_POST['number'] = (int)($_POST['number']);
+
+if we don't want to be SQL injected:
+escape all the quote characters
+foreach($_POST as $key =>$value){
+    $_POST[$key] = addslashes($value);
+}
+
+hash your passwords!
+$password = sha1($password);

@@ -17,6 +17,7 @@ if(mysqli_query($conn, $sql)){
 	echo "Error creating database: " . mysqli_error($conn);
 }
 
+//fun fact: this automatically happens when it gets to the end of the file anyway
 mysqli_close($conn);
 
 ?>
