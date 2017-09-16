@@ -25,6 +25,9 @@ switch($_GET['action']){
     case 'readAll':
         include_once('event_data_api/send_all_events.php');
         break;
+    case 'readByZip':
+        include_once('event_data_api/send_events_by_zip.php');
+        break;
     case 'newEvent':
         include_once('event_data_api/create_new_event.php');
         break;
