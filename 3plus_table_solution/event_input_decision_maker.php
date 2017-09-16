@@ -25,9 +25,14 @@ switch($_GET['action']){
     case 'readAll':
         include_once('event_data_api/send_all_events.php');
         break;
+    case 'newEvent':
+        include_once('event_data_api/create_new_event.php');
+        break;
 
     default:
         array_push($output['errors'],'I don\'t even know what action you want the back end to do. (Hint: make sure you specify the \'action\' in the query string of your ajax url.)');
 }
+
+//Make the date nicer for humans
 
 print(json_encode($output));
