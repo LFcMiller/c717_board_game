@@ -19,7 +19,9 @@ body {
   color: black;
 }
 .navBar {
-  margin-bottom: 5%;
+  height: 15vh;
+  width: 100vw;
+  margin-bottom: 0;
 }
 .title {
     border: 5px solid #EE651E;
@@ -27,13 +29,13 @@ body {
     margin-bottom: 1%;
 }
 .map {
-  height: 60%;
+  height: 85vh;
   background-image: url("http://cdn.newsapi.com.au/image/v1/0a0ceda4bda18e664ffac1a8fa86a7d1");
   background-size: cover;
 }
 
 .gamesList {
-  height: 60%;
+  height: 85vh;
   overflow: scroll;
 }
 .mainButton {
@@ -103,3 +105,15 @@ div {
   height:100vh;
 }
 /*this is the end of Soy's css*/
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gamesContainer {
+  text-align: left;
+}
+.hidden {
+  display: none;
+}
