@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+	<link rel="stylesheet" href="burgerBrian.css">
+	<link rel="stylesheet" type="text/css" href="styleBrian.css">
+	<script type="text/javascript" src="mainBrian.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid" id="navigation">	<!--navbar content main div-->
+			<div class="navbar-header">		<!--nav header div; includes hamburger menu and navbrand-->
+				<button type="button" class="navbar-toggle collapsed hamburger hamburger--spin" data-toggle="collapse" data-target=".navbar-collapse" data-parent="#accordion" aria-expanded="true">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</button>
+				<a class="navbar-brand" href="#home">BGB<small>/Host</small></a>
+			</div>		<!--end of nav header div-->
+			<!-- having bootstrap js before jquery js makes it so the hamburger menu does not expand -->
+			<div class="collapse navbar-collapse" id="nav-option">	<!--div for nav options-->
+			<ul class="nav navbar-nav navbar-right" >
+				<li><a href="#page2">item1</a></li>
+				<li><a href="#">item2</a></li>
+				<li><a href="#">item3</a></li>
+			</ul>
+			</div>		<!--end of nav options div-->		
+		</div>		<!--end of navbar content main div-->
+	</nav>
+	
+	<div class="main-content container-fluid">	<!--div for main content or just the initial page-->
+		<div id="top-filler"></div>
+		<div id="eventCreationMain">
+			<div class="row">	
+				<div class="col-xs-12 col-sm-8 col-sm-offset-2 eventCreationSheet">
+					<div class="row sheetHeader">
+						<div class="col-xs-5 gameName text-center">
+							<h3>Game Name  : 
+							<input type="text" name="" placeholder="  enter game name">
+							</h3>	<!--gameName div-->
+						</div>		<!--end of gameName div-->
+						<div class="col-xs-7 gameDetail text-center">	<!--gameDetail div-->
+							<div class="row detailUpper">
+								<div class="col-xs-6">
+									Date : <input type="text" placeholder="maybe change to calendar button">
+								</div>
+								<div class="col-xs-6">
+									Time : <input type="text" placeholder="in 24:00 format">
+								</div>
+							</div>
+							<div class="row detailLower">
+								<div class="col-xs-6">								
+									Desired quest group size : <br>
+									2 :<input type="checkbox">  
+									4 :<input type="checkbox" name="">  
+									6 :<input type="checkbox" name="">  
+									8 :<input type="checkbox" name=""> 
+								</div>
+								<div class="col-xs-6"></div>
+							</div>
+						</div>		<!--end of gameDetail div-->	<!--sheetHeader row-->
+					</div>		<!--end of sheetHeader row-->
+					<div class="row sheetBody">	<!--sheetBody row-->
+						<div class="col-xs-6 col-sm-3">
+							<div class="row foodCheck">
+								<h5 class="text-center">Food :</h5>
+								<ul>
+									<li>Food Provided : <input type="checkbox" name=""></li>
+									<li>Alcohol : <input type="checkbox" name=""></li>
+									<li>Bring your own food : <input type="checkbox" name=""></li>
+									<li>BYOB : <input type="checkbox" name=""></li>
+									<li>FOOD NEIN: <input type="checkbox" name=""> </li>
+								</ul>
+							</div>
+							<div class="row carpoolCheck">
+								<h5 class="text-center">CarPool :</h5>
+								<ul>
+									<li>available : <input type="checkbox" name=""></li>
+									<li>not availabe : <input type="checkbox" name=""></li>
+								</ul>
+							</div>
+							<div class="row amenitiesCheck">
+								<h5 class="text-center">Amenities</h5>
+								<ul>
+									<li>Wifi : <input type="checkbox" name=""></li>
+									<li>Parking : <input type="checkbox" name=""></li>
+								</ul>
+							</div>
+							<div class="row experienceCheck">
+								<h5 class="text-center">Desired Player Experience :</h5>
+								<ul>
+									<li>Beginner : <input type="checkbox" name=""></li>
+									<li>Intermediate : <input type="checkbox" name=""></li>
+									<li>Advanced : <input type="checkbox" name=""></li>
+									<li>Expert : <input type="checkbox" name=""></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-xs-6 col-sm-3">
+							<div class="row petsCheck">
+								<h5 class="text-center">Host Pets :</h5>
+								<ul>
+									<li>None : <input type="checkbox" name=""></li>
+									<li>Dog : <input type="checkbox" name=""></li>
+									<li>Cats : <input type="checkbox" name=""></li>
+									<li>Other : <input type="checkbox" name=""></li>
+								</ul>
+								
+							</div>
+							<div class="row ageCheck">
+								<h5 class="text-center"> Age Group :</h5>
+								<ul>
+									<li>E for Everyone : <input type="checkbox" name=""></li>
+									<li>PG : <input type="checkbox" name=""></li>
+									<li>PG13 : <input type="checkbox" name=""></li>
+									<li>R : <input type="checkbox" name=""></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6">
+							<div class="row houseRules text-center">
+								<h5> House Rules :</h5>
+								<textarea cols="50" rows = "10"></textarea>
+							</div>
+							<div class="row gameDescription text-center">
+								<h5> game description :</h5>
+								<textarea cols="50" rows = "10"></textarea>
+							</div>
+						</div>
+					</div>		<!--end of sheetBody row-->
+				</div>
+			</div>	
+		</div>
+	</div>		<!--end main content div-->
+</body>
+
+
+</html>
