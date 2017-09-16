@@ -18,6 +18,7 @@ switch($_GET['action']){
         include_once('player_data_api/create_new_user.php');
         break;
 
+
     default:
         array_push($output['errors'],'I don\'t even know what action you want the back end to do. (Hint: make sure you specify the \'action\' in the query string of your ajax url.)');
 }
