@@ -58,11 +58,11 @@ body {
 div {
   font-family: Futura, Arial, sans-serif;
   text-align : center;
-  padding-top: 5px
+  padding: 5px
 }
 
 .font_reg{
-  font-size: 200%;
+  font-size: 100%;
 }
 
 .font_md{
@@ -97,6 +97,10 @@ div {
   height:100vh;
 }
 
+.google-login ,.facebook-login{
+  border-radius: 25px;
+  margin-bottom: 1%;
+}
 
 /*this is the end of Soy's index.html css*/
 /******************************************************************/

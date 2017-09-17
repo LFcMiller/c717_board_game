@@ -10,38 +10,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body class="container-fluid">
-    <div class=" home_page_body">
-        <div class="title col-xs-12 col-md-12 col-lg-12">
-            <div class="menu_button">
-                <button type="button" class="btn btn-warning">MENU</button>
-            </div>
-                <div class="title_box">
-                    <p class="font_lg hidden-xs hidden-sm">Game Nyte</p>
-                    <p class="font_md visible-xs visible-sm">Game Nyte</p>
-                    <p class ="font_rg visible-xs visible-sm">Board Game Meet Up App</p>
-                </div>
+<body class="container-fluid col-sm-12 col-md-12 col-lg-12">
+    <div class="home_page_body">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <p class="font_lg hidden-xs hidden-sm">Game Nyte</p>
+            <p class="font_md visible-xs visible-sm">Game Nyte</p>
+            <p class ="font_rg visible-xs visible-sm">Board Game Meet Up App</p>
         </div>
         <!--body column-->
-        <div class="col-sm-12 col-md-12 col-lg-12 title columns_body">
+        <div class="col-sm-12 col-md-12 col-lg-12  columns_body">
             <!--about column-->
-            <div class = "col-sm-12 col-md-12 col-lg-6 hidden-sm hidden-xs about_page">
+            <div class = "col-sm-12 col-lg-12 hidden-xs hidden-sm hidden-md about_page">
                 <h2 class = "font_md">About Us</h2>
-                <h4 class="font_reg">Welcome to GameNightBoard the application that </h4>
+                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa esse, expedita fugiat laudantium perspiciatis provident reiciendis reprehenderit similique? Eligendi esse fuga ipsa iusto nesciunt quam quasi qui quisquam temporibus voluptates?</h3>
             </div>
+            <h4 class="font_reg">Welcome to BoardGameNyte! Find others looking to play games near you!</h4>
             <!--sign-up page column-->
-            <div class = "col-sm-12 col-md-12 col-lg-6 about_page sign_up">
-                <div class = "title sign-up">
-                    <h3 class = "">Sign Up</h3>
+            <div class = "col-sm-12 col-md-12 col-lg-12 about_page sign_up">
+                <!--sign-up page column ipad and desktop only-->
+                <div class="hidden-sm hidden-xs col-md-6 col-lg-6">
+                    <div class = "col-md-12 col-lg-12 sign_up">
+                        <div class = "col-md-12 col-lg-12 about_page title sign-up">
+                            <h3>Sign Up</h3>
+                            <div class = "col-md-12 blue google-login">Google Login</div>
+                            <div class = "col-md-12 blue facebook-login">Facebook Login</div>
+                        </div>
+                    </div>
                 </div>
-                    <div class = "title blue google-login">Google Login</div>
-                    <div class = "title blue facebook-login">Facebook Login</div>
-                    <div>OR</div>
-                <!--sign-up form -->
-                <div class = "title_box info-input">
-                    <form class = "sign_up">
-                        <div class = "form-group">
-                            <label for = "exampleInputEmail1">Email address</label>
+                <!--this login sheet is for the mobile version of sign up-->
+                <div class = "hidden-md hidden-lg title sign-up">
+                    <h3>Sign Up</h3>
+                    <div class = "col-md-12 blue google-login">Google Login</div>
+                    <div class = "col-md-12 blue facebook-login">Facebook Login</div>
+                </div>
+        <!--sign-up form -->
+                <div class = "col-sm-12 col-md-6 col-lg-6 container title title_box info-input">
+                    <form class = "col-md-12 col-lg-12">
+                        <div class = "form-group row">
+                            <label class="form-inline" for="exampleInputEmail1">Email:</label>
                             <input type = "email" class="form-control" id="exampleInputEmail1" placeholder="Email">
                         </div>
                         <div class = "form-group">
@@ -57,15 +63,50 @@
                     </form>
                 </div>
             </div>
-            <!--map api spot column-->
-            <div class = "col-xs-12 col-lg-9 col-lg-offset-3 title_box">
-                <form class="col-lg-7 form-group">
-                <label>Enter Zip Code Here</label>
-                <input type="number" class="form-control" id="exampleInputZipCode" placeholder="ZIPCODE">
-                    <!--future location of google api-->
-                    <div>
-                        <img src="./sample_img/sampleMap.JPG" class="hidden-xs hidden-sm" alt="Desktop Responsive">
-                        <img src="./sample_img/sampleMap.JPG" class="visible-xs visible-sm img-responsive" alt="Mobile Responsive image">
+        <!--map api spot column-->
+            <div class="form-inline col-sm-12 col-md-12 col-lg-12">
+                <div class="row col-sm-12 col-md-12 col-lg-12">
+                    <label class="col-sm-6 col-sm-offset-3 col-md-6 col-lg-6 col-lg-offset-3">Search for Players:</label>
+                    <input type="number" class="form-control col-sm-6 col-sm-offset-3 col-md-6 col-lg-6 col-lg-offset-3" id="exampleInputZipCode" placeholder="ZIPCODE"/>
+                </div>
+            <!--future location of google api-->
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <img src="./sample_img/sampleMap.JPG" class="hidden-xs hidden-sm">
+                    <img src="./sample_img/sampleMap.JPG" class="col-sm-12 col-xs-12 visible-xs visible-sm">
+                </div>
+            </div>
+            <!--this is Contact Us Form-->
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <form class="form-inline ">
+                    <p>Any issues or great things yous experienced in our app please let us know down here.</p>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Category
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Bug Report</a></li>
+                                <li><a href="#">Player Report</a></li>s
+                                <li><a href="#">Customer Service</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Other</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="">
+                            <label>Name :</label>
+                            <input type="text" class="form-control" placeholder="Full name"/>
+                        </div>
+                        <div class="">
+                            <label>Email :</label>
+                            <input type="email" class="form-control" placeholder="youremail@email.com"/>
+                        </div>
+                        <div class="">
+                            <label>Message :</label>
+                            <textarea class="form-control" placeholder="Message us" aria-describedby="basic-addon1"></textarea>
+                        </div>
                     </div>
                 </form>
             </div>
