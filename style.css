@@ -116,3 +116,16 @@ div {
 }
 /*This is the end of Soy's hubPage.html*/
 /******************************************************************/
+/*This is the beginning of Soy's contact us page*/
+
+.contact_main {
+  width: 99vw;
+  height: 99vh;
+  border: 5px solid #1E5C9B;
+  border-radius: 25px;
+  margin:1%;
+
+}
+
+/*This is the end of Soy's contact us page*/
+/******************************************************************/
