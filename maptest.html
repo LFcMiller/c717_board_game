@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      locations = [
+        { 
+          street: '115 Technology Dr',
+          city: 'Irvine',
+          state: 'CA',
+          zip: 92618,
+          lat: 33.660166,
+          lon: -117.744691
+        },
+        { 
+          street: '125 Retreat',
+          city: 'Irvine',
+          state: 'CA',
+          zip: 92603,
+          lat: 33.643051,
+          lon: -117.770051
+        }
+      ]
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: new google.maps.LatLng(33.8564151,-117.87691),
+          mapTypeId: 'roadmap'
+        });
+
+        populateMap(locations);
+      }
+
+      // Loop through the results array and place a marker for each
+      // set of coordinates.
+      function populateMap (response) {
+        for (var i = 0; i < response.length; i++) {
+          var latLng = new google.maps.LatLng(response[i].lat,response[i].lon);
+          var marker = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            center: latLng,
+            radius: 1600
+          });
+        }
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE&callback=initMap">
+    </script>
+  </body>
+</html>

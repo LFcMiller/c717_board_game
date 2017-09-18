@@ -67,16 +67,32 @@ function populatePage (response) {
   }
 }
 
-/*
-<div class="game col-xs-12" index=0>
-<div class="row1">
-    <div class="gameName truncate col-xs-6">Settlers of Catan</div>
-    <div class="date col-xs-3">2017-09-13</div>
-    <div class="time col-xs-3">7:30</div>
-</div>
-<div class="row2 hidden">
-  <div class="details col-xs-8">blah blah blah it's Catan yes we roll dice no we don't play nice. Go to the second floor when you get there.</div>
-  <button class="btn btn-success">Apply</button>
-</div>
-</div>
-*/
+var map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: new google.maps.LatLng(33.7736521,-117.6780258),
+    mapTypeId: 'roadmap'
+  });
+
+  populateMap(gameData);
+}
+
+// Loop through the results array and place a marker for each
+// set of coordinates.
+function populateMap (response) {
+  for (var i = 0; i < response.data.length; i++) {
+    var latLng = new google.maps.LatLng(parseFloat(response.data[i].lat),parseFloat(response.data[i].lon));
+    var marker = new google.maps.Circle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      map: map,
+      center: latLng,
+      radius: 1600
+    });
+  }
+}
