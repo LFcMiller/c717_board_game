@@ -13,8 +13,6 @@ foreach($keys_we_are_looking_for as $key) {
 //TODO: Then use the facebook ID to get our user ID
 //print_r($post_data);
 
-//TODO: figure out what format I want to have date and time sent as
-
 $output['data'] = [];
 
 //$output['data'][] = 'I see that you tried to add a game of '.$post_data['gameName'];
