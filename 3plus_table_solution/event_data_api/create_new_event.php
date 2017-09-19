@@ -20,7 +20,7 @@ $output['data'] = [];
 //$output['data'][] = 'I see that you tried to add a game of '.$post_data['gameName'];
 
 $new_event_query = "INSERT INTO `events` SET `game_name` = '{$post_data['game_name']}', `general_details` = '{$post_data['general_details']}', `street_address` = '{$post_data['address']}', `city` = '{$post_data['city']}',`state`='{$post_data['state']}',`zip`='{$post_data['zip']}',`lat`='{$post_data['lat']}',`lon`='{$post_data['lon']}'";
-print($new_event_query);
+//print($new_event_query);
 
 $result = null;
 $result = mysqli_query($conn, $new_event_query);
