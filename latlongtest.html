@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>    
+  <title>Lat/Long Test</title>
+  <script>
+    var address = '101 Technology Dr., Irvine, CA'
+    function getLatLong(address){
+      var deferred = $.Deferred();
+      $.ajax({
+        url: 'https://maps.googleapis.com/maps/api/geocode/json',
+        method: "GET",
+        data: {
+          address: address,
+          key: 'AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE'
+        },
+        success: deferred.resolve
+      })
+      return deferred;
+    }
+    function getCrossStreets(response){
+      console.log(response.results[0].geometry.location);
+      var deferred = $.Deferred();
+      $.ajax({
+        url: 'https://roads.googleapis.com/v1/nearestRoads',
+        method: "GET",
+        data: {
+          points: `${response.results[0].geometry.location.lat}, ${response.results[0].geometry.location.lng}`,
+          key: 'AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE'
+        },
+        success: deferred.resolve
+      })
+      return deferred;
+    }
+    function handleSuccess(response) {
+      console.log(response);
+    }
+    getLatLong(address).then(getCrossStreets).then(handleSuccess);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
