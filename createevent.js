@@ -12,7 +12,8 @@ function groupData(){
     zipcode: $("#zipcode").val(),
     textDetails: $("#textDetails").val(),
     date: $("#date").val(),
-    time: $("#time").val(),
+    time: $("#time").val()+":00",
+    dayNight: $("#dayNight").val()
   };
   console.log(result);
 }
