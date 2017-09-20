@@ -8,8 +8,8 @@ const thingsToAdd = [
         zip : '92618',
         lat : '33.675824',
         lon : '-117.778006',
-        date : 'October 28th, 2017',
-        time : '5:00 pm'
+        date : '2017-10-28',
+        time : '17:00:00'
     },
     {
         game_name : 'Scrabble',
@@ -20,8 +20,8 @@ const thingsToAdd = [
         zip : '92604',
         lat : '33.675216',
         lon : '-117.784979',
-        date : 'November 13th, 2017',
-        time : '6:30 pm'
+        date : '2017-11-13',
+        time : '18:30:00'
     },
     {
         game_name : 'Cards Against Humanity',
@@ -32,8 +32,8 @@ const thingsToAdd = [
         zip : '92617',
         lat : '33.641954',
         lon : '-117.840736',
-        date : 'December 1st, 2017',
-        time : '5:00 pm'
+        date : '2017-12-01',
+        time : '17:00:00'
     },
     {
         game_name : 'Scrabble, Apples to Apples, Pictionary',
@@ -44,8 +44,8 @@ const thingsToAdd = [
         zip : '92618',
         lat : '33.642333',
         lon : '-117.739639',
-        date : 'November 15th, 2017',
-        time : '6:30 pm'
+        date : '2017-11-15',
+        time : '18:30:00'
     },
     {
         game_name : 'Charades',
@@ -56,8 +56,8 @@ const thingsToAdd = [
         zip : '92618',
         lat : '33.658195',
         lon : '-117.767148',
-        date : 'December 12th, 2017',
-        time : '7:00 pm'
+        date : '2017-12-12',
+        time : '19:00:00'
     },
     {
         game_name : 'Yahtzee',
@@ -68,8 +68,8 @@ const thingsToAdd = [
         zip : '92618',
         lat : '33.6505632',
         lon : '-117.7461516',
-        date : 'October 10th, 2017',
-        time : '12:00 pm'
+        date : '2017-10-10',
+        time : '12:00:00'
     },
     {
         game_name : 'Clue',
@@ -80,8 +80,8 @@ const thingsToAdd = [
         zip : '92618',
         lat : '33.646562',
         lon : '-117.7265231',
-        date : 'September 22nd, 2017',
-        time : '3:00 pm'
+        date : '2017-09-22',
+        time : '15:00:00'
     },
     {
         game_name : 'Ouija',
@@ -92,8 +92,8 @@ const thingsToAdd = [
         zip : '92630',
         lat : '33.638777',
         lon : '-117.680747',
-        date : 'November 15th, 2017',
-        time : '8:30 pm'
+        date : '2017-11-15',
+        time : '20:30:00'
     },
     {
         game_name : 'Monopoly',
@@ -104,8 +104,8 @@ const thingsToAdd = [
         zip : '92653',
         lat : '33.628360',
         lon : '-117.725223',
-        date : 'October 7th, 2017',
-        time : '5:00 pm'
+        date : '2017-10-07',
+        time : '17:00:00'
     },
     {
         game_name : 'The Game of Life',
@@ -116,8 +116,8 @@ const thingsToAdd = [
         zip : '92618',
         lat : '33.635140',
         lon : '-117.735505',
-        date : 'September 29th, 2017',
-        time : '7:00 pm'
+        date : '2017-09-29',
+        time : '19:00:00'
     },
     {
         game_name : 'Sorry!',
@@ -128,8 +128,8 @@ const thingsToAdd = [
         zip : '92618',
         lat : '33.651447',
         lon : '-117.745689',
-        date : 'July 2nd, 2017',
-        time : '10:00 am'
+        date : '2017-07-02',
+        time : '10:00:00'
     },
     {
         game_name : 'Battleship',
@@ -140,8 +140,8 @@ const thingsToAdd = [
         zip : '92618',
         lat : '33.660166',
         lon : '-117.744691',
-        date : 'October 4th, 2017',
-        time : '4:00 pm'
+        date : '2017-10-04',
+        time : '16:00:00'
     },
     {
         game_name : 'Catan',
@@ -152,7 +152,12 @@ const thingsToAdd = [
         zip : '92603',
         lat : '33.643051',
         lon : '-117.770051',
-        date : 'September 27th, 2017',
-        time : '6:00 pm'
+        date : '2017-09-27',
+        time : '18:00:00'
     }
 ];
+
+$.ajax({
+    method: 'post',
+
+});
