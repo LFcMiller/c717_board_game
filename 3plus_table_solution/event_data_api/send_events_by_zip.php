@@ -23,6 +23,8 @@ if(empty($result)){
         $output['success'] = true;
 
         while($row = mysqli_fetch_assoc($result)){
+            //chop off those pesky seconds while you're at it
+            $row['time'] = substr($row['time'], 0, -3);
             $output['data'][] = $row;
         }
     } else {

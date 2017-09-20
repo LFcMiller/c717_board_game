@@ -23,3 +23,5 @@ SELECT e.`game_name` AS game_name, COUNT(e.`event_ID`) AS frequency
 	GROUP BY game_name
 ;
     ";
+
+//TODO: keep working on this
