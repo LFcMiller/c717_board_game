@@ -6,10 +6,36 @@
       <link rel="stylesheet" href="style.css">
     </head>
     <body>
+      <script> 
+        
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '172707119965490',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.10'
+          });
+          FB.AppEvents.logPageView();
+        };
+
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      
+    </script>
         <div class="container-fluid">
-            <div class="row navBar blue">
-              <div class="col-xs-12 text-center"><h1>Profile</h1></div>
+             <div class="row navBar blue">
+            <div class="col-xs-12">
+              <div class="col-xs-12 col-md-3 text-center"><h1>Profile</h1></div>
+              <div class="col-xs-12 col-md-3 col-md-offset-5 text-right">
+              <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+            </div> 
             </div>
+          </div>
             <div class="row col-xs-12 col-md-3">
                 <img class="col-xs-6 col-md-12" src="https://orig14.deviantart.net/919c/f/2011/359/9/0/profile_picture_by_aqsmorningview_stock-d4k81jt.jpg" alt="">
                 <p class="col-xs-6 col-md-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus rhoncus elit ut mattis. Donec et leo nec tellus placerat pretium id ac ante. Morbi at eros non quam pellentesque blandit mollis id ante. Pellentesque molestie, lectus sed ultricies blandit, dolor arcu laoreet mi, quis tristique dui mi nec diam. Morbi ac nulla tempor, aliquet sapien nec, facilisis felis. Etiam molestie luctus risus, ac iaculis risus tempor eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum vel tellus vitae est tincidunt scelerisque. Nulla tincidunt nunc id lorem lobortis sodales. Pellentesque sit amet nulla vel orci rhoncus accumsan.</p>
