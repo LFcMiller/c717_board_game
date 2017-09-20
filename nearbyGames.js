@@ -1,5 +1,8 @@
 $(document).ready(()=>{
     populatePage(gameData);
+    $(".showAll").on("click", function(){
+      setMapOnAll(map);
+    });
 });
 
 var testZip = '92618';
@@ -171,20 +174,23 @@ var gameData = {
 }
 
 function populatePage (response) {
-  for (var i=0; i < response.data.length; i++) {
-    var gameDiv = $("<div>").addClass("gameName truncate col-xs-3").text(response.data[i].game_name);
-    var dateDiv = $("<div>").addClass("date col-xs-3").text(response.data[i].date);
-    var timeDiv = $("<div>").addClass("time col-xs-3").text(response.data[i].time);
-    var revealButton = $("<button>").addClass("btn btn-primary col-xs-3").text("Click To Expand").attr("index", i).on("click", (event)=>{
-        $("div[reveal='"+$(event.target).attr("index")+"']").toggleClass("hidden");
-    });    
-    var row1 = $("<div>").addClass("row1").attr("index", i).append(gameDiv, dateDiv, timeDiv, revealButton).on("click", handleMapFocus);
-    var detailsDiv = $("<div>").addClass("details col-xs-8").text(response.data[i].general_details);
-    var applyButton = $("<button>").addClass("btn btn-success").text("Apply");
-    var row2 = $("<div>").addClass("row2 hidden").append(detailsDiv, applyButton).attr("reveal", i);
-    var gameContainerDiv = $("<div>").addClass("game col-xs-12");
-    gameContainerDiv.append(row1, row2);
-    $(".gamesContainer").append(gameContainerDiv);
+  if (response.data.length > 0) {
+    $(".gamesContainer").html("");
+    for (var i=0; i < response.data.length; i++) {
+      var gameDiv = $("<div>").addClass("gameName truncate col-xs-3").text(response.data[i].game_name);
+      var dateDiv = $("<div>").addClass("date col-xs-3").text(response.data[i].date);
+      var timeDiv = $("<div>").addClass("time col-xs-3").text(response.data[i].time);
+      var revealButton = $("<button>").addClass("btn btn-primary col-xs-3").text("Click To Expand").attr("index", i).on("click", (event)=>{
+          $("div[reveal='"+$(event.target).attr("index")+"']").toggleClass("hidden");
+      });    
+      var row1 = $("<div>").addClass("row1").attr("index", i).append(gameDiv, dateDiv, timeDiv, revealButton).on("click", handleMapFocus);
+      var detailsDiv = $("<div>").addClass("details col-xs-8").text(response.data[i].general_details);
+      var applyButton = $("<button>").addClass("btn btn-success").text("Apply");
+      var row2 = $("<div>").addClass("row2 hidden").append(detailsDiv, applyButton).attr("reveal", i);
+      var gameContainerDiv = $("<div>").addClass("game col-xs-12");
+      gameContainerDiv.append(row1, row2);
+      $(".gamesContainer").append(gameContainerDiv);
+    }
   }
 }
 
@@ -229,10 +235,10 @@ function populateMap (response) {
   for (var i = 0; i < response.data.length; i++) {
     var latLng = new google.maps.LatLng(parseFloat(response.data[i].lat),parseFloat(response.data[i].lon));
     var marker = new google.maps.Circle({
-      strokeColor: '#FF0000',
+      strokeColor: '#9b10c9',
       strokeOpacity: 0.8,
       strokeWeight: 2,
-      fillColor: '#FF0000',
+      fillColor: '#9b10c9',
       fillOpacity: 0.35,
       map: map,
       center: latLng,
