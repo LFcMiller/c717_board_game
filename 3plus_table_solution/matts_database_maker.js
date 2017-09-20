@@ -159,5 +159,6 @@ const thingsToAdd = [
 
 $.ajax({
     method: 'post',
+    dataType: 'json',
 
 });
