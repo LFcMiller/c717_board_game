@@ -1,8 +1,6 @@
-$(document).ready(()=>{
-  $("#submit").on("click", groupData);
-});
 
-function groupData(){
+function sendData(){
+  event.preventDefault();
   var result = {
     game_name: $("#gameName").val(),
     num_players: $("#numPlayers").val(),
@@ -11,15 +9,12 @@ function groupData(){
     state: $("#state").val(),
     zip: $("#zipcode").val(),
     general_details: $("#textDetails").val(),
-    date: $("#date").val(),
+    date: $("#year").val()+"-"+$("#month").val()+"-"+$("#day").val(),
     time: $("#time").val(),
     dayNight: $("#dayNight").val()
   };
   console.log(result);
+  // $.ajax({
+  //   url: 
+  // })
 }
-
-// function sendData(){
-//   $.ajax({
-//     url: 
-//   })
-// }

@@ -10,20 +10,50 @@
 <body>
   <form onsubmit="sendData()" id="eventCreation">
     <input type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
-    <input type="text" name="numPlayers" id="numPlayers" placeholder="Number of Players Needed" required><br/>    
+    <select name="numPlayers" id="numPlayers" required>
+      <option value="" disabled selected hidden>Players Desired</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select><br/>   
     <input type="text" name="address" id="address" placeholder="Street Address" required><br/>
     <input type="text" name="city" id="city" placeholder="City" required><br/>
     <input type="text" name="state" id="state" maxlength="2" size="2" placeholder="--" required><br/>
     <input type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
     <textarea type="text" name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
-    <input type="text" name="date" id="date" pattern="(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])" placeholder="YYYY/MM/DD" required><br/>
+    <!-- <input type="text" name="date" id="date" pattern="(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])" placeholder="YYYY/MM/DD" required><br/> -->
+    <select name="month" id="month" required>
+        <option value="" disabled selected hidden>Month</option>
+        <option value="01">Jan</option>
+        <option value="02">Feb</option>
+        <option value="03">Mar</option>
+        <option value="04">Apr</option>
+        <option value="05">May</option>
+        <option value="06">Jun</option>
+        <option value="07">Jul</option>
+        <option value="08">Aug</option>
+        <option value="09">Sep</option>
+        <option value="10">Oct</option>
+        <option value="11">Nov</option>
+        <option value="12">Dec</option>
+      </select>
+      <input type="text" name="day" id="day" maxlength="2" size="2" pattern="(0[1-9]|[12][0-9]|3[01])" placeholder="DD" required>    
+      <select name="year" id="year" required>
+        <option value="" disabled selected hidden>Year</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+      </select><br/>  
     <input type="text" name="time" id="time" maxlength="5" size="5" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]))" placeholder="HH:MM" required>
     <select name="dayNight" id="dayNight">
-      <option value="am">AM</option>
-      <option value="pm">PM</option>
+      <option value="AM">AM</option>
+      <option value="PM">PM</option>
     </select><br/>
     <button>SUBMIT FORM</button>
-    <button type="button" id="submit">LOG DATA</button>
   </form>
 </body>
 </html>
