@@ -9,11 +9,11 @@ if(empty($zip)){
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 $query =
-    "SELECT `event_ID`, `game_name`, `general_details`, `city`, `state`, `date`,`time` FROM `events` WHERE `zip` = '$zip'";
+    "SELECT `event_ID`, `game_name`, `general_details`, `lat`, `lon`, `date`,`time` FROM `events` WHERE `zip` = '$zip' AND `date` >= CURDATE()";
 
 $result = null;
 
-$result = mysqli_query($conn,$query);
+$result = mysqli_query($conn, $query);
 
 if(empty($result)){
     $output['errors'][] = 'database error';
@@ -23,7 +23,8 @@ if(empty($result)){
         $output['success'] = true;
 
         while($row = mysqli_fetch_assoc($result)){
-            //TODO: use google maps api to add the cross-street to this data
+            //chop off those pesky seconds while you're at it
+            $row['time'] = substr($row['time'], 0, -3);
             $output['data'][] = $row;
         }
     } else {
