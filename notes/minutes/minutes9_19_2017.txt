@@ -1,0 +1,19 @@
+Cody showed Greg the map
+Greg suggested that a blurb appear above a clicked on event instead of hiding all the other events
+
+
+When the user hits the facebook button, set the facebook id (and the other info) as a cookie.
+From there, php can access it in the COOKIE superglobal
+
+actually, scratch that, we'll probably send the info as ajax.
+
+watch out for persistent cookies, but session cookies are the way to go
+persistent cookies can be first party or third party
+
+BoardGameBackup?
+"It's decent", says Greg.
+
+BoardGameScout?
+BoardGamePickup?
+
+BoardGameScout wins!!!

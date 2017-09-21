@@ -3,7 +3,6 @@ $first_name = $_POST['first_name'];
 $email = $_POST['email'];
 $fb_ID = $_POST['fb_ID'];
 
-
 //check if we have all the data we need from the client-side
 if (empty($first_name) || empty($email) || empty($fb_ID)){
     $output['errors'][] = 'Missing input:';
