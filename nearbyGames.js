@@ -1,0 +1,148 @@
+
+var testZip = "92618";
+var map;
+var markers = [];
+var infowindow;
+
+function pullData(){
+  $.ajax({
+    url: "./3plus_table_solution/event_input_decision_maker.php?action=readByZip",
+    method: "POST",
+    dataType: "json",
+    data: {
+      zip: testZip
+    },
+    success: function(response) {
+      populatePage(response);
+      populateMap(response);
+    }
+  });
+}
+
+
+function populatePage(response) {
+  if (response.data.length > 0) {
+    $(".gamesContainer").html("");
+    for (var i = 0; i < response.data.length; i++) {
+      var gameDiv = $("<div>")
+        .addClass("gameName truncate col-xs-3")
+        .text(response.data[i].game_name);
+      var dateDiv = $("<div>")
+        .addClass("date col-xs-3")
+        .text(response.data[i].date);
+      var timeDiv = $("<div>")
+        .addClass("time col-xs-3")
+        .text(response.data[i].time);
+      var revealButton = $("<button>")
+        .addClass("btn btn-primary col-xs-3")
+        .text("Click To Expand")
+        .attr("index", i)
+        .on("click", event => {
+          $("div[reveal='" + $(event.target).attr("index") + "']").toggleClass(
+            "hidden"
+          );
+        });
+      var row1 = $("<div>")
+        .addClass("row1")
+        .attr("index", i)
+        .append(gameDiv, dateDiv, timeDiv, revealButton)
+        .on("click", handleMapFocus);
+      var detailsDiv = $("<div>")
+        .addClass("details col-xs-8")
+        .text(response.data[i].general_details);
+      var applyButton = $("<button>")
+        .addClass("btn btn-success")
+        .text("Apply");
+      var row2 = $("<div>")
+        .addClass("row2 hidden")
+        .append(detailsDiv, applyButton)
+        .attr("reveal", i);
+      var gameContainerDiv = $("<div>").addClass("game col-xs-12");
+      gameContainerDiv.append(row1, row2);
+      $(".gamesContainer").append(gameContainerDiv);
+    }
+  }
+}
+
+function handleMapFocus(event) {
+  var marker = markers[$(event.currentTarget).attr("index")];
+  map.setCenter({
+    lat: parseFloat(marker.place.lat),
+    lng: parseFloat(marker.place.lng)
+  });
+  infowindow.setContent(marker.content);
+  infowindow.setPosition(marker.place);
+  infowindow.open(map);
+  resetColors();
+  marker.setOptions({
+    strokeColor: "#35dd46",
+    fillColor: "#35dd46"
+  });
+}
+
+function resetColors() {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setOptions({
+      strokeColor: "#9b10c9",
+      fillColor: "#9b10c9"
+    });
+  }
+}
+
+function initMap() {
+  $.ajax({
+    url: "http://maps.googleapis.com/maps/api/geocode/json",
+    method: "GET",
+    data: {
+      address: testZip
+    },
+    success: function(response) {
+      var location = response.results[0].geometry.location;
+      infowindow = new google.maps.InfoWindow();
+      map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: new google.maps.LatLng(location.lat, location.lng),
+        mapTypeId: "roadmap"
+      });
+      pullData();
+    }
+  });
+}
+
+// Loop through the results array and place a marker for each
+// set of coordinates.
+function populateMap(response) {
+  for (var i = 0; i < response.data.length; i++) {
+    var latLng = new google.maps.LatLng(parseFloat(response.data[i].lat),parseFloat(response.data[i].lon));
+    var marker = new google.maps.Circle({
+      strokeColor: "#9b10c9",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#9b10c9",
+      fillOpacity: 0.35,
+      map: map,
+      center: latLng,
+      radius: 800
+    });
+    marker.content = `<h4 style="color:black;">${response.data[i].game_name}</h4>` +
+                     `<p style="color:black;"><strong>Date: </strong>${response.data[i].date}</p>` +
+                     `<p style="color:black;"><strong>Time: </strong>${response.data[i].time}</p>`;
+    marker.place = {
+      lat: parseFloat(response.data[i].lat),
+      lng: parseFloat(response.data[i].lon)
+    };
+    (function(marker, pos) {
+      marker.addListener("click", function() {
+        infowindow.setContent(marker.content);
+        infowindow.setPosition(pos);
+        infowindow.open(map);
+        resetColors();
+        marker.setOptions({
+          strokeColor: "#35dd46",
+          fillColor: "#35dd46"
+        });
+      });
+    })(marker, latLng);
+    markers.push(marker);
+  }
+}

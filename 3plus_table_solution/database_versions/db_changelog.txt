@@ -1,0 +1,8 @@
+V 0.1
+
+added fb_ID column to users
+in users_to_events, changed role 'guest' to role 'attendee'
+
+V 0.2
+
+added all of brian's events to the events table.

@@ -22,6 +22,8 @@ if (empty($result)) {
         $output['success'] = true;
         //while loop to collect all the data
         while ($row = mysqli_fetch_assoc($result)) {
+            //chop off those pesky seconds while you're at it
+            $row['time'] = substr($row['time'], 0, -3);
             //add each row of data to the $output['data'] array
             array_push($output['data'], $row);
         }
