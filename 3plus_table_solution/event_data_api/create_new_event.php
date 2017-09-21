@@ -17,6 +17,9 @@ $output['data'] = [];
 
 //$output['data'][] = 'I see that you tried to add a game of '.$post_data['gameName'];
 
+//take the human readable time from the front end and make it the way mySQL wants it
+$post_data['time'] = date('H:i:s', strtotime($post_data['time']));
+
 $new_event_query = "INSERT INTO `events` SET `game_name` = '{$post_data['game_name']}', `general_details` = '{$post_data['general_details']}', `street_address` = '{$post_data['street_address']}', `city` = '{$post_data['city']}',`state`='{$post_data['state']}',`zip`='{$post_data['zip']}',`lat`='{$post_data['lat']}',`lon`='{$post_data['lon']}',`date`='{$post_data['date']}',`time`='{$post_data['time']}'";
 //print($new_event_query);
 
