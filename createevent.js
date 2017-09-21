@@ -17,3 +17,9 @@ function groupData(){
   };
   console.log(result);
 }
+
+function sendData(){
+  $.ajax({
+    url: 
+  })
+}
