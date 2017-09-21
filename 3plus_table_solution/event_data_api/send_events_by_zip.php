@@ -9,7 +9,7 @@ if(empty($zip)){
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 $query =
-    "SELECT `event_ID`, `game_name`, `general_details`, `lat`, `lon`, `date`,`time` FROM `events` WHERE `zip` = '$zip' AND `date` >= CURDATE()";
+    "SELECT `event_ID`, `game_name`, `general_details`, `lat`, `lng`, `date`,`time` FROM `events` WHERE `zip` = '$zip' AND `date` >= CURDATE()";
 //TODO: also check if the game is full based on number of attendees
 
 $result = null;
