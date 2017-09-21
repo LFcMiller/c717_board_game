@@ -4,22 +4,22 @@ $(document).ready(()=>{
 
 function groupData(){
   var result = {
-    gameName: $("#gameName").val(),
-    numPlayers: $("#numPlayers").val(),
-    address: $("#address").val(),
+    game_name: $("#gameName").val(),
+    num_players: $("#numPlayers").val(),
+    street_address: $("#address").val(),
     city: $("#city").val(),
     state: $("#state").val(),
-    zipcode: $("#zipcode").val(),
-    textDetails: $("#textDetails").val(),
+    zip: $("#zipcode").val(),
+    general_details: $("#textDetails").val(),
     date: $("#date").val(),
-    time: $("#time").val()+":00",
+    time: $("#time").val(),
     dayNight: $("#dayNight").val()
   };
   console.log(result);
 }
 
-function sendData(){
-  $.ajax({
-    url: 
-  })
-}
+// function sendData(){
+//   $.ajax({
+//     url: 
+//   })
+// }
