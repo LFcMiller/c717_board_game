@@ -24,8 +24,8 @@ if(empty($result)){
         $output['success'] = true;
 
         while($row = mysqli_fetch_assoc($result)){
-            //chop off those pesky seconds while you're at it
-            $row['time'] = substr($row['time'], 0, -3);
+            //g is for 12 hour format without leading zeroes. i is for minutes. A is for an uppercase AM or PM
+            $row['time'] = date('g:i A', strtotime($row['time']));
             $output['data'][] = $row;
         }
     } else {
