@@ -157,8 +157,19 @@ const thingsToAdd = [
     }
 ];
 
-$.ajax({
-    method: 'post',
-    dataType: 'json',
 
-});
+for (let i = 0; i < thingsToAdd.length; i++) {
+    $.ajax({
+        method: 'post',
+        dataType: 'json',
+        url: "./event_input_decision_maker.php?action=newEvent",
+        data: thingsToAdd[i],
+        timeout: 5000,
+        success: function (objectFromServer) {
+            console.log(objectFromServer);
+        },
+        error: function (xhr, textStatus, errorString) {
+            console.log(errorString);
+        }
+    });
+}
