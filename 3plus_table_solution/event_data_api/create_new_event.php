@@ -13,8 +13,6 @@ foreach($keys_we_are_looking_for as $key) {
 //TODO: Then use the facebook ID to get our user ID
 //print_r($post_data);
 
-$output['data'] = [];
-
 //$output['data'][] = 'I see that you tried to add a game of '.$post_data['gameName'];
 
 //take the human readable time from the front end and make it the way mySQL wants it
@@ -33,7 +31,7 @@ if(empty($result)){
     if(mysqli_affected_rows($conn)){
         $output['success'] = true;
 
-        $output['event_ID'] = mysqli_insert_id($conn);
+        $output['data']['event_ID'] = mysqli_insert_id($conn);
     } else{
         $output['errors'] = 'trouble inserting the event';
     }
