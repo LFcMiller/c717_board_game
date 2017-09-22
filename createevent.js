@@ -1,19 +1,66 @@
 
 function sendData(){
   event.preventDefault();
-  var result = {
-    game_name: $("#gameName").val(),
-    num_players: $("#numPlayers").val(),
-    street_address: $("#address").val(),
-    city: $("#city").val(),
-    state: $("#state").val(),
-    zip: $("#zipcode").val(),
-    general_details: $("#textDetails").val(),
-    date: $("#year").val()+"-"+$("#month").val()+"-"+$("#day").val(),
-    time: $("#time").val(),
-    dayNight: $("#dayNight").val()
-  };
-  console.log(result);
+  var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val()
+  function getLatLong(address) {
+    var deferred = $.Deferred();
+    $.ajax({
+      url: 'https://maps.googleapis.com/maps/api/geocode/json',
+      method: "GET",
+      data: {
+        address: address,
+        key: 'AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE'
+      },
+      success: deferred.resolve
+    })
+    return deferred;
+  }
+  function getCrossStreets(response) {
+    console.log(response.results[0].geometry.location);
+    var deferred = $.Deferred();
+    $.ajax({
+      url: 'https://roads.googleapis.com/v1/nearestRoads',
+      method: "GET",
+      data: {
+        points: `${response.results[0].geometry.location.lat}, ${response.results[0].geometry.location.lng}`,
+        key: 'AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE'
+      },
+      success: deferred.resolve
+    })
+    return deferred;
+  }
+  function handleSuccess(response) {
+    console.log(response);
+    var result = {
+      game_name: $("#gameName").val(),
+      num_players: $("#numPlayers").val(),
+      street_address: $("#address").val(),
+      city: $("#city").val(),
+      state: $("#state").val(),
+      zip: $("#zipcode").val(),
+      general_details: $("#textDetails").val(),
+      date: $("#year").val()+"-"+$("#month").val()+"-"+$("#day").val(),
+      time: $("#time").val(),
+      lat: response.snappedPoints[0].location.latitude,
+      lng: response.snappedPoints[0].location.longitude,
+      dayNight: $("#dayNight").val()
+    };
+    console.log(result);
+  }
+  getLatLong(address).then(getCrossStreets).then(handleSuccess);
+  // var result = {
+  //   game_name: $("#gameName").val(),
+  //   num_players: $("#numPlayers").val(),
+  //   street_address: $("#address").val(),
+  //   city: $("#city").val(),
+  //   state: $("#state").val(),
+  //   zip: $("#zipcode").val(),
+  //   general_details: $("#textDetails").val(),
+  //   date: $("#year").val()+"-"+$("#month").val()+"-"+$("#day").val(),
+  //   time: $("#time").val(),
+  //   dayNight: $("#dayNight").val()
+  // };
+  // console.log(result);
   // $.ajax({
   //   url: 
   // })
