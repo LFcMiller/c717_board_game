@@ -24,9 +24,9 @@ body {
   margin-bottom: 0;
 }
 .title {
-    border: 5px solid #EE9B1E;
-    border-radius: 25px;
-    margin-bottom: 1%;
+  border: 5px solid #EE9B1E;
+  border-radius: 25px;
+  margin-bottom: 1%;
 }
 #map {
   height: 85vh;
@@ -75,6 +75,7 @@ div {
 .home_page_body{
   width:100vw;
   height:100vh;
+  display: inline-block;
 }
 
 .title_box{
@@ -96,13 +97,24 @@ div {
   height:100vh;
 }
 
+.temp_logo {
+  width:100px;
+  height:100px;
+  display:inline-block;
+}
 
 .google-login ,.facebook-login{
   border-radius: 25px;
   margin-bottom: 1%;
 }
 
-
+.index-boxes{
+  height:25%;
+  width: 50%;
+  display:inline-block;
+  border: 3px solid blue;
+  border-radius:25px;
+}
 /*this is the end of Soy's index.html css*/
 /******************************************************************/
 /*This is the beginning of Soy's hubPage.html*/

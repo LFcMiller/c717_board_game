@@ -19,114 +19,120 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body class="container-fluid col-sm-12 col-md-12 col-lg-12">
+<body class="container col-sm-12 col-md-12 col-lg-12">
     <div class="home_page_body">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <p class="font_lg hidden-xs hidden-sm">Game Nyte</p>
-            <p class="font_md visible-xs visible-sm">Game Nyte</p>
-            <p class ="font_rg visible-xs visible-sm">Board Game Meet Up App</p>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="XGJ7HXQVM8Z64">
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
+       <!--header-->
+        <header class="col-xs-12 col-md-12 col-lg-12">
+            <div class="d-inline-block col-xs-12">
+                <img class="d-inline-block temp_logo col-xs-1 display-inline" src="./imgs/temp logo.png"/>
+                <h1 class="font_lg hidden-xs col-lg-9">Board Game Scout</h1>
+                <h3 class="font_rg visible-xs hidden-md col-xs-10">Board Game Scout</h3>
+                <h4 class ="font_rg visible-xs hidden-md col-xs-12">Meet-up App for Fellow Boarders Near You!</h4>
+                <button type="button" class="btn btn-info">About Us</button>
 
-        </div>
-        <!--body column-->
-        <div class="col-sm-12 col-md-12 col-lg-12  columns_body">
-            <!--about column-->
-            <div class = "col-sm-12 col-lg-12 hidden-xs hidden-sm hidden-md about_page">
-                <h2 class = "font_md">About Us</h2>
-                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa esse, expedita fugiat laudantium perspiciatis provident reiciendis reprehenderit similique? Eligendi esse fuga ipsa iusto nesciunt quam quasi qui quisquam temporibus voluptates?</h3>
-            </div>
-            <h4 class="font_reg">Welcome to BoardGameNyte! Find others looking to play games near you!</h4>
-            <!--sign-up page column-->
-            <div class = "col-sm-12 col-md-12 col-lg-12 about_page sign_up">
-                <!--sign-up page column ipad and desktop only-->
-                <div class="hidden-sm hidden-xs col-md-6 col-lg-6">
-                    <div class = "col-md-12 col-lg-12 sign_up">
-                        <div class = "col-md-12 col-lg-12 about_page title sign-up">
-                            <h3>Sign Up</h3>
-                            <div class = "col-md-12 blue google-login">Google Login</div>
-                            <div class = "col-md-12 blue facebook-login">Facebook Login</div>
-                        </div>
-                    </div>
-                </div>
-                <!--this login sheet is for the mobile version of sign up-->
-                <div class = "hidden-md hidden-lg title sign-up">
-                    <h3>Sign Up</h3>
-                    <div class = "col-md-12 blue google-login">Google Login</div>
-                    <div class = "col-md-12 blue facebook-login">Facebook Login</div>
-                </div>
-        <!--sign-up form -->
-                <div class = "col-sm-12 col-md-6 col-lg-6 container title title_box info-input">
-                    <form class = "col-md-12 col-lg-12">
-                        <div class = "form-group row">
-                            <label class="form-inline" for="exampleInputEmail1">Email:</label>
-                            <input type = "email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                        </div>
-                        <div class = "form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> I Agree to sell my soul to the board(loljk)
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-danger">Sign Up</button>
+                <!--paypal_button-->
+                <div class="d-inline-block col-xs-1 col-lg-1">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                     </form>
                 </div>
             </div>
-        <!--map api spot column-->
-            <div class="form-inline col-sm-12 col-md-12 col-lg-12">
-                <div class="row col-sm-12 col-md-12 col-lg-12">
-                    <label class="col-sm-6 col-sm-offset-3 col-md-6 col-lg-6">Search for Players:</label>
-                    <input type="number" class="form-control col-sm-6 col-sm-offset-3 col-md-6 col-lg-6 col-lg-offset-3" id="exampleInputZipCode" placeholder="ZIPCODE"/>
+        </header>
+        <!--body column-->
+            <!--about column-->
+            <div class = "col-sm-12 col-lg-12 hidden-xs hidden-sm hidden-md about_page">
+                <h4 class="font_md">Welcome to Board Game Scout! Find interesting board games and others looking to play with you!</h4>
+            </div>
+            <!--find games near you column-->
+            <div class="index-boxes form-group col-sm-12 col-md-12 col-lg-12">
+                <label class="col-sm-12 col-md-12 col-lg-12">Search:</label>
+                <div class=" col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
+                    <input type="number" class="form-control" id="exampleInputZipCode" placeholder="ZIPCODE"/>
+                    <button type="button" class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3 btn btn-md btn-primary">Find Games Near You</button>
                 </div>
-            <!--future location of google api-->
+            </div>
+            <!--host a game near you -->
+            <div class="index-boxes col-sm-12 col-md-12 col-lg-12">
+                <h4>Found a Interesting Board Game to Play? Assemble your fellows!</h4>
+                <button type="button" class="btn btn-warning">Host A Board Game Event</button>
+            </div>
+        <!--this is Contact Us Form-->
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <form class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
+                <p>Any issues or great things yous experienced in our app please let us know down here.</p>
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <img src="./sample_img/sampleMap.JPG" class="hidden-xs hidden-sm">
-                    <img src="./sample_img/sampleMap.JPG" class="col-sm-12 col-xs-12 visible-xs visible-sm">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Category
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Bug Report</a></li>
+                            <li><a href="#">Player Report</a></li>s
+                            <li><a href="#">Customer Service</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Other</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <!--this is Contact Us Form-->
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <form class="form-inline ">
-                    <p>Any issues or great things yous experienced in our app please let us know down here.</p>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Category
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Bug Report</a></li>
-                                <li><a href="#">Player Report</a></li>s
-                                <li><a href="#">Customer Service</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Other</a></li>
-                            </ul>
-                        </div>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="">
+                        <label>Name :</label>
+                        <input type="text" class="form-control" placeholder="Full name"/>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="">
-                            <label>Name :</label>
-                            <input type="text" class="form-control" placeholder="Full name"/>
-                        </div>
-                        <div class="">
-                            <label>Email :</label>
-                            <input type="email" class="form-control" placeholder="youremail@email.com"/>
-                        </div>
-                        <div class="">
-                            <label>Message :</label>
-                            <textarea class="form-control" placeholder="Message us" aria-describedby="basic-addon1"></textarea>
-                        </div>
+                    <div class="">
+                        <label>Email :</label>
+                        <input type="email" class="form-control" placeholder="youremail@email.com"/>
                     </div>
-                </form>
-            </div>
+                    <div class="">
+                        <label>Message :</label>
+                        <textarea class="form-control" placeholder="Message us" aria-describedby="basic-addon1"></textarea>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+
+            <!--***************sign-up page column-->
+            <!--<div class = "col-sm-12 col-md-12 col-lg-12 about_page sign_up">-->
+                <!--*********sign-up page column ipad and desktop only-->
+                <!--<div class="hidden-sm hidden-xs col-md-6 col-lg-6">-->
+                    <!--<div class = "col-md-12 col-lg-12 sign_up">-->
+                        <!--<div class = "col-md-12 col-lg-12 about_page title sign-up">-->
+                            <!--<h3>Sign Up</h3>-->
+                            <!--<div class = "col-md-12 blue google-login">Google Login</div>-->
+                            <!--<div class = "col-md-12 blue facebook-login">Facebook Login</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--****************this login sheet is for the mobile version of sign up-->
+                <!--<div class = "hidden-md hidden-lg title sign-up">-->
+                    <!--<h3>Sign Up</h3>-->
+                    <!--<div class = "col-md-12 blue google-login">Google Login</div>-->
+                    <!--<div class = "col-md-12 blue facebook-login">Facebook Login</div>-->
+                <!--</div>-->
+            <!--********************sign-up form -->
+                <!--<div class = "col-sm-12 col-md-6 col-lg-6 container title title_box info-input">-->
+                    <!--<form class = "col-md-12 col-lg-12">-->
+                        <!--<div class = "form-group row">-->
+                            <!--<label class="form-inline" for="exampleInputEmail1">Email:</label>-->
+                            <!--<input type = "email" class="form-control" id="exampleInputEmail1" placeholder="Email">-->
+                        <!--</div>-->
+                        <!--<div class = "form-group">-->
+                            <!--<label for="exampleInputPassword1">Password</label>-->
+                            <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+                        <!--</div>-->
+                        <!--<div class="checkbox">-->
+                            <!--<label>-->
+                                <!--<input type="checkbox"> I Agree to sell my soul to the board(loljk)-->
+                            <!--</label>-->
+                        <!--</div>-->
+                        <!--<button type="submit" class="btn btn-danger">Sign Up</button>-->
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>-->
 </body>
 </html>
