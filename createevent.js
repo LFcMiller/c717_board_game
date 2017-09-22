@@ -46,6 +46,19 @@ function sendData(){
       dayNight: $("#dayNight").val()
     };
     console.log(result);
+    $.ajax({
+      method: 'post',
+      dataType: 'json',
+      url: "./3plus_table_solution/event_input_decision_maker.php?action=newEvent",
+      data: result,
+      timeout: 5000,
+      success: function (objectFromServer) {
+          console.log(objectFromServer);
+      },
+      error: function (xhr, textStatus, errorString) {
+          console.log(errorString);
+      }
+  });
   }
   getLatLong(address).then(getCrossStreets).then(handleSuccess);
   // var result = {
