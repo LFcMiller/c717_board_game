@@ -34,7 +34,6 @@ if(empty($result)){
     $output['errors'][] = 'database error';
 } else {
     if(mysqli_affected_rows($conn)){
-        //TODO: build up $output['data'] with user's profile information
         $query2 = "SELECT `first_name`, `fav_genre`, `about_me` FROM `users` where `fb_ID` = '{$_POST['fb_ID']}'";
         $result2 = null;
         $result2 = mysqli_query($conn, $query2);
