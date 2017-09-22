@@ -27,4 +27,12 @@ foreach($things_to_update as $key => $value){
 }
 $query.= implode(',' , $queryArr)." WHERE `fb_ID` = '{$_POST['fb_ID']}';";
 
-print($query);
+$result = null;
+$result = mysqli_query($conn, $query);
+
+if(empty($result)){
+    $output['errors'][] = 'database error';
+} else {
+//TODO: keep working on this
+
+}
