@@ -40,10 +40,9 @@ function sendData(){
       zip: $("#zipcode").val(),
       general_details: $("#textDetails").val(),
       date: $("#year").val()+"-"+$("#month").val()+"-"+$("#day").val(),
-      time: $("#time").val(),
+      time: $("#time").val()+" "+$("#dayNight").val(),
       lat: response.snappedPoints[0].location.latitude,
       lng: response.snappedPoints[0].location.longitude,
-      dayNight: $("#dayNight").val()
     };
     console.log(result);
     $.ajax({
