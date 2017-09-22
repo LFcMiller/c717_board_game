@@ -57,11 +57,11 @@ body {
 div {
   font-family: Futura, Arial, sans-serif;
   text-align : center;
-  padding-top: 5px
+  padding: 5px
 }
 
 .font_reg{
-  font-size: 200%;
+  font-size: 100%;
 }
 
 .font_md{
@@ -96,6 +96,13 @@ div {
   height:100vh;
 }
 
+
+.google-login ,.facebook-login{
+  border-radius: 25px;
+  margin-bottom: 1%;
+}
+
+
 /*this is the end of Soy's index.html css*/
 /******************************************************************/
 /*This is the beginning of Soy's hubPage.html*/
@@ -111,6 +118,21 @@ div {
 /*This is the end of Soy's hubPage.html*/
 /******************************************************************/
 
+/*This is the beginning of Soy's contact us page*/
+
+.contact_main {
+  width: 99vw;
+  height: 99vh;
+  border: 5px solid #1E5C9B;
+  border-radius: 25px;
+  margin:1%;
+
+}
+
+/*This is the end of Soy's contact us page*/
+/******************************************************************/
+
+
 .truncate {
   white-space: nowrap;
   overflow: hidden;
@@ -122,3 +144,4 @@ div {
 .hidden {
   display: none;
 }
+
