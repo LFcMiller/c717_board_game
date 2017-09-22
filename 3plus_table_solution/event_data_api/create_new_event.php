@@ -1,5 +1,5 @@
 <?php
-$keys_we_are_looking_for = /*don't forget facebook ID!*/ ['game_name','general_details', 'numPlayers', 'street_address', 'city', 'state','zip','date','time', 'lat', 'lon'];
+$keys_we_are_looking_for = /*don't forget facebook ID!*/ ['game_name','general_details', 'numPlayers', 'street_address', 'city', 'state','zip','date','time', 'lat', 'lng'];
 
 $post_data = [];
 
@@ -20,7 +20,7 @@ $output['data'] = [];
 //take the human readable time from the front end and make it the way mySQL wants it
 $post_data['time'] = date('H:i:s', strtotime($post_data['time']));
 
-$new_event_query = "INSERT INTO `events` SET `game_name` = '{$post_data['game_name']}', `general_details` = '{$post_data['general_details']}', `street_address` = '{$post_data['street_address']}', `city` = '{$post_data['city']}',`state`='{$post_data['state']}',`zip`='{$post_data['zip']}',`lat`='{$post_data['lat']}',`lon`='{$post_data['lon']}',`date`='{$post_data['date']}',`time`='{$post_data['time']}'";
+$new_event_query = "INSERT INTO `events` SET `game_name` = '{$post_data['game_name']}', `general_details` = '{$post_data['general_details']}', `street_address` = '{$post_data['street_address']}', `city` = '{$post_data['city']}',`state`='{$post_data['state']}',`zip`='{$post_data['zip']}',`lat`='{$post_data['lat']}',`lng`='{$post_data['lng']}',`date`='{$post_data['date']}',`time`='{$post_data['time']}'";
 //print($new_event_query);
 
 $result = null;
