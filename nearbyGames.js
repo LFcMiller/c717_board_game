@@ -91,7 +91,7 @@ function resetColors() {
 
 function initMap() {
   $.ajax({
-    url: "http://maps.googleapis.com/maps/api/geocode/json",
+    url: "https://maps.googleapis.com/maps/api/geocode/json",
     method: "GET",
     data: {
       address: testZip
