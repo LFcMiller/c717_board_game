@@ -18,6 +18,10 @@ switch($_GET['action']){
         include_once('player_data_api/create_new_user.php');
         break;
 
+    case 'updateProfile':
+        include_once('player_data_api/update_existing_user.php');
+        break;
+
     case 'pastActivity':
         include_once('player_data_api/retrieve_past_activity.php');
         break;

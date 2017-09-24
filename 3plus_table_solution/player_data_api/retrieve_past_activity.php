@@ -24,4 +24,11 @@ SELECT e.`game_name` AS game_name, COUNT(e.`event_ID`) AS frequency
 ;
     ";
 
+$result = null;
+
+$result = mysqli_query($conn, $query);
+
+print_r($result);
+//TODO: how can I tell the difference between a database error and a player who hasn't played anything?
+
 //TODO: keep working on this
