@@ -22,6 +22,12 @@ switch($_GET['action']){
         include_once('player_data_api/update_existing_user.php');
         break;
 
+    case 'retrievePublicProfile':
+        include_once('player_data_api/send_public_profile_info.php');
+        //probably put in the pastActivity part right here
+        //on second thought scratch that maybe put the pastActivity stuff inside of the retrieve past activity file itself
+        break;
+
     case 'pastActivity':
         include_once('player_data_api/retrieve_past_activity.php');
         break;
