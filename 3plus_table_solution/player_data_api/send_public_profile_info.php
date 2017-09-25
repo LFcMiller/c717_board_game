@@ -17,5 +17,10 @@ if(empty($result)){
 } else {
     if(mysqli_affected_rows($conn)){
         //TODO: maybe check if there is more than one matching player (because that would be bad)
+        $output['data'] = [];
+        $output['success'] = true;
+
+        //is it bad to use a while loop here? (because there should only be 1 row)
+
     }
 }
