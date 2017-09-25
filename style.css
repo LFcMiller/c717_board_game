@@ -134,7 +134,7 @@ div {
   background: rgba(0,0,0,1);
   padding: 20px;
   width: inherit;
-  height: 150px;
+  height: 10%;
   border:5px solid;
 }
 
@@ -143,6 +143,13 @@ footer{
   width:100vw;
   height:20%;
   border:5px solid red;
+}
+
+.transparent_div {
+  background-color: #00FFB6;
+  opacity: 0.2;
+  width:inherit;
+  height:inherit;
 }
 /*this is the end of Soy's index.html css*/
 /******************************************************************/
