@@ -12,7 +12,7 @@
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>      
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <title>nearby_games</title>
+  <title>Nearby Games</title>
   <link rel="stylesheet" href="style.css">
   <script src="nearbyGames.js"></script>
 </head>
@@ -36,28 +36,45 @@
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));
       </script>
-    <div class="row">
-        <div class="navBar yellow col-sm-12">
-            <div class="col-sm-12 col-md-12 text-center">
-                <img class="temp_logo col-sm-2 col-md-2 display-inline" src="./imgs/temp logo.png"/>
-                <div class="col-md-10">
-                    <h1 class="font_lg col-md-9">BoardGameBackup</h1>
-                    <div class="col-md-3 fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="create_event_background"></div>
+            <!--header starts here-->
+            <header class="col-xs-12 col-md-12 col-md-12">
+                <div class="col-md-12 col-xs-12">
+                    <img class="temp_logo col-xs-1 display-inline" src="./imgs/temp logo.png"/>
+                    <h1 class="font_lg hidden-xs col-md-9">Board Game Scout</h1>
+                    <h3 class="font_rg visible-xs hidden-md col-xs-10">Board Game Scout</h3>
+                    <h4 class ="font_rg visible-xs hidden-md col-xs-12">Meet-up App for Fellow Boarders Near You!</h4>
+                    <button type="button" class="col-md-1 btn btn-info">About Us</button>
+                    <!--paypal_button-->
+                    <div class="d-inline-block col-xs-1 col-md-1">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            <div class=" d-inline-block">
+                                <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+            </header>
+            <div class="row col-md-12">
+                <div class="row col-xs-12 col-md-3">
+                    <div class="gamesContainer column_height col-xs-12 col-md-12">
+                        <h1 class="text-center ">Games Near You:</h1>
+                        <h2>Sorry, there are currently no games in your area.</h2>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-8 col-md-offset-1" id="map"></div>
             </div>
         </div>
-        <div class="row col-md-12">
-            <div class="row column_height col-xs-12 col-md-3 green">
-                <div class="gamesContainer col-xs-12 col-md-12">
-                    <h1 class="text-center">Games Near You:</h1>
-                    <h1>Sorry, there are currently no games in your area.</h1>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-9" id="map"></div>
-        </div>
-    </div>
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE&callback=initMap">
       </script>
+
+    </div>
 </body>
 </html>
