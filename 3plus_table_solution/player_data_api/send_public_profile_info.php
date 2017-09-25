@@ -21,6 +21,10 @@ if(empty($result)){
         $output['success'] = true;
 
         //is it bad to use a while loop here? (because there should only be 1 row)
-
+        //I'm just gonna see if I can get by without using a loop at all
+        $row = mysqli_fetch_assoc($result);
+        $output['data'][] = $row;
+    } else {
+        $output['errors'][] = 'no data';
     }
 }
