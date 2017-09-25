@@ -167,12 +167,11 @@ footer{
 /******************************************************************/
 /*This is the beginning of Soy's create events page*/
 .create_event_background{
-  background-image: url("../c717_board_game/imgs/boardgame.jpg");
+  background-image: url("./imgs/boardgame.jpg");
   position: absolute;
   width:100vw;
   height:100vh;
   opacity:0.2;
-  background-color: black;
   background-size:cover;
 }
 
