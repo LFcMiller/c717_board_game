@@ -30,7 +30,7 @@ body{
   margin-bottom: 1%;
 }
 #map {
-  height: 100vh;
+  height: 80vh;
 }
 
 .gamesList {
@@ -137,6 +137,13 @@ div {
   height: 150px;
   border:5px solid;
 }
+
+footer{
+
+  width:100vw;
+  height:20%;
+  border:5px solid red;
+}
 /*this is the end of Soy's index.html css*/
 /******************************************************************/
 /*This is the beginning of Soy's contact us page*/
@@ -159,6 +166,7 @@ div {
   height:100vh;
   opacity:0.2;
   background-color: black;
+  background-size:cover;
 }
 
 .create_event_margin{
@@ -208,7 +216,9 @@ div {
   height:100vh;
 }
 
-
+.max-width{
+  max-width:inherit;
+}
 /******************************************************************/
 
 
