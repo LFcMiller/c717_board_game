@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="nearbyGames.js"></script>
 </head>
-<body>
+<body class="body_black">
         <script>
         window.fbAsyncInit = function() {
           FB.init({
@@ -36,26 +36,26 @@
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));
       </script>
-    <div class="container-fluid">
-        <div class="row navBar blue">
-            <div class="col-xs-12">
-              <div class="col-xs-12 col-md-3 text-center"><h1>BoardGameBackup</h1></div>
-              <div class="col-xs-12 col-md-3 col-md-offset-5 text-right">
-              <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
-            </div> 
+    <div class="row">
+        <div class="navBar yellow col-sm-12">
+            <div class="col-sm-12 col-md-12 text-center">
+                <img class="temp_logo col-sm-2 col-md-2 display-inline" src="./imgs/temp logo.png"/>
+                <div class="col-md-10">
+                    <h1 class="font_lg col-md-9">BoardGameBackup</h1>
+                    <div class="col-md-3 fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                </div>
             </div>
-          </div>
-        <div class="row">
-          <div class="col-xs-12 col-md-6 gamesList green">
-            <h1 class="text-center">Games Near Irvine:</h1>
-            <div class="gamesContainer col-xs-12">
-              <h1>Sorry, there are currently no games in your area.</h1>
-            </div>
-          </div>
-          <div class="col-xs-12 col-md-6" id="map">
-          </div>
         </div>
-      </div>
+        <div class="row col-md-12">
+            <div class="row column_height col-xs-12 col-md-3 green">
+                <div class="gamesContainer col-xs-12 col-md-12">
+                    <h1 class="text-center">Games Near You:</h1>
+                    <h1>Sorry, there are currently no games in your area.</h1>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-9" id="map"></div>
+        </div>
+    </div>
       <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE&callback=initMap">
       </script>
