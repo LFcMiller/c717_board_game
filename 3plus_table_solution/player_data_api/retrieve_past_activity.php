@@ -8,7 +8,7 @@ if(empty($_POST['fb_ID'])){
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 //thanks, Tim!
-$query =
+$past_activity_query =
     "
 SELECT e.`game_name` AS game_name, COUNT(e.`event_ID`) AS frequency
 
@@ -24,11 +24,23 @@ SELECT e.`game_name` AS game_name, COUNT(e.`event_ID`) AS frequency
 ;
     ";
 
-$result = null;
+$past_activity_result = null;
 
-$result = mysqli_query($conn, $query);
+$past_activity_result = mysqli_query($conn, $past_activity_query);
 
-print_r($result);
-//TODO: how can I tell the difference between a database error and a player who hasn't played anything?
+if(empty($past_activity_result)){
+    $output['errors'][] = 'couldn\'t find past activity for this user';
+    //TODO: how can I tell the difference between a database error and a player who hasn't played anything?
+} else {
+    //this is the not empty part, where things get done
+    if(mysqli_num_rows($past_activity_result)){
+        $output['data']['past_games'] = [];
 
-//TODO: keep working on this
+        while($row = mysqli_fetch_assoc($past_activity_result)){
+            $output['data']['past_games'][] = $row;
+        }
+    } else {
+        $output['errors'][] = 'no past activity data';
+    }
+
+}

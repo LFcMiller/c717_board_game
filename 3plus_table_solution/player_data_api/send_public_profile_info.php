@@ -23,7 +23,10 @@ if(empty($result)){
         //is it bad to use a while loop here? (because there should only be 1 row)
         //I'm just gonna see if I can get by without using a loop at all
         $row = mysqli_fetch_assoc($result);
-        $output['data'][] = $row;
+        $output['data'] = $row;
+
+        //now put in the past activity
+        include_once('retrieve_past_activity.php');
     } else {
         $output['errors'][] = 'no data';
     }
