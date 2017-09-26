@@ -1,6 +1,10 @@
 <?php
 //include phpmailerautoload.php
 require 'phpmailer/PHPMailer/PHPMailerAutoload.php';
+require 'mailTemplates/apply_mail_template.php';
+require 'mailTemplates/accepted_mail_template.php';
+require 'mailTemplates/contact_mail_template.php';
+require 'mailTemplates/confirmation_mail_template.php';
 
 //create an instance of php mailer
 $mail = new PHPMailer();
@@ -31,20 +35,34 @@ $mail->Subject = "Test Email";
 $mail->isHTML(true);
 
 // set the body
-$mail->Body = "Hello, this is a test email... <br /><br /> <a href='http://google.com'>Google</a>";
+// switch (//check for query of ajax call) {
+// 	case 0:
+// 		$mail->Body = $apply_body;
+// 		break;
+// 	case 1:
+// 		$mail->Body = $accepted_body;
+// 		break;
+// 	case 2:
+// 		$mail->Body = $confirmation_body;
+// 		break;
+// 	case 3:
+// 		$mail->Body = $contact_body;
+// 		break;
+// }
+$mail->Body = $contact_body;
+
+
 
 // set who is sending an email
-$mail->setFrom('boardgamedummy@gmail.com', 'BG');
+$mail->setFrom('boardgamedummy@gmail.com', 'BoardGameScout');
 
 // set where we are sending email(recipiants)
-$mail->addAddress('miskatonicraft@gmail.com');
+$mail->addAddress('violette.austin@yahoo.com');
 
 //send an email
 if($mail->send())
 	echo "mail was sent";
 else
 	echo "something went horribly wrong";
-
-
 
 ?>

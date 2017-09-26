@@ -13,29 +13,35 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
             <title>Player Profile</title>
             <link rel="stylesheet" href="style.css">
-        <script>
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId            : '172707119965490',
-                    autoLogAppEvents : true,
-                    xfbml            : true,
-                    version          : 'v2.10'
-                });
-                FB.AppEvents.logPageView();
-            };
-
-            (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
+        
     </head>
     <body>
+
+      <script> 
+        
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '133764540588384',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.10'
+          });
+          FB.AppEvents.logPageView();
+        };
+
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      
+    </script>
+
         <!--background image div-->
         <div class="create_event_background"></div>
+
         <div class="container-fluid">
             <!--header starts here-->
             <header class="col-xs-12 col-md-12 col-md-12">

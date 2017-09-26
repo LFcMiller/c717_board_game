@@ -5,7 +5,7 @@
       <title>Host/Join</title>
       <link rel="stylesheet" href="style.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link rel="stylesheet" href="http://bootswatch.com/darkly/bootstrap.min.css">
+      <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <style type="text/css">
         #fb-btn{
@@ -18,61 +18,25 @@
     </head>
 
     <body>
-        <div id="fb-root"></div>
-          <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
-            fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));
-
-        //set up facebook JS SDK 
-          window.fbAsyncInit = function() {
+         <script>
+        window.fbAsyncInit = function() {
             FB.init({
-              appId            : '172707119965490',
-              autoLogAppEvents : true,
-              xfbml            : true,
-              version          : 'v2.10'
+                appId            : '172707119965490',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v2.10'
             });
-            
-            FB.getLoginStatus(function(response) {
-              console.log(response);
-                statusChangeCallback(response);
-            });
+            FB.AppEvents.logPageView();
+        };
 
-          };
-
-          function statusChangeCallback(response){
-            if(response.status === 'connected'){           
-              console.log('Logged in and authenticated');
-              testAPI();
-            }else{
-              console.log('Not authenticated');
-            }
-          }
-
-            function checkLoginState() {
-              FB.getLoginStatus(function(response) {
-                statusChangeCallback(response);
-              });
-            }
-
-            function testAPI(){
-              FB.api('/me?fields=name,email', function(response){
-                if(response && !response.error){
-                  console.log(response);
-                }
-              });
-            }
-
-            
-            function logout(){
-              FB.logout(function(response){
-              });
-            }
-
-        </script>
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
             <div class="row navBar blue">
                 <div class="col-xs-12">
@@ -93,4 +57,4 @@
           </div>            
                   
     </body>
-    </html>
+</html>
