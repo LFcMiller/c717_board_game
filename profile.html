@@ -3,18 +3,38 @@
       <!-- Global Site Tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106872964-1"></script>
       <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments)};
-        gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments)}
+            gtag('js', new Date());
 
-        gtag('config', 'UA-106872964-1');
+            gtag('config', 'UA-106872964-1');
       </script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-      <title>profile</title>
-      <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+            <title>Player Profile</title>
+            <link rel="stylesheet" href="style.css">
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId            : '172707119965490',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v2.10'
+                });
+                FB.AppEvents.logPageView();
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
     </head>
     <body>
+
       <script> 
         
         window.fbAsyncInit = function() {
@@ -36,43 +56,63 @@
          }(document, 'script', 'facebook-jssdk'));
       
     </script>
+
+        <!--background image div-->
+        <div class="create_event_background"></div>
+
         <div class="container-fluid">
-             <div class="row navBar blue">
-            <div class="col-xs-12">
-              <div class="col-xs-12 col-md-3 text-center"><h1>Profile</h1></div>
-              <div class="col-xs-12 col-md-3 col-md-offset-5 text-right">
-              <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
-            </div> 
-            </div>
-          </div>
-            <div class="row col-xs-12 col-md-3">
-                <img class="col-xs-6 col-md-12" src="https://orig14.deviantart.net/919c/f/2011/359/9/0/profile_picture_by_aqsmorningview_stock-d4k81jt.jpg" alt="">
-                <p class="col-xs-6 col-md-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus rhoncus elit ut mattis. Donec et leo nec tellus placerat pretium id ac ante. Morbi at eros non quam pellentesque blandit mollis id ante. Pellentesque molestie, lectus sed ultricies blandit, dolor arcu laoreet mi, quis tristique dui mi nec diam. Morbi ac nulla tempor, aliquet sapien nec, facilisis felis. Etiam molestie luctus risus, ac iaculis risus tempor eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum vel tellus vitae est tincidunt scelerisque. Nulla tincidunt nunc id lorem lobortis sodales. Pellentesque sit amet nulla vel orci rhoncus accumsan.</p>
-            </div>
-            <div class="row col-xs-12 col-md-5">
-                <div class="col-xs-12 text-center"><h3 class="col-xs-offset-3 col-xs-6 title">My Games</h3></div>
-                <ul>
-                  <li>
-                    Aenean sit amet erat nunc
-                  </li>
-                  <li>
-                    Eget porttitor lorem
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet
-                  </li>
-                  <li>
-                    Consectetur adipiscing elit
-                  </li>
-                  <li>
-                    Integer molestie lorem at massa
-                  </li>
-                </ul>
-            </div>
-            <div class="row col-xs-12 col-md-4">
-                <div class="col-xs-12 text-center"><h3 class="col-xs-offset-3 col-xs-6 title">My Ratings</h3></div>                
-                <img class="col-xs-12" src="https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/img/pie-sample.png" alt="">
+            <!--header starts here-->
+            <header class="col-xs-12 col-md-12 col-md-12">
+                <div class="col-md-12 col-xs-12">
+                    <img class="temp_logo col-xs-1 display-inline" src="./imgs/temp logo.png"/>
+                    <h1 class="font_lg hidden-xs col-md-9">Board Game Scout</h1>
+                    <h3 class="font_rg visible-xs hidden-md col-xs-10">Board Game Scout</h3>
+                    <h4 class ="font_rg visible-xs hidden-md col-xs-12">Meet-up App for Fellow Boarders Near You!</h4>
+                    <button type="button" class="col-md-1 btn btn-info">About Us</button>
+                    <!--paypal_button-->
+                    <div class="d-inline-block col-xs-1 col-md-1">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            <div class=" d-inline-block">
+                                <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </header>
+            <div class=" row col-xs-12">
+                <div class="col-xs-12 col-md-12 "><h1>Profile</h1></div>
+                <!--Name, About -->
+                <div class="row col-xs-12 col-md-3">
+                    <img class="col-xs-6 col-md-12" src="https://orig14.deviantart.net/919c/f/2011/359/9/0/profile_picture_by_aqsmorningview_stock-d4k81jt.jpg" alt="">
+                    <p class="col-xs-6 col-md-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus rhoncus elit ut mattis. Donec et leo nec tellus placerat pretium id ac ante. Morbi at eros non quam pellentesque blandit mollis id ante. Pellentesque molestie, lectus sed ultricies blandit, dolor arcu laoreet mi, quis tristique dui mi nec diam. Morbi ac nulla tempor, aliquet sapien nec, facilisis felis. Etiam molestie luctus risus, ac iaculis risus tempor eget. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum vel tellus vitae est tincidunt scelerisque. Nulla tincidunt nunc id lorem lobortis sodales. Pellentesque sit amet nulla vel orci rhoncus accumsan.</p>
+                </div>
+                <!--Games Played-->
+                <div class="row col-xs-12 col-md-5">
+                    <div class="col-xs-12 text-center"><h3 class="col-xs-offset-3 col-xs-6 title">My Games</h3></div>
+                    <ul className="list-style-none">
+                        <li>
+                            Aenean sit amet erat nunc
+                        </li>
+                        <li>
+                            Eget porttitor lorem
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet
+                        </li>
+                        <li>
+                            Consectetur adipiscing elit
+                        </li>
+                        <li>
+                            Integer molestie lorem at massa
+                        </li>
+                    </ul>
+                </div>
+
             </div>
           </div>
     </body>
-    </html>
+</html>

@@ -91,7 +91,7 @@ function resetColors() {
 
 function initMap() {
   $.ajax({
-    url: "http://maps.googleapis.com/maps/api/geocode/json",
+    url: "https://maps.googleapis.com/maps/api/geocode/json",
     method: "GET",
     data: {
       address: testZip
@@ -113,7 +113,7 @@ function initMap() {
 // set of coordinates.
 function populateMap(response) {
   for (var i = 0; i < response.data.length; i++) {
-    var latLng = new google.maps.LatLng(parseFloat(response.data[i].lat),parseFloat(response.data[i].lon));
+    var latLng = new google.maps.LatLng(parseFloat(response.data[i].lat),parseFloat(response.data[i].lng));
     var marker = new google.maps.Circle({
       strokeColor: "#9b10c9",
       strokeOpacity: 0.8,
@@ -129,7 +129,7 @@ function populateMap(response) {
                      `<p style="color:black;"><strong>Time: </strong>${response.data[i].time}</p>`;
     marker.place = {
       lat: parseFloat(response.data[i].lat),
-      lng: parseFloat(response.data[i].lon)
+      lng: parseFloat(response.data[i].lng)
     };
     (function(marker, pos) {
       marker.addListener("click", function() {

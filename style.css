@@ -1,6 +1,7 @@
-body {
+body{
   background-color: black;
   color: white;
+  font-family: Futura, Arial, sans-serif;
 }
 .green {
   background-color: #149F71;
@@ -24,16 +25,16 @@ body {
   margin-bottom: 0;
 }
 .title {
-    border: 5px solid #EE9B1E;
-    border-radius: 25px;
-    margin-bottom: 1%;
+  border: 5px solid #EE9B1E;
+  border-radius: 25px;
+  margin-bottom: 1%;
 }
 #map {
-  height: 85vh;
+  height: 80vh;
 }
 
 .gamesList {
-  height: 85vh;
+  height: 100vh;
   overflow: scroll;
 }
 .mainButton {
@@ -54,10 +55,18 @@ body {
   text-align: center;
 }
 
+.body_black {
+  background-color: black;
+}
+
 div {
   font-family: Futura, Arial, sans-serif;
   text-align : center;
   padding: 5px
+}
+
+.font_white{
+  color:white;
 }
 
 .font_reg{
@@ -75,6 +84,7 @@ div {
 .home_page_body{
   width:100vw;
   height:100vh;
+  display: inline-block;
 }
 
 .title_box{
@@ -96,28 +106,53 @@ div {
   height:100vh;
 }
 
+.temp_logo {
+  width:100px;
+  height:100px;
+  display:inline-block;
+}
 
 .google-login ,.facebook-login{
   border-radius: 25px;
   margin-bottom: 1%;
 }
 
+.index-boxes{
+  height:25%;
+  width: 50%;
+  display:inline-block;
+  border: 3px solid blue;
+  border-radius:25px;
+}
 
+.padding_unset{
+  padding:unset;
+}
+
+.leaf_corner_div_style {
+  border-radius: 5px 125px;
+  background: rgba(0,0,0,1);
+  padding: 20px;
+  width: inherit;
+  height: 10%;
+  border:5px solid;
+}
+
+footer{
+
+  width:100vw;
+  height:20%;
+  border:5px solid red;
+}
+
+.transparent_div {
+  background-color: #00FFB6;
+  opacity: 0.2;
+  width:inherit;
+  height:inherit;
+}
 /*this is the end of Soy's index.html css*/
 /******************************************************************/
-/*This is the beginning of Soy's hubPage.html*/
-.white {
-  color: white;
-}
-
-.white-border-color {
-  border: 5px solid white;
-  border-radius: 25px;
-  margin-bottom: 1%;
-}
-/*This is the end of Soy's hubPage.html*/
-/******************************************************************/
-
 /*This is the beginning of Soy's contact us page*/
 
 .contact_main {
@@ -129,7 +164,67 @@ div {
 
 }
 
-/*This is the end of Soy's contact us page*/
+/******************************************************************/
+/*This is the beginning of Soy's create events page*/
+.create_event_background{
+  background-image: url("./imgs/boardgame.jpg");
+  position: absolute;
+  width:100vw;
+  height:100vh;
+  opacity:0.2;
+  background-size:cover;
+}
+
+.create_event_margin{
+  margin:auto;
+}
+
+.event_host_div {
+  display: inline-block;
+  height:80%;
+  width: 50%;
+  background-color: white;
+  border: 5px solid #2ec7ff;
+  border-radius: 25px;
+  opacity: .98;
+  position: inherit;
+  padding:2%;
+}
+
+.form-horizontal > input {
+  display: inline-block;
+  width: 80%;
+  height:5%;
+  padding: 1%;
+  background-color: beige;
+  color: black;
+  font-size: inherit;
+}
+
+.form-horizontal > select  {
+  display: inline-block;
+  width: 80%;
+  height:5%;
+  padding: 1%;
+  background-color: beige;
+  color: black;
+  font-size: inherit;
+}
+
+.form-horizontal > textarea {
+  width: 80%;
+  height: 20%;
+  font-size: inherit;
+}
+/******************************************************************/
+/*Beginning of nearby games style*/
+.column_height{
+  height:100vh;
+}
+
+.max-width{
+  max-width:inherit;
+}
 /******************************************************************/
 
 
