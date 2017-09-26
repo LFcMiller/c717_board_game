@@ -62,7 +62,6 @@ body{
 div {
   font-family: Futura, Arial, sans-serif;
   text-align : center;
-  padding: 5px
 }
 
 .font_white{
@@ -118,11 +117,15 @@ div {
 }
 
 .index-boxes{
-  height:25%;
+  height: 200px;
   width: 50%;
   display:inline-block;
   border: 3px solid blue;
-  border-radius:25px;
+  /*border-radius:25%;*/
+  position: relative;
+  margin: 20px 0px 50px 0px;
+  padding-bottom: 7%;
+  text-align: center;
 }
 
 .padding_unset{
@@ -139,18 +142,23 @@ div {
 }
 
 footer{
-
   width:100vw;
   height:20%;
   border:5px solid red;
 }
 
-.transparent_div {
-  background-color: #00FFB6;
-  opacity: 0.2;
-  width:inherit;
-  height:inherit;
+.contact_form_div {
+  border-radius:25px;
+  background-color: beige;
+  height:40%;
+  width:50%;
+  transform: translateX(50%);
+  color: black;
+  border: 5px solid saddlebrown;
+  padding: 5px 0px 10px 0px;
 }
+
+
 /*this is the end of Soy's index.html css*/
 /******************************************************************/
 /*This is the beginning of Soy's contact us page*/
