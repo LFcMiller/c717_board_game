@@ -5,7 +5,7 @@
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
   <script>
     $(document).ready(function(){
-      setValues()
+      pullUserData().then(()=>{setValues()})
       $(".submitChanges").on("click", submitData)
       $(".editInfo").on("click", toggleHidden)
     })
@@ -13,15 +13,53 @@
     var response = {
       first_name: "Jeff",
       fav_genre: "Party",
-      about_me: "I have been playing board games forever. I am a total nerd."
+      about_me: "I have been playing board games forever. I am a total nerd.",
+      past_games: [
+        {'Monopoly': 4},
+        {'Sorry': 2},
+        {'Settlers of Catan': 6}
+      ]
     }
 
+    function pullUserData(){
+      var deferred = $.Deferred();
+      $.ajax({
+        url: "./3plus_table_solution/player_input_decision_maker.php?action=retrievePublicProfile",
+        method: "POST",
+        dataType: "json",
+        data: {
+          fb_ID: 12345
+        },
+        success: deferred.resolve,
+      })
+      return deferred;
+    }
+
+    function updateUserData(){
+      var deferred = $.Deferred();
+      $.ajax({
+        url: "./3plus_table_solution/player_input_decision_maker.php?action=updateProfile",
+        method: "POST",
+        dataType: "json",
+        data: {
+          fb_ID: 12345,
+          first_name: $("#first_name").val(),
+          fav_genre: $("#fav_genre").val(),
+          about_me: $("#about_me").val()
+        },
+        success: deferred.resolve,
+      })
+      return deferred;
+    }
+
+    
+
     function submitData(){
-      response.first_name = $("#first_name").val();
-      response.fav_genre = $("#fav_genre").val();
-      response.about_me = $("#about_me").val();
-      setValues();
-      toggleHidden();
+      updateUserData().then(()=>{
+        setValues();
+        toggleHidden();
+      })
+      
     }
 
     function toggleHidden(){
@@ -29,7 +67,7 @@
       $("#personalInfo > button").toggleClass("hidden");
     }
 
-    function setValues(){
+    function setValues(response){
       $(".name").text(response.first_name);
       $("#first_name").attr("value", response.first_name);
       $(".genre").text(response.fav_genre);
