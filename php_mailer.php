@@ -49,7 +49,7 @@ $mail->isHTML(true);
 // 		$mail->Body = $contact_body;
 // 		break;
 // }
-$mail->Body = $apply_body;
+$mail->Body = $contact_body;
 
 
 
