@@ -12,32 +12,65 @@
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>      
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-
   <title>Nearby Games</title>
-
   <link rel="stylesheet" href="style.css">
   <script src="nearbyGames.js"></script>
 </head>
 <body class="body_black">
         <script>
         window.fbAsyncInit = function() {
-          FB.init({
-            appId            : '133764540588384',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v2.10'
-          });
-          FB.AppEvents.logPageView();
+            FB.init({
+                appId            : '133764540588384',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v2.10'
+            });
+
+            FB.AppEvents.logPageView();
+            FB.getLoginStatus(function(response) {
+              console.log(response);
+                statusChangeCallback(response);
+            });
         };
 
+        function statusChangeCallback(response){
+          if(response.status === 'connected'){
+            console.log('Logged in and authenticated');
+            loggedIn=true;
+            testAPI();
+          }else{
+            console.log('Not authenticated');
+            loggedIn=false;
+          }
+        }
+
+        function checkLoginState(){
+          FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+          });
+        }
+
+        function testAPI(){
+          FB.api('/me?fields=name,email', function(response){
+            if(response && !response.error){
+              console.log(response);
+            }
+          });
+        }
+
+        function logout(){
+          FB.logout(function(response){
+              console.log(response);
+          });
+        }
+
         (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "//connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
       </script>
     <div class="create_event_background"></div>
     <div class="container-fluid padding_unset">
@@ -70,7 +103,6 @@
                         <div class="col-sm-12 col-md-6 col-md-offset-3">
                             <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
                         </div>
-                    </div>
                 </div>
             </div>
             <!--map and info column for DESK-TOP-->
@@ -106,5 +138,13 @@
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE&callback=initMap">
           </script>
     </div>
+    <div class="shadowBox hidden">
+    </div>
+    <div class="loginModal hidden">
+        <h1 class="modalText">Filler</h1>
+    </div>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE&callback=initMap">
+    </script>
 </body>
 </html>

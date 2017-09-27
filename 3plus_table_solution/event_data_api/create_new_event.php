@@ -1,5 +1,5 @@
 <?php
-$keys_we_are_looking_for = /*don't forget facebook ID!*/ ['game_name','general_details', 'numPlayers', 'street_address', 'city', 'state','zip','date','time', 'lat', 'lng'];
+$keys_we_are_looking_for = /*don't forget facebook ID!*/ ['game_name','general_details', /*'numPlayers',*/ 'street_address', 'city', 'state','zip','date','time', 'lat', 'lng'];
 
 $post_data = [];
 
@@ -7,8 +7,19 @@ $post_data = [];
 foreach($keys_we_are_looking_for as $key) {
     if(array_key_exists($key, $_POST)){
         $post_data[$key] = $_POST[$key];
-    } //TODO: Here is where I can make error statements about missing data from the front end.
+    }
+    //Here is where I can make error statements about missing data from the front end.
+    else
+    {
+        $output['errors']['missing key'][] = "$key";
+    }
 }
+
+if(isset($output['errors']['missing key'])){
+    //using return instead of die/exit will allow the script that included this script to continue.
+    return;
+}
+
 //TODO: I also have to map the user who created the event to the created event as a host. To do that, I am planning on requiring the client to send their facebook id along with their event details.
 //TODO: Then use the facebook ID to get our user ID
 //print_r($post_data);

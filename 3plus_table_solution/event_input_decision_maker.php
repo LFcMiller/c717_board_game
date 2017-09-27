@@ -9,7 +9,7 @@ if(empty($_GET['action']/* check if the get superglobal variable 'action' is emp
     exit('no action specified');
 }
 
-//require the mysql_connect.php file.  Make sure your properly configured it!
+//require the mysqlConnect.php file. Make sure you configured it properly!
 require_once('mysqlConnect.php');
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
