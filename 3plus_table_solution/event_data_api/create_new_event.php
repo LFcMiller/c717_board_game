@@ -41,15 +41,14 @@ if(!mysqli_affected_rows($conn)){
 //just getting the user_ID from the associative array from the database (old code - used for when I was looking up the user based on fb_ID. It could come in handy in the future)
 //$user_ID = mysqli_fetch_assoc($user_table_result)['fb_ID'];
 
-print_r($user_ID);
-die();
-
 
 //TODO: I also have to map the user who created the event to the created event as a host. To do that, I am planning on requiring the client to send their facebook id along with their event details.
 //TODO: Then use the facebook ID to get our user ID
 //print_r($post_data);
 
 //$output['data'][] = 'I see that you tried to add a game of '.$post_data['gameName'];
+
+//second, create and store the event
 
 //take the human readable time from the front end and make it the way mySQL wants it
 $post_event_data['time'] = date('H:i:s', strtotime($post_event_data['time']));
@@ -62,14 +61,36 @@ $result = mysqli_query($conn, $new_event_query);
 
 if(empty($result)){
     $output['errors'][] = 'database error';
+    return;
 } else {
     //make sure 1 row was affected
     if(mysqli_affected_rows($conn)){
-        $output['success'] = true;
+        //not true just yet, still more work to be done!
+//        $output['success'] = true;
 
-        $output['data']['event_ID'] = mysqli_insert_id($conn);
+        $new_event_ID = mysqli_insert_id($conn);
+        $output['data']['event_ID'] = $new_event_ID;
     } else{
         $output['errors'] = 'trouble inserting the event';
+        return;
     }
 }
 
+//third and finally, map the user to the event
+
+$mapping_query = "INSERT INTO `users_to_events` SET `event_ID` = {$new_event_ID}, `player_ID` = {$user_ID}, `role` = 'host'";
+
+$mapping_result = null;
+
+$mapping_result = mysqli_query($conn, $mapping_query);
+
+if(empty($result)){
+    $output['errors'][] = 'database error mapping user to event';
+} else {
+    if(mysqli_affected_rows($conn)){
+        //finally, we've done everything we need to do
+        $output['success'] = true;
+    } else {
+        $output['errors'] = 'trouble mapping user to event';
+    }
+}
