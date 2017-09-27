@@ -19,7 +19,7 @@ function pullData(){
     method: "POST",
     dataType: "json",
     data: {
-      zip: testZip
+      zip: currentZip || testZip
     },
     success: function(response) {
       populatePage(response);

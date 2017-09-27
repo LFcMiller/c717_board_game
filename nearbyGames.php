@@ -17,6 +17,26 @@
   <title>Nearby Games</title>
 
   <link rel="stylesheet" href="style.css">
+
+    <?php
+    if(isset($_GET['zip'])){
+        $current_zip = $_GET['zip'];
+        ?>
+        <script>
+            var currentZip = <?=$current_zip?>;
+        </script>
+
+        <?php
+
+    } else {
+        ?>
+        <script>
+            var currentZip = null;
+        </script>
+        <?php
+    }
+    ?>
+
   <script src="nearbyGames.js"></script>
 </head>
 <body class="body_black">
