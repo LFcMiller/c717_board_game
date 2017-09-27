@@ -21,12 +21,13 @@
 </head>
 <body class="container padding_unset col-sm-12 col-md-12 col-lg-12">
     <div id="fb-root"></div>
-          <script>(function(d, s, id) {
+      <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
             js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
             fjs.parentNode.insertBefore(js, fjs);
+
           }(document, 'script', 'facebook-jssdk'));
 
         //set up facebook JS SDK 
@@ -75,84 +76,62 @@
               FB.logout(function(response){
               });
             }
-
-        </script>
+    </script>
 <div class="create_event_background"></div>
-    <div class="home_page_body">
+    <div class="home_page_body margin_top">
+        <div class="topnav margin_bottom row col-sm-12 col-md-12" id="myTopnav">
+            <a href="#home" class="col-md-3">Home</a>
+            <a href="#about" class="col-md-3">About</a>
+            <a href="#wordPress" class="col-md-3">WordPress</a>
+            <a href="#contact" class="col-md-3">Contact</a>
+        </div>
        <!--header-->
-        <header class="col-xs-12 col-md-12 col-md-12">
-            <div class="col-md-12 col-xs-12">
-                <img class="temp_logo col-xs-1 display-inline" src="./imgs/temp logo.png"/>
-                <h1 class="font_lg hidden-xs col-md-9">Board Game Scout</h1>
-                <h3 class="font_rg visible-xs hidden-md col-xs-10">Board Game Scout</h3>
-                <h4 class ="font_rg visible-xs hidden-md col-xs-12">Meet-up App for Fellow Boarders Near You!</h4>
-                <button type="button" class="col-md-1 btn btn-info">About Us</button>
-                <!--paypal_button-->
-                <div class="d-inline-block col-xs-1 col-md-3">
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                    </form>
-                    <div class="col-md-4">
-                        <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" onlogin="checkLoginState()"></div>
+        <header class=" row col-sm-12 col-md-12 col-md-12">
+            <div class="about_page col-md-12 col-sm-12">
+                <img class="temp_logo hidden-xs col-md-1 display-inline" src="./imgs/temp logo.png"/>
+                <h1 class="font_lg hidden-xs col-md-8 ">Board Game Scout</h1>
+                <h3 class="font_rg visible-xs hidden-md col-sm-10">Board Game Scout</h3>
+                <h4 class ="font_rg visible-xs hidden-md col-sm-12">Meet-up App for Fellow Boarders Near You!</h4>
+                <!--button_container-->
+                <div class="button_container col-sm-12 col-md-4 col-md-offset-8">
+                    <!--facebook_login_button-->
+                    <div class="col-sm-12 col-md-12 col-md-offset-2">
+                        <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
                     </div>
                 </div>
             </div>
         </header>
-        <!--body column-->
-            <!--about column-->
-            <div class = "col-sm-12 col-lg-12 hidden-xs hidden-sm hidden-md about_page">
-                <h4 class="font_md">Welcome to Board Game Scout! Find interesting board games and others looking to play with you!</h4>
-            </div>
+        <!--about body column-->
+        <div class = "container margin_top col-sm-12 col-md-12 hidden-xs hidden-sm about_page">
+                <h4 class="font_rg">Welcome to Board Game Scout! Find interesting board games and others looking to play with you!</h4>
+        </div>
+        <div class="margin_bottom col-sm-12 col-md-12">
             <!--find games near you column-->
-            <div class="index-boxes form-group col-sm-12 col-md-12 col-lg-12">
-                <label class="col-sm-12 col-md-12 col-lg-12">Search:</label>
-                <div class=" col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
-                    <input type="number" class="form-control" id="exampleInputZipCode" placeholder="ZIPCODE"/>
-                    <a href="nearbyGames.html" class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3 btn btn-md btn-primary">Find Games Near You</a>
+
+            <div class="col-sm-6 col-md-6">
+                <label class="margin_bottom col-sm-12 col-md-12 col-lg-12">Search:</label>
+                <div class="col-sm-12 col-md-6 col-md-offset-3">
+                    <input type="number" class="form-control margin_bottom " id="exampleInputZipCode" placeholder="ZIPCODE"/>
+                    <button type="button" class="col-sm-12 col-md-6 col-md-offset-3 btn btn-lg btn-primary">Join A Game</button>
                 </div>
             </div>
             <!--host a game near you -->
-            <div class="index-boxes col-sm-12 col-md-12 col-lg-12">
-                <h4>Found a Interesting Board Game to Play? Assemble your fellows!</h4>
-                <a href="createevent.html" class="btn btn-warning">Host A Board Game Event</a>
+            <div class="col-sm-6 col-md-6">
+                <h4>Assemble your fellows!</h4>
+                <button type="button" class="btn btn-lg btn-warning">Host Game Event</button>
             </div>
-        <!--this is Contact Us Form-->
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <form class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
-                <p>Any issues or great things yous experienced in our app please let us know down here.</p>
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Category
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><a href="#">Bug Report</a></li>
-                            <li><a href="#">Player Report</a></li>s
-                            <li><a href="#">Customer Service</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Other</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="">
-                        <label>Name :</label>
-                        <input type="text" class="form-control" placeholder="Full name"/>
-                    </div>
-                    <div class="">
-                        <label>Email :</label>
-                        <input type="email" class="form-control" placeholder="youremail@email.com"/>
-                    </div>
-                    <div class="">
-                        <label>Message :</label>
-                        <textarea class="form-control" placeholder="Message us" aria-describedby="basic-addon1"></textarea>
-                    </div>
-                </div>
-            </form>
+        </div>
+        <!--footer-->
+        <div class="footer row col-md-12">
+            <!--paypal_button-->
+            <div class="col-sm-12 col-md-12">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </div>
         </div>
     </div>
 </body>
