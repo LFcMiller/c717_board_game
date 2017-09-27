@@ -1,8 +1,6 @@
 $(document).ready(()=>{
-  console.log(loggedIn);
-  setTimeout(()=>{
-    console.log(loggedIn);
-  }, 10000)
+  $(".shadowBox").on("click", displayModal);
+  $(".loginModal").on("click", displayModal);
 })
 
 function testFunction(){
@@ -32,9 +30,12 @@ function pullData(){
 
 function applyToEvent(event){
   if(loggedIn){
-    console.log(eventList[$(event.target).attr("index")])
+    console.log(eventList[$(event.target).attr("index")]);    
+    $(".modalText").text("Your application has been submitted!");
+    displayModal();
   } else {
-    console.log("Not Logged In")
+    $(".modalText").text("Not Logged In");
+    displayModal();
   }
 }
 
@@ -167,4 +168,9 @@ function populateMap(response) {
     })(marker, latLng);
     markers.push(marker);
   }
+}
+
+function displayModal () {
+  $(".shadowBox").toggleClass("hidden");
+  $(".loginModal").toggleClass("hidden");
 }
