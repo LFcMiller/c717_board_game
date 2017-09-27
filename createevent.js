@@ -1,8 +1,14 @@
+var loggedIn = false;
+
 
 function sendData(){
   event.preventDefault();
-  var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val()
-  getLatLong(address).then(getCrossStreets).then(handleSuccess);
+  if(loggedIn){
+    var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val()
+    getLatLong(address).then(getCrossStreets).then(handleSuccess);
+  } else {
+    console.log("Not logged in")
+  }
 }
 
 function getLatLong(address) {
