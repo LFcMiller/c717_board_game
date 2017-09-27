@@ -4,8 +4,9 @@ var facebook_email = '';
 
 
 function sendFacebookData(response){
+  console.log('sendFacebookData test');
   $.ajax({
-      url: './3plus_table_solution/player_input_decision_maker.php',
+      url: './3plus_table_solution/player_input_decision_maker.php?action=relateOrCreateUser',
       method: "POST",
       dataType: "json",
       data: {
@@ -14,7 +15,10 @@ function sendFacebookData(response){
         email: facebook_email
       },
       success: function(response){
-        console.log(response);
+        console.log('success',response);
+      },
+      error: function(response){
+        console.log('error',response);
       }
   });
 }
