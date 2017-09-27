@@ -13,64 +13,56 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
             <title>Player Profile</title>
             <link rel="stylesheet" href="style.css">
-        
     </head>
     <body>
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '133764540588384',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v2.10'
+      });
+      FB.AppEvents.logPageView();
+    };
 
-      <script> 
-        
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId            : '133764540588384',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v2.10'
-          });
-          FB.AppEvents.logPageView();
-        };
-
-        (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "//connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
-      
-    </script>
-
-        <!--background image div-->
-        <div class="create_event_background"></div>
-
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+</script>
+    <!--background image div-->
+    <div class="create_event_background"></div>
         <div class="container-fluid">
             <!--header starts here-->
-            <header class="col-xs-12 col-md-12 col-md-12">
-                <div class="col-md-12 col-xs-12">
-                    <div class="col-md-10">
-                        <img class="temp_logo col-sm-1 col-md-2 display-inline" src="./imgs/temp logo.png"/>
-                        <h1 class="font_lg hidden-xs col-md-10">Board Game Scout</h1>
-                        <h3 class="font_rg visible-xs hidden-md col-xs-10">Board Game Scout</h3>
-                        <h4 class ="font_rg visible-xs hidden-md col-xs-12">Meet-up App for Fellow Boarders Near You!</h4>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="col-md-12">
-                            <button type="button" class="btn btn-info">About Us</button>
-                        </div>
-                        <!--paypal_button-->
-                        <div class="col-sm-1 col-md-12">
-                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                <input type="hidden" name="cmd" value="_s-xclick">
-                                <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
-                                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                            </form>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
-                        </div>
+            <div class="margin_bottom margin_top col-md-12 col-sm-12">
+                <!--top nav-->
+                <div class="topnav col-sm-12 col-md-12" id="myTopnav">
+                    <a href="#home" class="col-md-3">Home</a>
+                    <a href="#about" class="col-md-3">About</a>
+                    <a href="#wordPress" class="col-md-3">WordPress</a>
+                    <a href="#contact" class="col-md-3">Contact</a>
+                </div>
+                <!--title for desktop-->
+                <div class="hidden-xs hidden-sm col-md-12">
+                    <img class="temp_logo col-sm-1 col-md-2 display-inline" src="./imgs/temp logo.png"/>
+                    <h1 class="font_lg col-md-10">Board Game Scout</h1>
+                </div>
+                <!--title for mobile-->
+                <div class="hidden-md hidden-lg col-sm-12">
+                    <h3 class="font_rg col-xs-10">Board Game Scout</h3>
+                    <h4 class ="font_rg col-xs-12">Meet-up App for Fellow Boarders Near You!</h4>
+                </div>
+                <!--facebook_login_button-->
+                <div class="button_container col-sm-12 col-md-4 col-md-offset-8">
+                    <div class="col-sm-12 col-md-12 col-md-offset-2">
+                        <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
                     </div>
                 </div>
-            </header>
+            </div>
             <!--profile body-->
             <div class="row col-sm-12">
                 <div class="col-sm-12 col-md-12">

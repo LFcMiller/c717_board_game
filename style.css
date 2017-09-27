@@ -122,11 +122,6 @@ div {
   padding:unset;
 }
 
-footer{
-  width:100vw;
-  height:20%;
-  border:5px solid red;
-}
 
 .contact_form_div {
   border-radius:25px;
@@ -160,6 +155,13 @@ form{
   margin-top:5px;
 }
 
+.footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:60px;
+  background:black;
+}
 /*this is the end of Soy's index.html css*/
 /******************************************************************/
 /*This is the beginning of Soy's contact us page*/
@@ -179,7 +181,7 @@ form{
   background-image: url("./imgs/boardgame.jpg");
   position: absolute;
   width:100vw;
-  height:120%;
+  height:100%;
   opacity:0.2;
   background-size:cover;
 }
@@ -195,7 +197,7 @@ form{
 .event_host_div {
   display: inline-block;
   width: 50%;
-  border: 5px solid #2ec7ff;
+  height: fit-content;
   border-radius: 25px;
   position: inherit;
   padding:2%;
@@ -208,7 +210,6 @@ form{
   .event_host_div {
     display: inline-block;
     width: 100%;
-    border: 5px solid #2ec7ff;
     border-radius: 25px;
     position: inherit;
     padding: 2%;
@@ -301,6 +302,7 @@ form{
   .button_container {
     position: relative;
     transform: translateX(-35%);
+    margin-top:3%;
   }
 }
 
@@ -308,6 +310,7 @@ form{
   .button_container {
     position: absolute;
     transform: translateX(0%);
+    margin-top:3%;
   }
 }
 /******************************************************************/
