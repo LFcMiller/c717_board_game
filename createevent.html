@@ -25,6 +25,7 @@
                 xfbml            : true,
                 version          : 'v2.10'
             });
+
             FB.AppEvents.logPageView();
             FB.getLoginStatus(function(response) {
               console.log(response);
@@ -33,12 +34,31 @@
         };
 
         function statusChangeCallback(response){
-            if(response.status === 'connected'){           
-              console.log('Logged in and authenticated');
-              testAPI();
-            }else{
-              console.log('Not authenticated');
+          if(response.status === 'connected'){
+            console.log('Logged in and authenticated');
+            testAPI();
+          }else{
+            console.log('Not authenticated');
+          }
+        }
+
+        function checkLoginState(){
+          FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+          });
+        }
+
+        function testAPI(){
+          FB.api('/me?fields=name,email', function(response){
+            if(response && !response.error){
+              console.log(response);
             }
+          });
+        }
+
+        function logout(){
+          FB.logout(function(response){
+          });
         }
 
         (function(d, s, id){
