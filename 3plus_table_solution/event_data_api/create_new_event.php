@@ -77,8 +77,7 @@ if(empty($result)){
 }
 
 //third and finally, map the user to the event
-
-$mapping_query = "INSERT INTO `users_to_events` SET `event_ID` = {$new_event_ID}, `player_ID` = {$user_ID}, `role` = 'host'";
+$mapping_query = "INSERT INTO `users_to_events` SET `event_ID` = {$new_event_ID}, `player_ID` = {$_POST['user_ID']}, `role` = 'host'";
 
 $mapping_result = null;
 
