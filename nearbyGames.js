@@ -13,6 +13,7 @@ var eventList = [];
 var infowindow;
 var loggedIn = false;
 
+
 function pullData(){
   $.ajax({
     url: "./3plus_table_solution/event_input_decision_maker.php?action=readByZip",
@@ -28,11 +29,26 @@ function pullData(){
   });
 }
 
+
 function applyToEvent(event){
   if(loggedIn){
     console.log(eventList[$(event.target).attr("index")]);    
     $(".modalText").text("Your application has been submitted!");
     displayModal();
+    // $.ajax({
+    //   url: 
+    //   method: "POST",
+    //   dataType: "json",
+    //   data: {
+    //     fb_ID: facebook_id,
+    //     email: facebook_email,
+    //     name: facebook_name
+    //   },
+    //   success: function(response){
+    //     console.log(response);
+    //   }
+    // });
+
   } else {
     $(".modalText").text("Not Logged In");
     displayModal();

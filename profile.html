@@ -13,7 +13,8 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
             <title>Player Profile</title>
             <link rel="stylesheet" href="style.css">
-        
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="facebook_login.js"></script>
     </head>
     <body>
 
@@ -51,12 +52,16 @@
             }
 
             function testAPI(){
-            FB.api('/me?fields=name,email', function(response){
+              FB.api('/me?fields=name,email', function(response){
                 if(response && !response.error){
-                console.log(response);
-                }
-            });
+                  console.log(response);
+                  sendFacebookData(response);
+                  facebook_id=response.id;
+                  facebook_name=response.name;
+                  facebook_email=response.email;
             }
+          });
+        }
 
             function logout(){
             FB.logout(function(response){
