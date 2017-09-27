@@ -1,28 +1,18 @@
-$(document).ready(function(){
-window.fbAsyncInit = function() {
-            FB.init({
-                appId            : '172707119965490',
-                autoLogAppEvents : true,
-                xfbml            : true,
-                version          : 'v2.10'
-            });
-
-            FB.AppEvents.logPageView();
-            FB.getLoginStatus(function(response) {
-              console.log(response);
-                statusChangeCallback(response);
-            });
-        };
-
-  
-  FB.checkLoginStatus(response=>{
-    console.log(response)
-  })
+$(document).ready(()=>{
+  console.log(loggedIn);
+  setTimeout(()=>{
+    console.log(loggedIn);
+  }, 10000)
 })
+
+function testFunction(){
+  console.log("test");
+}
 var testZip = "92618";
 var map;
 var markers = [];
 var infowindow;
+var loggedIn = false;
 
 function pullData(){
   $.ajax({
