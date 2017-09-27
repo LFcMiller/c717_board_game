@@ -14,6 +14,10 @@ $output = [
 ];
 
 switch($_GET['action']){
+    case 'relateOrCreateUser':
+        include_once('player_data_api/check_user_fb.php');
+        break;
+
     case 'addUser':
         include_once('player_data_api/create_new_user.php');
         break;
