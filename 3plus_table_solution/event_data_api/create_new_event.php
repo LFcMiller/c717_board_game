@@ -19,7 +19,7 @@ if(isset($output['errors']['missing key'])){
     //using return instead of die/exit will allow the script that included this script to continue.
     return;
 }
-print('im still running');
+
 //TODO: I also have to map the user who created the event to the created event as a host. To do that, I am planning on requiring the client to send their facebook id along with their event details.
 //TODO: Then use the facebook ID to get our user ID
 //print_r($post_data);

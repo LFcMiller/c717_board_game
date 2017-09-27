@@ -17,27 +17,60 @@
     </head>
     <body>
 
-      <script> 
-        
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId            : '133764540588384',
-            autoLogAppEvents : true,
-            xfbml            : true,
-            version          : 'v2.10'
-          });
-          FB.AppEvents.logPageView();
-        };
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId            : '133764540588384',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v2.10'
+                });
 
-        (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "//connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
-      
-    </script>
+                FB.AppEvents.logPageView();
+                FB.getLoginStatus(function(response) {
+                console.log(response);
+                    statusChangeCallback(response);
+                });
+            };
+
+            function statusChangeCallback(response){
+                if(response.status === 'connected'){
+                console.log('Logged in and authenticated');
+                loggedIn=true;
+                testAPI();
+                }else{
+                console.log('Not authenticated');
+                loggedIn=false;
+                }
+            }
+
+            function checkLoginState(){
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+            }
+
+            function testAPI(){
+            FB.api('/me?fields=name,email', function(response){
+                if(response && !response.error){
+                console.log(response);
+                }
+            });
+            }
+
+            function logout(){
+            FB.logout(function(response){
+            });
+            }
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
 
         <!--background image div-->
         <div class="create_event_background"></div>
@@ -59,7 +92,7 @@
                             <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                             <div class=" d-inline-block">
-                                <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                                <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" onlogin="checkLoginState()"></div>
                             </div>
                         </form>
                     </div>

@@ -46,11 +46,13 @@
           };
 
           function statusChangeCallback(response){
-            if(response.status === 'connected'){           
+            if(response.status === 'connected'){
               console.log('Logged in and authenticated');
+              loggedIn=true;
               testAPI();
             }else{
               console.log('Not authenticated');
+              loggedIn=false;
             }
           }
 
@@ -94,7 +96,7 @@
                         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                     </form>
                     <div class="col-md-4">
-                        <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                        <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" onlogin="checkLoginState()"></div>
                     </div>
                 </div>
             </div>

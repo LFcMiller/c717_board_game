@@ -1,28 +1,17 @@
-$(document).ready(function(){
-window.fbAsyncInit = function() {
-            FB.init({
-                appId            : '172707119965490',
-                autoLogAppEvents : true,
-                xfbml            : true,
-                version          : 'v2.10'
-            });
-
-            FB.AppEvents.logPageView();
-            FB.getLoginStatus(function(response) {
-              console.log(response);
-                statusChangeCallback(response);
-            });
-        };
-
-  
-  FB.checkLoginStatus(response=>{
-    console.log(response)
-  })
+$(document).ready(()=>{
+  $(".shadowBox").on("click", displayModal);
+  $(".loginModal").on("click", displayModal);
 })
+
+function testFunction(){
+  console.log("test");
+}
 var testZip = "92618";
 var map;
 var markers = [];
+var eventList = [];
 var infowindow;
+var loggedIn = false;
 
 function pullData(){
   $.ajax({
@@ -39,10 +28,22 @@ function pullData(){
   });
 }
 
+function applyToEvent(event){
+  if(loggedIn){
+    console.log(eventList[$(event.target).attr("index")]);    
+    $(".modalText").text("Your application has been submitted!");
+    displayModal();
+  } else {
+    $(".modalText").text("Not Logged In");
+    displayModal();
+  }
+}
+
 
 function populatePage(response) {
   if (response.data.length > 0) {
     $(".gamesContainer").html("");
+    eventList = response.data;
     for (var i = 0; i < response.data.length; i++) {
       var gameDiv = $("<div>")
         .addClass("gameName truncate col-xs-3")
@@ -71,8 +72,10 @@ function populatePage(response) {
         .addClass("details col-xs-8")
         .text(response.data[i].general_details);
       var applyButton = $("<button>")
-        .addClass("btn btn-success")
-        .text("Apply");
+        .addClass("btn btn-success apply")
+        .attr("index", i)
+        .text("Apply")
+        .on("click", applyToEvent);;
       var row2 = $("<div>")
         .addClass("row2 hidden")
         .append(detailsDiv, applyButton)
@@ -165,4 +168,9 @@ function populateMap(response) {
     })(marker, latLng);
     markers.push(marker);
   }
+}
+
+function displayModal () {
+  $(".shadowBox").toggleClass("hidden");
+  $(".loginModal").toggleClass("hidden");
 }

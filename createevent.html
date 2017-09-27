@@ -34,12 +34,14 @@
         };
 
         function statusChangeCallback(response){
-          if(response.status === 'connected'){
-            console.log('Logged in and authenticated');
-            testAPI();
-          }else{
-            console.log('Not authenticated');
-          }
+            if(response.status === 'connected'){
+              console.log('Logged in and authenticated');
+              loggedIn=true;
+              testAPI();
+            }else{
+              console.log('Not authenticated');
+              loggedIn=false;
+            }
         }
 
         function checkLoginState(){
@@ -89,7 +91,7 @@
                         <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                         <div class=" d-inline-block">
-                            <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                            <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" onlogin="checkLoginState()"></div>
                         </div>
                     </form>
                 </div>
