@@ -1,8 +1,18 @@
+$(document).ready(()=>{
+  console.log(loggedIn);
+  setTimeout(()=>{
+    console.log(loggedIn);
+  }, 10000)
+})
 
+function testFunction(){
+  console.log("test");
+}
 var testZip = "92618";
 var map;
 var markers = [];
 var infowindow;
+var loggedIn = false;
 
 function pullData(){
   $.ajax({

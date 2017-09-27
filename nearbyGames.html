@@ -29,7 +29,21 @@
             version          : 'v2.10'
           });
           FB.AppEvents.logPageView();
+          FB.getLoginStatus(function(response) {
+            console.log(response);
+            statusChangeCallback(response);
+          });
         };
+
+        function statusChangeCallback(response){
+            if(response.status === 'connected'){           
+              console.log('Logged in and authenticated');
+              loggedIn = true;
+              testFunction();
+            }else{
+              console.log('Not authenticated');
+            }
+        }
 
         (function(d, s, id){
            var js, fjs = d.getElementsByTagName(s)[0];
