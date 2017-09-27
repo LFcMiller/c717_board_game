@@ -1,10 +1,12 @@
 <?php
+//the whole 'first_name' thing is very misleading on this branch. I know.
 $first_name = $_POST['first_name'];
 $email = $_POST['email'];
 $fb_ID = $_POST['fb_ID'];
 
 //check if we have all the data we need from the client-side
 if (empty($first_name) || empty($email) || empty($fb_ID)){
+    //TODO: make this a little bit cleaner
     $output['errors'][] = 'Missing input:';
     if (empty($first_name))
         $output['errors'][] = 'first name';
@@ -27,7 +29,7 @@ if(empty($result)){
     //make sure 1 row was affected
     if (mysqli_affected_rows($conn)){
         $output['success'] = true;
-        $output['rowCreated'] = mysqli_insert_id($conn);
+        $output['data']['user_ID'] = mysqli_insert_id($conn);
     }
     else{
         $output['errors'] = 'I tried inserting a new user but something went wrong';
