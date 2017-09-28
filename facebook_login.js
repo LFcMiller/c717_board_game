@@ -14,7 +14,10 @@ function sendFacebookData(response){
         email: facebook_email
       },
       success: function(response){
-        console.log(response);
+        console.log('success!',response);
+      },
+      error: function(response){
+          console.log('errorrrrrrrrrrr:',response)
       }
   });
 }
