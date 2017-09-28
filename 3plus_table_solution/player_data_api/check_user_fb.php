@@ -19,7 +19,7 @@ $user_ID = null;
 $result = mysqli_query($conn, $check_on_user_query);
 
 if(empty($result)){
-    $output['errors'][]='database error';
+    $output['errors'][]='database error: '.mysqli_error($conn);
 } else {
     if(mysqli_num_rows($result)){
         //this is the part where we simply return the id of the existing user
