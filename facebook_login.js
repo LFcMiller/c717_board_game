@@ -7,7 +7,7 @@ function sendFacebookData(response){
       dataType: "json",
       data: {
         fb_ID: response.id,
-        name: response.name,
+        first_name: response.name,
         email: response.email
       },
       success: function(response){
