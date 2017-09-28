@@ -6,6 +6,11 @@ if(empty($_POST['fb_ID'])){
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
+if(mysqli_connect_errno()){
+    $output['errors'][] = "problem connecting to database: ".mysqli_connect_errno();
+    return;
+}
+
 $check_on_user_query = "SELECT `user_ID` FROM `users` WHERE `fb_ID` = {$_POST['fb_ID']}";
 
 $result = null;
