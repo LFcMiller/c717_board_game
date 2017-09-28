@@ -1,7 +1,7 @@
 <?php
-if(empty($_POST['fb_ID'])){
-    $output['errors'][] = 'missing fb_ID';
-    die();
+if(empty($_POST['user_ID'])){
+    $output['errors'][] = 'missing user_ID';
+    return;
 }
 
 $keys_we_are_looking_for = ['first_name', 'fav_genre', 'about_me'];
@@ -17,7 +17,7 @@ foreach($keys_we_are_looking_for as $key){
 
 if(empty($things_to_update)){
     $output['errors'][] = 'nothing to update';
-    die();
+    return;
 }
 
 $query = "UPDATE `users` SET";
@@ -25,7 +25,7 @@ $query = "UPDATE `users` SET";
 foreach($things_to_update as $key => $value){
     $queryArr[] = " `{$key}` = '{$value}'";
 }
-$query.= implode(',' , $queryArr)." WHERE `fb_ID` = '{$_POST['fb_ID']}';";
+$query.= implode(',' , $queryArr)." WHERE `user_ID` = '{$_POST['user_ID']}';";
 
 $result = null;
 $result = mysqli_query($conn, $query);
@@ -34,7 +34,7 @@ if(empty($result)){
     $output['errors'][] = 'database error';
 } else {
     if(mysqli_affected_rows($conn)){
-        $query2 = "SELECT `first_name`, `fav_genre`, `about_me` FROM `users` where `fb_ID` = '{$_POST['fb_ID']}'";
+        $query2 = "SELECT `first_name`, `fav_genre`, `about_me` FROM `users` WHERE `user_ID` = '{$_POST['user_ID']}'";
         $result2 = null;
         $result2 = mysqli_query($conn, $query2);
 

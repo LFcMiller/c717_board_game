@@ -1,8 +1,4 @@
 <?php
-//the whole 'first_name' thing is very misleading on this branch. I know.
-//$first_name = $_POST['first_name'];
-//$email = $_POST['email'];
-//$fb_ID = $_POST['fb_ID'];
 
 //check if we have all the data we need from the client-side
 if (empty($_POST['first_name']) || empty($_POST['email']) || empty($_POST['fb_ID'])){
@@ -15,7 +11,7 @@ if (empty($_POST['first_name']) || empty($_POST['email']) || empty($_POST['fb_ID
     if (empty($_POST['fb_ID']))
         $output['errors'][] = 'facebook ID';
     return;
-    $output['errors'][] = 'But it\'s ok I\'ll try to add your entry to the database anyway....for now';
+//    $output['errors'][] = 'But it\'s ok I\'ll try to add your entry to the database anyway....for now';
 }
 
 $first_name = $_POST['first_name'];

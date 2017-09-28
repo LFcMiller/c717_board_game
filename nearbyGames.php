@@ -1,10 +1,44 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106872964-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)};
+    gtag('js', new Date());
 
+    gtag('config', 'UA-106872964-1');
+  </script>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>      
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <title>Nearby Games</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script src="facebook_login.js"></script>
+
+    <?php
+    if(isset($_GET['zip'])){
+        $current_zip = $_GET['zip'];
+        ?>
+        <script>
+            var currentZip = <?=$current_zip?>;
+        </script>
+
+        <?php
+
+    } else {
+        ?>
+        <script>
+            var currentZip = null;
+        </script>
+        <?php
+    }
+    ?>
+
+  <script src="nearbyGames.js"></script>
+
+</head>
 <body class="body_black">
         <script>
         window.fbAsyncInit = function() {
@@ -44,10 +78,18 @@
             if(response && !response.error){
               console.log(response);
               sendFacebookData(response);
+              facebook_id=response.id;
+              facebook_name=response.name;
+              facebook_email=response.email;
             }
           });
         }
 
+        function logout(){
+          FB.logout(function(response){
+              console.log(response);
+          });
+        }
 
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -86,8 +128,7 @@
                     <div class="button_container col-sm-12 col-md-4 col-md-offset-8">
                         <!--facebook_login_button-->
                         <div class="col-sm-12 col-md-6 col-md-offset-3">
-                            <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
-                        </fb:login-button>
+                            <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
                         </div>
                 </div>
             </div>
@@ -123,7 +164,6 @@
           <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE&callback=initMap">
           </script>
-        </div>
     </div>
     <div class="shadowBox hidden">
     </div>
