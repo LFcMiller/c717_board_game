@@ -1,11 +1,11 @@
 <?php
 //the whole 'first_name' thing is very misleading on this branch. I know.
-$first_name = $_POST['first_name'];
-$email = $_POST['email'];
-$fb_ID = $_POST['fb_ID'];
+//$first_name = $_POST['first_name'];
+//$email = $_POST['email'];
+//$fb_ID = $_POST['fb_ID'];
 
 //check if we have all the data we need from the client-side
-if (empty($first_name) || empty($email) || empty($fb_ID)){
+if (empty($_POST['first_name']) || empty($_POST['email']) || empty($_POST['fb_ID'])){
     //TODO: make this a little bit cleaner
     $output['errors'][] = 'Missing input:';
     if (empty($first_name))
@@ -14,6 +14,7 @@ if (empty($first_name) || empty($email) || empty($fb_ID)){
         $output['errors'][] = 'email';
     if (empty($fb_ID))
         $output['errors'][] = 'facebook ID';
+    return;
     $output['errors'][] = 'But it\'s ok I\'ll try to add your entry to the database anyway....for now';
 }
 

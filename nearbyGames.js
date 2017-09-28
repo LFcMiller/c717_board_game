@@ -32,7 +32,7 @@ function pullData(){
 
 function applyToEvent(event){
   if(loggedIn){
-    console.log(eventList[$(event.target).attr("index")]);    
+    console.log(eventList[$(event.target).attr("index")]);
     $(".modalText").text("Your application has been submitted!");
     displayModal();
     // $.ajax({

@@ -11,10 +11,11 @@ function sendFacebookData(response){
         email: response.email
       },
       success: function(response){
-        console.log('success',response);
+        console.log('success!',response);
       },
       error: function(response){
-        console.log('errorrrrrrrrrrrrrrrr',response);
+          console.log('errorrrrrrrrrrr:',response)
+
       }
   });
 }
