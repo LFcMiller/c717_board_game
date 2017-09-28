@@ -5,7 +5,7 @@ var facebook_email = '';
 
 function sendFacebookData(response){
   $.ajax({
-      url: './3plus_table_solution/player_input_decision_maker.php',
+      url: './3plus_table_solution/player_input_decision_maker.php?action=relateOrCreateUser',
       method: "POST",
       dataType: "json",
       data: {
