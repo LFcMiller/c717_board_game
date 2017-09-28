@@ -57,10 +57,7 @@
         function testAPI(){
           FB.api('/me?fields=name,email', function(response){
             if(response && !response.error){
-              console.log(response);
-              facebook_id=response.id;
-              facebook_name=response.name;
-              facebook_email=response.email; 
+              console.log(response); 
               sendFacebookData(response);   
                 }
             });
