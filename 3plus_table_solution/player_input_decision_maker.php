@@ -1,7 +1,7 @@
 <?php
-if(empty($_GET['action']/* check if the get superglobal variable 'action' is empty*/)){
-    exit('no action specified');
-}
+//if(empty($_GET['action']/* check if the get superglobal variable 'action' is empty*/)){
+//    exit('no action specified');
+//}
 
 //require the mysql_connect.php file.  Make sure you properly configured it!
 require_once('mysqlConnect.php');
@@ -38,7 +38,7 @@ switch($_GET['action']){
 
 
     default:
-        array_push($output['errors'],'I don\'t even know what action you want the back end to do. (Hint: make sure you specify the \'action\' in the query string of your ajax url.)');
+        array_push($output['errors'],'No action specified. (Hint: make sure you specify the \'action\' in the query string of your ajax url.)');
 }
 
 print(json_encode($output));

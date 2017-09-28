@@ -1,7 +1,7 @@
 <?php
 if(empty($_POST['fb_ID'])){
     $output['errors'][] = 'Missing fb_ID';
-    die();
+    return;
 }
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);

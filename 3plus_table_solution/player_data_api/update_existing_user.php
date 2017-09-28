@@ -1,7 +1,7 @@
 <?php
 if(empty($_POST['fb_ID'])){
     $output['errors'][] = 'missing fb_ID';
-    die();
+    return;
 }
 
 $keys_we_are_looking_for = ['first_name', 'fav_genre', 'about_me'];
@@ -17,7 +17,7 @@ foreach($keys_we_are_looking_for as $key){
 
 if(empty($things_to_update)){
     $output['errors'][] = 'nothing to update';
-    die();
+    return;
 }
 
 $query = "UPDATE `users` SET";
