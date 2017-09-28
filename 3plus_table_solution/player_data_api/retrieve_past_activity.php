@@ -1,7 +1,7 @@
 <?php
 
-if(empty($_POST['fb_ID'])){
-    $output['errors'][] = 'I need to know who to search for! (Hint: make sure the value is \'fb_ID\'';
+if(empty($_POST['user_ID'])){
+    $output['errors'][] = 'missing user_ID';
     return;
 }
 
@@ -16,7 +16,7 @@ SELECT e.`game_name` AS game_name, COUNT(e.`event_ID`) AS frequency
 	JOIN `users_to_events` AS ue ON u.`user_ID`=ue.`player_ID`
 	JOIN `events` AS e ON ue.`event_ID`=e.`event_ID`
 
-	WHERE u.`fb_ID`={$_POST['fb_ID']}
+	WHERE u.`user_ID`={$_POST['user_ID']}
 	AND ue.`role` IN ('host','attendee')
 	AND e.`date`<CURDATE()
 
