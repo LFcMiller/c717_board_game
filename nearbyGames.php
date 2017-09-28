@@ -14,7 +14,28 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <title>Nearby Games</title>
   <link rel="stylesheet" href="style.css">
+
   <script src="facebook_login.js"></script>
+
+    <?php
+    if(isset($_GET['zip'])){
+        $current_zip = $_GET['zip'];
+        ?>
+        <script>
+            var currentZip = <?=$current_zip?>;
+        </script>
+
+        <?php
+
+    } else {
+        ?>
+        <script>
+            var currentZip = null;
+        </script>
+        <?php
+    }
+    ?>
+
   <script src="nearbyGames.js"></script>
 
 </head>
