@@ -1,12 +1,12 @@
 <?php
-if(empty($_POST['fb_ID'])){
-    $output['errors'][] = 'Missing fb_ID';
+if(empty($_POST['user_ID'])){
+    $output['errors'][] = 'Missing user_ID';
     return;
 }
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-$query = "SELECT `first_name`, `fav_genre`, `about_me` FROM `users` WHERE `fb_ID` = '{$_POST['fb_ID']}'";
+$query = "SELECT `first_name`, `fav_genre`, `about_me` FROM `users` WHERE `user_ID` = '{$_POST['user_ID']}'";
 
 $result = null;
 
