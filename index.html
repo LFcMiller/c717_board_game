@@ -73,11 +73,6 @@
           });
         }
 
-            
-            function logout(){
-              FB.logout(function(response){
-              });
-            }
     </script>
 <div class="create_event_background"></div>
     <div class="home_page_body margin_top">
@@ -98,7 +93,8 @@
                 <div class="button_container col-sm-12 col-md-4 col-md-offset-8">
                     <!--facebook_login_button-->
                     <div class="col-sm-12 col-md-12 col-md-offset-2">
-                        <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                        <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
+                        </fb:login-button>
                     </div>
                 </div>
             </div>
