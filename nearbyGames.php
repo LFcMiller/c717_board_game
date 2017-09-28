@@ -78,18 +78,10 @@
             if(response && !response.error){
               console.log(response);
               sendFacebookData(response);
-              facebook_id=response.id;
-              facebook_name=response.name;
-              facebook_email=response.email;
             }
           });
         }
 
-        function logout(){
-          FB.logout(function(response){
-              console.log(response);
-          });
-        }
 
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -128,8 +120,8 @@
                     <div class="button_container col-sm-12 col-md-4 col-md-offset-8">
                         <!--facebook_login_button-->
                         <div class="col-sm-12 col-md-6 col-md-offset-3">
-                            <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
-                        </div>
+                            <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
+                        </fb:login-button>
                 </div>
             </div>
             <!--map and info column for DESK-TOP-->
