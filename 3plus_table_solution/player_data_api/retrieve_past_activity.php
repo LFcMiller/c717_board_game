@@ -2,7 +2,7 @@
 
 if(empty($_POST['fb_ID'])){
     $output['errors'][] = 'I need to know who to search for! (Hint: make sure the value is \'fb_ID\'';
-    die();
+    return;
 }
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
