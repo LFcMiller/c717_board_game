@@ -23,6 +23,7 @@ function pullData(){
       zip: currentZip || testZip
     },
     success: function(response) {
+      console.log("Response: ", response);
       populatePage(response);
       populateMap(response);
     }
