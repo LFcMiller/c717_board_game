@@ -23,6 +23,8 @@ function pullData(){
       zip: currentZip || testZip
     },
     success: function(response) {
+      event_ID = response.data[0].event_ID;
+      console.log("Response: ", response);
       populatePage(response);
       populateMap(response);
     }
@@ -40,7 +42,9 @@ function applyToEvent(event){
       method: "POST",
       dataType: "json",
       data: {
-        user_ID: user_ID
+        user_ID: user_ID,
+        event_ID: event_ID
+
       },
       success: function(response){
         console.log('email has been sent!',response);

@@ -2,7 +2,7 @@
 //include phpmailerautoload.php
 require 'phpmailer/PHPMailer/PHPMailerAutoload.php';
 require 'mailTemplates/apply_mail_template.php';
-require 'mailTemplates/'
+require 'mailTemplates/mail_scripts/apply_script.php';
 
 //create an instance of php mailer
 $mail = new PHPMailer();

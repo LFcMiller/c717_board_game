@@ -153,9 +153,6 @@
                 </form>
             </div>
         </div>
-          <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE&callback=initMap">
-          </script>
     </div>
     <div class="shadowBox hidden">
     </div>
