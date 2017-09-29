@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="nearbyGames.js"></script>
 </head>
-<body class="body_black">
+<body class="container padding_unset col-sm-12 col-md-12 col-lg-12">
         <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -73,59 +73,66 @@
         }(document, 'script', 'facebook-jssdk'));
       </script>
     <div class="create_event_background"></div>
-    <div class="container-fluid padding_unset">
-        <div class="col-md-12">
-            <!--header starts here-->
-            <div class="margin_bottom margin_top col-sm-12 col-md-12">
-                <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
-                    <a href="#home" class="col-md-3">Home</a>
-                    <a href="#about" class="col-md-3">About</a>
-                    <a href="#wordPress" class="col-md-3">WordPress</a>
-                    <a href="#contact" class="col-md-3">Contact</a>
-                </div>
-                <!--title and logo-->
-                <div class="col-md-12">
-                    <div class="hidden-xs hidden-sm visible-md visible-lg col-md-2">
-                        <img class="temp_logo display-inline" src="./imgs/temp logo.png"/>
-                    </div>
-                    <!--mobile title-->
-                    <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-12">
-                        <h3 class="font_lg">Board Game Scout</h3>
-                        <h4 class ="font_md">Meet-up App for Fellow Boarders Near You!</h4>
-                    </div>
-                    <!--desktop title-->
-                    <div class="hidden-sm visible-md visible-lg col-md-8">
-                        <h1 class="font_lg">Board Game Scout</h1>
-                    </div>
-                    <!--button_container-->
-                    <div class="button_container col-sm-12 col-md-4 col-md-offset-8">
-                        <!--facebook_login_button-->
-                        <div class="col-sm-12 col-md-6 col-md-offset-3">
-                            <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
-                        </div>
-                </div>
+    <div class="home_page_body">
+        <!--<div class="margin_bottom col-sm-12 col-md-12">-->
+            <!--Top menu bar-->
+            <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
+                <a href="#home" id="home" class="col-sm-3 col-md-3">Home</a>
+                <a href="#about" id="about"class="col-sm-3 col-md-3">About</a>
+                <a href="#word-press" id="word-press" class="col-sm-3 col-md-3">WordPress</a>
+                <a href="#contact" id="contact" class="col-sm-3 col-md-3">Contact</a>
             </div>
-            <!--map and info column for DESK-TOP-->
-            <div class="info-and-map col-sm-12 col-md-12">
-                <div class="info-column-div col-sm-12 col-md-2">
-                    <div class="gamesContainer column_height col-sm-12 col-md-12">
-                        <h1 class="text-center ">Games Near You:</h1>
-                        <h2>Sorry, there are currently no games in your area.</h2>
-                    </div>
-                </div>
-                    <div class="col-sm-12 col-md-8 " id="map"></div>
-                <div class="info-column-div col-sm-12 col-md-2">
-                    <div class="info-column-div column_height col-sm-12 col-md-12">
-                        <h1 class="text-center ">Games Info:</h1>
-                        <h2>Sorry, there are currently no games in your area.</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--footer-->
-        <div class="footer row col-md-12">
-            <!--paypal_button-->
+            <!--title and logo-->
             <div class="col-sm-12 col-md-12">
+                <div class="hidden-xs hidden-sm visible-md visible-lg col-md-2">
+                    <img class="temp_logo display-inline" src="./imgs/temp logo.png"/>
+                </div>
+                <!--mobile title-->
+                <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-12">
+                    <h1 class="font_lg">Board Game Scout</h1>
+                    <h4 class ="font_rg">Meet-up App for Fellow Boarders Near You!</h4>
+                </div>
+                <!--desktop title-->
+                <div class="hidden-sm visible-md visible-lg col-md-8">
+                    <h1 class="font_lg">Board Game Scout</h1>
+                </div>
+                <!--button_container-->
+                <div class="button_container col-sm-12 col-md-4 col-md-offset-8">
+                    <!--facebook_login_button-->
+                    <div class="col-sm-12 col-md-6 col-md-offset-3">
+                        <div class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                    </div>
+                </div>
+            <!--</div>-->
+                <!--map and info column for DESK-TOP-->
+                <div class="info-and-map col-sm-12 col-md-12">
+                    <div class="info-column-div col-sm-12 col-md-2">
+                        <div class="gamesContainer column_height col-sm-12 col-md-12">
+                            <h1 class="text-center ">Games Near You:</h1>
+                            <h2>Sorry, there are currently no games in your area.</h2>
+                        </div>
+                    </div>
+                        <div class="col-sm-12 col-md-8 " id="map"></div>
+                    <div class="info-column-div col-sm-12 col-md-2">
+                        <div class="info-column-div column_height col-sm-12 col-md-12">
+                            <h1 class="text-center ">Games Info:</h1>
+                            <h2>Sorry, there are currently no games in your area.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE&callback=initMap"></script>
+    </div>
+    <div class="shadowBox hidden">
+    </div>
+    <div class="loginModal hidden">
+        <h1 class="modalText">Filler</h1>
+    </div>
+        <!--footer-->
+        <div class="footer col-sm-12 col-md-12">
+            <!--paypal_button-->
+            <div class="margin_top col-sm-12 col-md-12">
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                     <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
@@ -134,17 +141,6 @@
                 </form>
             </div>
         </div>
-          <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE&callback=initMap">
-          </script>
-    </div>
-    <div class="shadowBox hidden">
-    </div>
-    <div class="loginModal hidden">
-        <h1 class="modalText">Filler</h1>
-    </div>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE&callback=initMap">
-    </script>
+
 </body>
 </html>
