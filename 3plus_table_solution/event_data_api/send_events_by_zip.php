@@ -15,7 +15,7 @@ $result = null;
 $result = mysqli_query($conn, $query);
 
 if(empty($result)){
-    $output['errors'][] = 'database error';
+    $output['errors'][] = 'database error: '.mysqli_error($conn);
 } else {
     if(mysqli_num_rows($result)){
         $output['data'] = [];

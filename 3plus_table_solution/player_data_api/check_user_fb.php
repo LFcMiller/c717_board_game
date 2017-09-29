@@ -20,7 +20,7 @@ $result = mysqli_query($conn, $check_on_user_query);
 
 if(empty($result)){
     $output['errors'][]='database error: '.mysqli_error($conn);
-    $output['errors'][] = 'attempted query: '.$check_on_user_query;
+//    $output['errors'][] = 'attempted query: '.$check_on_user_query;
 } else {
     if(mysqli_num_rows($result)){
         //this is the part where we simply return the id of the existing user

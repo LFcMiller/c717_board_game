@@ -54,7 +54,7 @@ if(empty($result)){
         }
 
     } else {
-        $output['errors'][] = 'update error';
+        $output['errors'][] = 'update error: '.mysqli_error($conn);
     }
 
 }

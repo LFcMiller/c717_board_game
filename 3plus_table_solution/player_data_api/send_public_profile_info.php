@@ -14,6 +14,7 @@ $result = mysqli_query($conn, $query);
 
 if(empty($result)){
     $output['errors'][] = 'database error. It is possible that the user does not have a fb_ID on our records yet.';
+    $output['errors'][] = 'database error: '.mysqli_error($conn);
 } else {
     if(mysqli_affected_rows($conn)){
         //TODO: maybe check if there is more than one matching player (because that would be bad)
