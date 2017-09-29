@@ -31,6 +31,10 @@ switch($_GET['action']){
     case 'newEvent':
         include_once('event_data_api/create_new_event.php');
         break;
+    case 'applyToEvent':
+        include_once('../php_mailer.php');
+        break;
+
 
     default:
         array_push($output['errors'],'I don\'t even know what action you want the back end to do. (Hint: make sure you specify the \'action\' in the query string of your ajax url.)');
