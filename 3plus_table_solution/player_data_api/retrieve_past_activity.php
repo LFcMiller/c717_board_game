@@ -29,7 +29,8 @@ $past_activity_result = null;
 $past_activity_result = mysqli_query($conn, $past_activity_query);
 
 if(empty($past_activity_result)){
-    $output['errors'][] = 'couldn\'t find past activity for this user';
+//    $output['errors'][] = 'couldn\'t find past activity for this user';
+    $output['errors'][] = 'database error: '.mysqli_error($conn);
     //TODO: how can I tell the difference between a database error and a player who hasn't played anything?
 } else {
     //this is the not empty part, where things get done
