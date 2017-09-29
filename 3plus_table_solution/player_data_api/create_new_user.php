@@ -26,7 +26,7 @@ $result = mysqli_query($conn, $new_person_query);
 if(empty($result)){
     //tell the front end
     $output['errors'][] = 'database error: '.mysqli_error($conn);
-    $output['errors'][] = 'attempted query: '.$new_person_query;
+//    $output['errors'][] = 'attempted query: '.$new_person_query;
 } else {
     //make sure 1 row was affected
     if (mysqli_affected_rows($conn)){
