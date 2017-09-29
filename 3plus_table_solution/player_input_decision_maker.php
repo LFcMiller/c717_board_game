@@ -6,12 +6,17 @@
 //require the mysql_connect.php file.  Make sure you properly configured it!
 require_once('mysqlConnect.php');
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
 $output = [
     'success'=> false, //we assume we will fail
     'errors'=>[]
 ];
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn){
+    $output['errors'][] = 'problem connecting to database: '.mysqli_connect_error();
+    die(print(json_encode($output)));
+}
 
 switch($_GET['action']){
     case 'relateOrCreateUser':

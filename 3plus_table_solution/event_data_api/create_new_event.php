@@ -60,7 +60,7 @@ $result = null;
 $result = mysqli_query($conn, $new_event_query);
 
 if(empty($result)){
-    $output['errors'][] = 'database error';
+    $output['errors'][] = 'database error: '.mysqli_error($conn);
     return;
 } else {
     //make sure 1 row was affected
