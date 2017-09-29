@@ -11,6 +11,7 @@ function sendFacebookData(response){
       },
       success: function(response){
         console.log('success!',response);
+        var user_ID = response.data.user_ID;
       },
       error: function(response){
           console.log('errorrrrrrrrrrr:',response)
@@ -18,3 +19,5 @@ function sendFacebookData(response){
       }
   });
 }
+
+

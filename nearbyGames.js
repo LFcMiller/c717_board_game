@@ -35,20 +35,20 @@ function applyToEvent(event){
     console.log(eventList[$(event.target).attr("index")]);
     $(".modalText").text("Your application has been submitted!");
     displayModal();
-    // $.ajax({
-    //   url: 
-    //   method: "POST",
-    //   dataType: "json",
-    //   data: {
-    //     fb_ID: facebook_id,
-    //     email: facebook_email,
-    //     name: facebook_name
-    //   },
-    //   success: function(response){
-    //     console.log(response);
-    //   }
-    // });
-
+    $.ajax({
+      url: "./3plus_table_solution/event_input_decision_maker.php?action=applyToEvent",
+      method: "POST",
+      dataType: "json",
+      data: {
+        user_ID: user_ID
+      },
+      success: function(response){
+        console.log('email has been sent!',response);
+      },
+      error: function(response){
+        console.log('error with email ajax call',response);
+      }
+    })
   } else {
     $(".modalText").text("Not Logged In");
     displayModal();

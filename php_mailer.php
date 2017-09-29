@@ -2,9 +2,7 @@
 //include phpmailerautoload.php
 require 'phpmailer/PHPMailer/PHPMailerAutoload.php';
 require 'mailTemplates/apply_mail_template.php';
-require 'mailTemplates/accepted_mail_template.php';
-require 'mailTemplates/contact_mail_template.php';
-require 'mailTemplates/confirmation_mail_template.php';
+require 'mailTemplates/'
 
 //create an instance of php mailer
 $mail = new PHPMailer();
@@ -34,21 +32,7 @@ $mail->Subject = "Test Email";
 //set html to true
 $mail->isHTML(true);
 
-// set the body
-// switch (//check for query of ajax call) {
-// 	case 0:
-// 		$mail->Body = $apply_body;
-// 		break;
-// 	case 1:
-// 		$mail->Body = $accepted_body;
-// 		break;
-// 	case 2:
-// 		$mail->Body = $confirmation_body;
-// 		break;
-// 	case 3:
-// 		$mail->Body = $contact_body;
-// 		break;
-// }
+//set the body
 $mail->Body = $apply_body;
 
 
