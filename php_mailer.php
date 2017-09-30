@@ -19,8 +19,8 @@ $mail->isSMTP();
 $mail->SMTPAuth = true;
 
 // set login details for gmail account
-$mail->Username = "boardgamedummy@gmail.com";
-$mail->Password = "TempPassword";
+$mail->Username = $hidden_email;
+$mail->Password = $hidden_password;
 
 //set type of protection
 $mail->SMTPSecure = "ssl"; //or we can use TLS
