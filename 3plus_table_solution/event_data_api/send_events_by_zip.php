@@ -1,15 +1,13 @@
 <?php
-$zip = $_POST['zip'];
-
-if(empty($zip)){
-    $output['errors'][] = 'You didn\'t give me a zip code to search by!';
-    die();
+if(empty($_POST['zip'])){
+    $output['errors'][] = 'missing zip code';
+    return;
 }
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 $query =
-    "SELECT `event_ID`, `game_name`, `general_details`, `lat`, `lng`, `date`,`time` FROM `events` WHERE `zip` = '$zip' AND `date` >= CURDATE()";
+    "SELECT `event_ID`, `game_name`, `general_details`, `lat`, `lng`, `date`,`time` FROM `events` WHERE `zip` = '{$_POST['zip']}' AND `date` >= CURDATE()";
 //TODO: also check if the game is full based on number of attendees
 
 $result = null;
@@ -17,7 +15,7 @@ $result = null;
 $result = mysqli_query($conn, $query);
 
 if(empty($result)){
-    $output['errors'][] = 'database error';
+    $output['errors'][] = 'database error: '.mysqli_error($conn);
 } else {
     if(mysqli_num_rows($result)){
         $output['data'] = [];

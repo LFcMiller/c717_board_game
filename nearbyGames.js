@@ -1,8 +1,18 @@
+$(document).ready(()=>{
+  $(".shadowBox").on("click", displayModal);
+  $(".loginModal").on("click", displayModal);
+})
 
+function testFunction(){
+  console.log("test");
+}
 var testZip = "92618";
 var map;
 var markers = [];
+var eventList = [];
 var infowindow;
+var loggedIn = false;
+
 
 function pullData(){
   $.ajax({
@@ -10,9 +20,11 @@ function pullData(){
     method: "POST",
     dataType: "json",
     data: {
-      zip: testZip
+      zip: currentZip || testZip
     },
     success: function(response) {
+      event_ID = response.data[0].event_ID;
+      console.log("Response: ", response);
       populatePage(response);
       populateMap(response);
     }
@@ -20,9 +32,38 @@ function pullData(){
 }
 
 
+function applyToEvent(event){
+  if(loggedIn){
+    console.log(eventList[$(event.target).attr("index")]);
+    $(".modalText").text("Your application has been submitted!");
+    displayModal();
+    $.ajax({
+      url: "./3plus_table_solution/event_input_decision_maker.php?action=applyToEvent",
+      method: "POST",
+      dataType: "json",
+      data: {
+        user_ID: user_ID,
+        event_ID: event_ID
+
+      },
+      success: function(response){
+        console.log('email has been sent!',response);
+      },
+      error: function(response){
+        console.log('error with email ajax call',response);
+      }
+    })
+  } else {
+    $(".modalText").text("Not Logged In");
+    displayModal();
+  }
+}
+
+
 function populatePage(response) {
   if (response.data.length > 0) {
     $(".gamesContainer").html("");
+    eventList = response.data;
     for (var i = 0; i < response.data.length; i++) {
       var gameDiv = $("<div>")
         .addClass("gameName truncate col-xs-3")
@@ -51,8 +92,10 @@ function populatePage(response) {
         .addClass("details col-xs-8")
         .text(response.data[i].general_details);
       var applyButton = $("<button>")
-        .addClass("btn btn-success")
-        .text("Apply");
+        .addClass("btn btn-success apply")
+        .attr("index", i)
+        .text("Apply")
+        .on("click", applyToEvent);;
       var row2 = $("<div>")
         .addClass("row2 hidden")
         .append(detailsDiv, applyButton)
@@ -91,7 +134,7 @@ function resetColors() {
 
 function initMap() {
   $.ajax({
-    url: "http://maps.googleapis.com/maps/api/geocode/json",
+    url: "https://maps.googleapis.com/maps/api/geocode/json",
     method: "GET",
     data: {
       address: testZip
@@ -113,7 +156,7 @@ function initMap() {
 // set of coordinates.
 function populateMap(response) {
   for (var i = 0; i < response.data.length; i++) {
-    var latLng = new google.maps.LatLng(parseFloat(response.data[i].lat),parseFloat(response.data[i].lon));
+    var latLng = new google.maps.LatLng(parseFloat(response.data[i].lat),parseFloat(response.data[i].lng));
     var marker = new google.maps.Circle({
       strokeColor: "#9b10c9",
       strokeOpacity: 0.8,
@@ -129,7 +172,7 @@ function populateMap(response) {
                      `<p style="color:black;"><strong>Time: </strong>${response.data[i].time}</p>`;
     marker.place = {
       lat: parseFloat(response.data[i].lat),
-      lng: parseFloat(response.data[i].lon)
+      lng: parseFloat(response.data[i].lng)
     };
     (function(marker, pos) {
       marker.addListener("click", function() {
@@ -145,4 +188,9 @@ function populateMap(response) {
     })(marker, latLng);
     markers.push(marker);
   }
+}
+
+function displayModal () {
+  $(".shadowBox").toggleClass("hidden");
+  $(".loginModal").toggleClass("hidden");
 }

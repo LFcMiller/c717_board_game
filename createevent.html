@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Global Site Tag (gtag.js) - Google Analytics -->
@@ -6,63 +7,168 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments)};
     gtag('js', new Date());
-
     gtag('config', 'UA-106872964-1');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>create_event</title>
-  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>  
+  <title>Create Event</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
   <script src='createevent.js'></script>
+  <script src="facebook_login.js"></script>
 </head>
-<body>
-  <form onsubmit="sendData()" id="eventCreation">
-    <input type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
-    <select name="numPlayers" id="numPlayers" required>
-      <option value="" disabled selected hidden>Players Desired</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-    </select><br/>   
-    <input type="text" name="address" id="address" placeholder="Street Address" required><br/>
-    <input type="text" name="city" id="city" placeholder="City" required><br/>
-    <input type="text" name="state" id="state" maxlength="2" size="2" placeholder="--" required><br/>
-    <input type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
-    <textarea type="text" name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
-    <!-- <input type="text" name="date" id="date" pattern="(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])" placeholder="YYYY/MM/DD" required><br/> -->
-    <select name="month" id="month" required>
-        <option value="" disabled selected hidden>Month</option>
-        <option value="01">Jan</option>
-        <option value="02">Feb</option>
-        <option value="03">Mar</option>
-        <option value="04">Apr</option>
-        <option value="05">May</option>
-        <option value="06">Jun</option>
-        <option value="07">Jul</option>
-        <option value="08">Aug</option>
-        <option value="09">Sep</option>
-        <option value="10">Oct</option>
-        <option value="11">Nov</option>
-        <option value="12">Dec</option>
-      </select>
-      <input type="text" name="day" id="day" maxlength="2" size="2" pattern="(0[1-9]|[12][0-9]|3[01])" placeholder="DD" required>    
-      <select name="year" id="year" required>
-        <option value="" disabled selected hidden>Year</option>
-        <option value="2017">2017</option>
-        <option value="2018">2018</option>
-      </select><br/>  
-    <input type="text" name="time" id="time" maxlength="5" size="5" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]))" placeholder="HH:MM" required>
-    <select name="dayNight" id="dayNight">
-      <option value="AM">AM</option>
-      <option value="PM">PM</option>
-    </select><br/>
-    <button>SUBMIT FORM</button>
-  </form>
-</body>
+    <body class="columns_body create_event_margin">
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId            : '133764540588384',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v2.10'
+                });
+
+
+                FB.AppEvents.logPageView();
+                FB.getLoginStatus(function(response) {
+                    console.log(response);
+                    statusChangeCallback(response);
+                });
+            };
+
+            function statusChangeCallback(response){
+                if(response.status === 'connected'){
+                    console.log('Logged in and authenticated');
+                    loggedIn=true;
+                    testAPI();
+                }else{
+                    console.log('Not authenticated');
+                    loggedIn=false;
+                }
+            }
+
+            function checkLoginState(){
+                FB.getLoginStatus(function(response) {
+                    statusChangeCallback(response);
+                });
+            }
+
+        function testAPI(){
+          FB.api('/me?fields=name,email', function(response){
+            if(response && !response.error){
+              console.log(response); 
+              sendFacebookData(response);   
+                }
+            });
+            }
+
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <!--background pic with body starts here-->
+        <div class="create_event_background"></div>
+        <div class="body_black columns_body">
+            <!--Top menu bar-->
+            <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
+                <a href="#home" id="home" class="col-sm-3 col-md-3">Home</a>
+                <a href="#about" id="about"class="col-sm-3 col-md-3">About</a>
+                <a href="#blog" id="blog" class="col-sm-3 col-md-3">Blog</a>
+                <a href="#contact" id="contact" class="col-sm-3 col-md-3">Contact</a>
+            </div>
+            <!--title and logo-->
+            <div class="col-sm-12 col-md-12">
+                <div class="col-sm-2 col-md-2">
+                    <img class="temp_logo display-inline" src="./imgs/temp logo.png"/>
+                </div>
+                <!--mobile title-->
+                <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-10">
+                    <h1 class="font_md">Board Game Scout</h1>
+                    <h4 class ="font_rg">Meet-up App for Fellow Boarders Near You!</h4>
+                </div>
+                <!--desktop title-->
+                <div class="hidden-sm visible-md visible-lg col-md-8">
+                    <h1 class="font_lg">Board Game Scout</h1>
+                </div>
+                <!--button_container-->
+                <div class="button_container col-sm-12 col-md-12 col-md-offset-12">
+                    <!--facebook_login_button-->
+                    <div class="col-sm-12 col-md-12 col-md-offset-9">
+                        <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
+                        </fb:login-button>
+                    </div>
+                </div>
+            </div>
+           <!--form starts here-->
+            <div class="event_host_div">
+                <form class="form-group" onsubmit="sendData()" id="eventCreation">
+                    <div class="form-horizontal">
+                        <input class="form-group" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
+                        <select title="playerCount" name="numPlayers" id="numPlayers" required>
+                            <option value="" disabled selected hidden>Players Desired</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select><br/>
+                        <input type="text" name="address" id="address" placeholder="Street Address" required><br/>
+                        <input type="text" name="city" id="city" placeholder="City" required><br/>
+                        <input type="text" name="state" id="state" maxlength="2" size="2" placeholder="--" required><br/>
+                        <input type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
+                        <textarea class="form-group " name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
+                        <select title="month" name="month" id="month" required>
+                            <option value="" disabled selected hidden>Month</option>
+                            <option value="01">Jan</option>
+                            <option value="02">Feb</option>
+                            <option value="03">Mar</option>
+                            <option value="04">Apr</option>
+                            <option value="05">May</option>
+                            <option value="06">Jun</option>
+                            <option value="07">Jul</option>
+                            <option value="08">Aug</option>
+                            <option value="09">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
+                        </select>
+                        <input type="text" name="day" id="day" maxlength="2" size="2" pattern="(0[1-9]|[12][0-9]|3[01])" placeholder="DD" required>
+                        <select title="text" name="year" id="year" required>
+                            <option value="" disabled selected hidden>Year</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                        </select><br/>
+                        <input type="text" name="time" id="time" maxlength="5" size="5" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]))" placeholder="HH:MM" required>
+                        <select title="dayNight" name="dayNight" id="dayNight">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select><br/>
+                        <button class="btn btn-lg btn-primary margin_top">SUBMIT FORM</button>
+                    </div>
+                </form>
+            </div>
+            <!--footer-->
+            <div class="footer col-md-12">
+                <!--paypal_button-->
+                <div class="margin_top col-sm-12 col-md-12">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

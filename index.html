@@ -10,120 +10,130 @@
 
         gtag('config', 'UA-106872964-1');
     </script>
-    <title>game_nyte_home_page</title>
+    <title>Home Page</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="facebook_login.js"></script>
 </head>
-<body class="container-fluid col-sm-12 col-md-12 col-lg-12">
-    <div class="home_page_body">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-            <p class="font_lg hidden-xs hidden-sm">Game Nyte</p>
-            <p class="font_md visible-xs visible-sm">Game Nyte</p>
-            <p class ="font_rg visible-xs visible-sm">Board Game Meet Up App</p>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="XGJ7HXQVM8Z64">
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
+<body class="">
+    <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+            fjs.parentNode.insertBefore(js, fjs);
 
+          }(document, 'script', 'facebook-jssdk'));
+
+        //set up facebook JS SDK 
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId            : '133764540588384',
+              autoLogAppEvents : true,
+              xfbml            : true,
+              version          : 'v2.10'
+            });
+            
+            FB.getLoginStatus(function(response) {
+              console.log(response);
+                statusChangeCallback(response);
+            });
+
+          };
+
+          function statusChangeCallback(response){
+            if(response.status === 'connected'){
+              console.log('Logged in and authenticated');
+              loggedIn=true;
+              testAPI();
+            }else{
+              console.log('Not authenticated');
+              loggedIn=false;
+            }
+          }
+
+            function checkLoginState() {
+              FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+              });
+            }
+
+            function testAPI(){
+              FB.api('/me?fields=name,email', function(response){
+                if(response && !response.error){
+                  console.log(response);
+                  sendFacebookData(response);
+            }
+          });
+        }
+
+    </script>
+<div class="create_event_background"></div>
+    <div class="home_page_body margin_bottom">
+        <!--Top menu bar-->
+        <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
+            <a href="#home" id="home" class="col-sm-3 col-md-3">Home</a>
+            <a href="#about" id="about"class="col-sm-3 col-md-3">About</a>
+            <a href="#blog" id="blog" class="col-sm-3 col-md-3">Blog</a>
+            <a href="#contact" id="contact" class="col-sm-3 col-md-3">Contact</a>
         </div>
-        <!--body column-->
-        <div class="col-sm-12 col-md-12 col-lg-12  columns_body">
-            <!--about column-->
-            <div class = "col-sm-12 col-lg-12 hidden-xs hidden-sm hidden-md about_page">
-                <h2 class = "font_md">About Us</h2>
-                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa esse, expedita fugiat laudantium perspiciatis provident reiciendis reprehenderit similique? Eligendi esse fuga ipsa iusto nesciunt quam quasi qui quisquam temporibus voluptates?</h3>
+        <!--title and logo-->
+        <div class="col-md-12">
+            <div class="hidden-xs hidden-sm visible-md visible-lg col-md-2">
+                <img class="temp_logo display-inline" src="./imgs/temp logo.png"/>
             </div>
-            <h4 class="font_reg">Welcome to BoardGameNyte! Find others looking to play games near you!</h4>
-            <!--sign-up page column-->
-            <div class = "col-sm-12 col-md-12 col-lg-12 about_page sign_up">
-                <!--sign-up page column ipad and desktop only-->
-                <div class="hidden-sm hidden-xs col-md-6 col-lg-6">
-                    <div class = "col-md-12 col-lg-12 sign_up">
-                        <div class = "col-md-12 col-lg-12 about_page title sign-up">
-                            <h3>Sign Up</h3>
-                            <div class = "col-md-12 blue google-login">Google Login</div>
-                            <div class = "col-md-12 blue facebook-login">Facebook Login</div>
-                        </div>
-                    </div>
-                </div>
-                <!--this login sheet is for the mobile version of sign up-->
-                <div class = "hidden-md hidden-lg title sign-up">
-                    <h3>Sign Up</h3>
-                    <div class = "col-md-12 blue google-login">Google Login</div>
-                    <div class = "col-md-12 blue facebook-login">Facebook Login</div>
-                </div>
-        <!--sign-up form -->
-                <div class = "col-sm-12 col-md-6 col-lg-6 container title title_box info-input">
-                    <form class = "col-md-12 col-lg-12">
-                        <div class = "form-group row">
-                            <label class="form-inline" for="exampleInputEmail1">Email:</label>
-                            <input type = "email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                        </div>
-                        <div class = "form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> I Agree to sell my soul to the board(loljk)
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-danger">Sign Up</button>
-                    </form>
+            <!--mobile title-->
+            <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-12">
+                <h1 class="font_lg">Board Game Scout</h1>
+                <h4 class ="font_rg">Meet-up App for Fellow Boarders Near You!</h4>
+            </div>
+            <!--desktop title-->
+            <div class="hidden-sm visible-md visible-lg col-md-8">
+                <h1 class="font_lg">Board Game Scout</h1>
+            </div>
+            <!--button_container-->
+            <div class="button_container col-sm-12 col-md-12 col-md-offset-12">
+                <!--facebook_login_button-->
+                <div class="col-sm-12 col-md-3 col-md-offset-9">
+                    <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
+                    </fb:login-button>
                 </div>
             </div>
-        <!--map api spot column-->
-            <div class="form-inline col-sm-12 col-md-12 col-lg-12">
-                <div class="row col-sm-12 col-md-12 col-lg-12">
-                    <label class="col-sm-6 col-sm-offset-3 col-md-6 col-lg-6">Search for Players:</label>
-                    <input type="number" class="form-control col-sm-6 col-sm-offset-3 col-md-6 col-lg-6 col-lg-offset-3" id="exampleInputZipCode" placeholder="ZIPCODE"/>
-                </div>
-            <!--future location of google api-->
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <img src="./sample_img/sampleMap.JPG" class="hidden-xs hidden-sm">
-                    <img src="./sample_img/sampleMap.JPG" class="col-sm-12 col-xs-12 visible-xs visible-sm">
+        </div>
+        <!--about body column-->
+        <div class = "margin_top margin_bottom about_page col-sm-12 col-md-12 hidden-xs hidden-sm">
+                <h4 class="font_rg">Welcome to Board Game Scout! Find interesting board games and others looking to play with you!</h4>
+        </div>
+        <div class="margin_bottom col-sm-12 col-md-12">
+            <!--find games near you column-->
+            <div class="index-boxes form-group col-sm-12 col-md-6">
+                <label class="col-sm-12 col-md-12 col-lg-12">Search:</label>
+                <div class=" col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
+                    <input type="number" class="form-control" id="exampleInputZipCode" placeholder="ZIPCODE"/>
+                    <a href="nearbyGames.php" class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3 btn btn-md btn-primary">Find Games Near You</a>
                 </div>
             </div>
-            <!--this is Contact Us Form-->
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <form class="form-inline ">
-                    <p>Any issues or great things yous experienced in our app please let us know down here.</p>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Category
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Bug Report</a></li>
-                                <li><a href="#">Player Report</a></li>s
-                                <li><a href="#">Customer Service</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Other</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="">
-                            <label>Name :</label>
-                            <input type="text" class="form-control" placeholder="Full name"/>
-                        </div>
-                        <div class="">
-                            <label>Email :</label>
-                            <input type="email" class="form-control" placeholder="youremail@email.com"/>
-                        </div>
-                        <div class="">
-                            <label>Message :</label>
-                            <textarea class="form-control" placeholder="Message us" aria-describedby="basic-addon1"></textarea>
-                        </div>
-                    </div>
+            <!--host a game near you -->
+            <div class="col-sm-12 col-md-6">
+                <h4>Assemble your fellows!</h4>
+                <a href="createevent.html" class="btn btn-lg btn-warning">Host Game Event</a>
+            </div>
+        </div>
+        <!--footer-->
+        <div class="footer col-md-12">
+            <!--paypal_button-->
+            <div class=" margin_top col-sm-12 col-md-12">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                 </form>
             </div>
         </div>
