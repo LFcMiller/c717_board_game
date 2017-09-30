@@ -103,8 +103,8 @@ div {
 }
 
 .columns_body{
-  width: 100vw;
-  height:100vh;
+  width: 99vw;
+  height:99vh;
 }
 
 .temp_logo {
@@ -165,6 +165,7 @@ form{
   .topnav {
     margin: 0px 0px 0px 0px;
     font-size: xx-large;
+
   }
 
 }
@@ -195,16 +196,17 @@ form{
 /*this is the end of Soy's index.html css*/
 /******************************************************************/
 /*This is the beginning of Soy's contact us page*/
-
-.contact_form_div {
-  width:50%;
-  height:50%;
-  color: white;
-  border-radius:25px;
-  background-color: rgba(0,0,0,.6);
-  margin: 10px 0px 5px 0px;
-  padding: 5px 0px 10px 5px;
-  transform: translateX(50%);
+@media(min-width: 767px) {
+  .contact_form_div {
+    width: 50%;
+    height: 50%;
+    color: white;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, .6);
+    margin: 10px 0 5px 0;
+    padding: 5px 0 10px 5px;
+    transform: translateX(50%);
+  }
 }
 
 @media(max-width: 767px){
@@ -213,14 +215,21 @@ form{
     width:100%;
     color: white;
     border-radius:25px;
-    background-color: black;
-    margin: 10px 0px 5px 0px;
-    padding: 5px 0px 10px 5px;
+    background-color: rgba(0,0,0,.6);
+    margin: 10px 5px 10px 5px;
+    padding: 0;
     transform: translateX(0%);
+  }
+  .contact_form{
+    display: table-caption;
+    transform: translateX(26%);
   }
 }
 
-
+/*footer > button, input, select, textarea {*/
+  /*height : 28%;*/
+  /*width:23%;*/
+/*}*/
 
 
 /******************************************************************/
@@ -330,6 +339,10 @@ form{
   }
 }
 
+.title_scroll {
+  overflow: scroll;
+}
+
 .max-width{
   max-width:inherit;
 }
@@ -436,6 +449,12 @@ form{
   height: 30vh;
 }
 
+@media(min-width: 768px){
+  .profile_info_div {
+    height: auto;
+  }
+}
+
 .profile-form {
   height:inherit;
 }
@@ -448,6 +467,8 @@ form{
 .profile-form > input {
   padding: 2px 0px 2px 0px;
 }
+
+
 /******************************************************************/
 
 

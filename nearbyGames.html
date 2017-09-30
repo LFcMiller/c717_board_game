@@ -10,13 +10,16 @@
     gtag('config', 'UA-106872964-1');
   </script>
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>      
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <title>Nearby Games</title>
-  <link rel="stylesheet" href="style.css">
   <script src="nearbyGames.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="nearby-display padding_unset col-sm-12 col-md-12 col-lg-12">
+<body class="nearby-display padding_unset">
         <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -73,7 +76,7 @@
         }(document, 'script', 'facebook-jssdk'));
       </script>
     <div class="create_event_background"></div>
-    <div class="col-sm-12 col-md-12">
+    <div class="col-sm-12 col-md-12 columns_body">
         <div class="col-sm-12 col-md-12">
             <!--Top menu bar-->
             <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
@@ -83,12 +86,12 @@
                 <a href="#contact" id="contact" class="col-sm-3 col-md-3">Contact</a>
             </div>
             <!--title and logo-->
-            <div class="col-sm-12 col-md-12">
-                <div class="hidden-xs hidden-sm visible-md visible-lg col-md-2">
+            <div class="title_scroll col-sm-12 col-md-12">
+                <div class="col-sm-2 col-md-2">
                     <img class="temp_logo display-inline" src="./imgs/temp logo.png"/>
                 </div>
                 <!--mobile title-->
-                <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-12">
+                <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-10">
                     <h1 class="font_lg">Board Game Scout</h1>
                     <h4 class ="font_rg">Meet-up App for Fellow Boarders Near You!</h4>
                 </div>
