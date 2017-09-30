@@ -3,9 +3,6 @@ $(document).ready(()=>{
   $(".loginModal").on("click", displayModal);
 })
 
-function testFunction(){
-  console.log("test");
-}
 var testZip = "92618";
 var map;
 var markers = [];
@@ -23,7 +20,6 @@ function pullData(){
       zip: currentZip || testZip
     },
     success: function(response) {
-      event_ID = response.data[0].event_ID;
       console.log("Response: ", response);
       populatePage(response);
       populateMap(response);
@@ -43,7 +39,7 @@ function applyToEvent(event){
       dataType: "json",
       data: {
         user_ID: user_ID,
-        event_ID: event_ID
+        event_ID: eventList[$(event.target).attr("index")].event_ID
 
       },
       success: function(response){

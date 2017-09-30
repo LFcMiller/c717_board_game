@@ -56,11 +56,11 @@
             }
 
         function testAPI(){
-          FB.api('/me?fields=name,email', function(response){
-            if(response && !response.error){
-              console.log(response); 
-              sendFacebookData(response);   
-                }
+              FB.api('/me?fields=name,email,picture.width(800).height(800)', function(response){
+                if(response && !response.error){
+                  console.log(response);
+                  sendFacebookData(response);
+            }
             });
             }
 
@@ -101,14 +101,14 @@
                 <div class="button_container col-sm-12 col-md-12 col-md-offset-12">
                     <!--facebook_login_button-->
                     <div class="col-sm-12 col-md-12 col-md-offset-9">
-                        <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
+                        <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email,picture" onlogin="checkLoginState();">
                         </fb:login-button>
                     </div>
                 </div>
             </div>
            <!--form starts here-->
             <div class="event_host_div">
-                <form class="form-group" onsubmit="sendData()" id="eventCreation">
+                <form class="form-group" onsubmit="sendData();" id="eventCreation">
                     <div class="form-horizontal">
                         <input class="form-group" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
                         <select title="playerCount" name="numPlayers" id="numPlayers" required>
@@ -124,7 +124,7 @@
                         </select><br/>
                         <input type="text" name="address" id="address" placeholder="Street Address" required><br/>
                         <input type="text" name="city" id="city" placeholder="City" required><br/>
-                        <input type="text" name="state" id="state" maxlength="2" size="2" placeholder="--" required><br/>
+                        <input type="text" name="state" id="state" maxlength="2" size="2" placeholder="State" required><br/>
                         <input type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
                         <textarea class="form-group " name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
                         <select title="month" name="month" id="month" required>
@@ -157,6 +157,7 @@
                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#mySubmitEventModal">Submit Form</button>
                     </div>
                 </form>
+                <h3 class="text-center" id="submitResponse"></h3>
             </div>
             <!--footer-->
             <div class="footer col-md-12">
