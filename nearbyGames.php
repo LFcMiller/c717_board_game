@@ -74,10 +74,10 @@
         }
 
         function testAPI(){
-          FB.api('/me?fields=name,email', function(response){
-            if(response && !response.error){
-              console.log(response);
-              sendFacebookData(response);
+              FB.api('/me?fields=name,email,picture.width(800).height(800)', function(response){
+                if(response && !response.error){
+                  console.log(response);
+                  sendFacebookData(response);
             }
           });
         }
@@ -120,7 +120,7 @@
                     <div class="button_container col-sm-12 col-md-4 col-md-offset-8">
                         <!--facebook_login_button-->
                         <div class="col-sm-12 col-md-6 col-md-offset-3">
-                            <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
+                            <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email,picture" onlogin="checkLoginState();">
                         </fb:login-button>
                 </div>
             </div>
