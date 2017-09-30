@@ -108,7 +108,7 @@
             </div>
            <!--form starts here-->
             <div class="event_host_div">
-                <form class="form-group" onsubmit="sendData()" id="eventCreation">
+                <form class="form-group" onsubmit="sendData();" id="eventCreation">
                     <div class="form-horizontal">
                         <input class="form-group" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
                         <select title="playerCount" name="numPlayers" id="numPlayers" required>
@@ -124,7 +124,7 @@
                         </select><br/>
                         <input type="text" name="address" id="address" placeholder="Street Address" required><br/>
                         <input type="text" name="city" id="city" placeholder="City" required><br/>
-                        <input type="text" name="state" id="state" maxlength="2" size="2" placeholder="--" required><br/>
+                        <input type="text" name="state" id="state" maxlength="2" size="2" placeholder="State" required><br/>
                         <input type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
                         <textarea class="form-group " name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
                         <select title="month" name="month" id="month" required>
@@ -153,9 +153,11 @@
                             <option value="AM">AM</option>
                             <option value="PM">PM</option>
                         </select><br/>
-                        <button class="btn btn-lg btn-primary margin_top">SUBMIT FORM</button>
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#mySubmitEventModal">Submit Form</button>
                     </div>
                 </form>
+                <h3 class="text-center" id="submitResponse"></h3>
             </div>
             <!--footer-->
             <div class="footer col-md-12">
@@ -168,6 +170,25 @@
                         <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                     </form>
+
+                </div>
+            </div>
+            <!--Submit Event Modals-->
+            <div id="mySubmitEventModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Event Creation Submitted</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Thank You for submitting your event. An email confirmation will arrive shortly.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
 
                 </div>
             </div>

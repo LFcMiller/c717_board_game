@@ -1,5 +1,5 @@
 <?php
-$output['debugging_messages'][]='In php mailer (the file, not the concept)';
+$output['debugging_messages'][]='In php_mailer.php';
 //include phpmailerautoload.php
 require 'phpmailer/PHPMailer/PHPMailerAutoload.php';
 require_once 'php_mailer_connect.php';
