@@ -42,4 +42,5 @@ if($result){
 		}
 	}
 }
+json_encode($result);
 ?>
