@@ -343,6 +343,7 @@ form{
   overflow: scroll;
 }
 
+
 .max-width{
   max-width:inherit;
 }
@@ -405,7 +406,7 @@ form{
 
 /*nearby games, player, desktop*/
 
-@media (min-height: 550px) {
+@media (min-height: 650px) {
   .button_container2 {
     position: absolute;
     transform: translateX(120%);
@@ -414,10 +415,10 @@ form{
 }
 
 /*nearby games, player , mobile*/
-@media (min-height: 900px) {
+@media (min-height: 315px) {
   .button_container2 {
     position: relative;
-    transform: translate(33%,0%);
+    transform: translate(0%);
     margin: 2%;
   }
 }
@@ -437,9 +438,6 @@ form{
   background-color: rgba(0, 160, 210, .7);
   color: black;
 }
-.profile-display{
-  display: -webkit-box;
-}
 
 .div_padding {
   padding: 10px 5px 10px 5px;
@@ -447,6 +445,7 @@ form{
 
 .profile_info_div {
   height: 30vh;
+  margin: 10px 0px 10px 0px;
 }
 
 @media(min-width: 768px){
@@ -455,9 +454,9 @@ form{
   }
 }
 
-.profile-form {
-  height:inherit;
-}
+/*.profile-form {*/
+  /*height:inherit;*/
+/*}*/
 
 .profile-form > span {
   padding: 2px 0px 2px 0px;
