@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
       <!-- Global Site Tag (gtag.js) - Google Analytics -->
@@ -9,14 +10,95 @@
 
             gtag('config', 'UA-106872964-1');
       </script>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-            <title>Player Profile</title>
-            <link rel="stylesheet" href="style.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="facebook_login.js"></script>
+        <title>Player Profile</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <!--profile page input editor script-->
+        <script>
+            $(document).ready(function(){
+                pullUserData().then(()=>{setValues()})
+                $(".submitChanges").on("click", submitData)
+                $(".editInfo").on("click", toggleHidden)
+            })
+
+            var response = {
+                first_name: "Jeff",
+                fav_genre: "Party",
+                about_me: "I have been playing board games forever. I am a total nerd.",
+                past_games: [
+                    {'Monopoly': 4},
+                    {'Sorry': 2},
+                    {'Settlers of Catan': 6}
+                ]
+            }
+
+            function pullUserData(){
+                var deferred = $.Deferred();
+                $.ajax({
+                    url: "./3plus_table_solution/player_input_decision_maker.php?action=retrievePublicProfile",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        fb_ID: 12345
+                    },
+                    success: deferred.resolve,
+                })
+                return deferred;
+            }
+
+            function updateUserData(){
+                var deferred = $.Deferred();
+                $.ajax({
+                    url: "./3plus_table_solution/player_input_decision_maker.php?action=updateProfile",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        fb_ID: 12345,
+                        first_name: $("#first_name").val(),
+                        fav_genre: $("#fav_genre").val(),
+                        about_me: $("#about_me").val()
+                    },
+                    success: deferred.resolve,
+                })
+                return deferred;
+            }
+
+
+
+            function submitData(){
+                updateUserData().then(()=>{
+                    setValues();
+                    toggleHidden();
+                })
+
+            }
+
+            function toggleHidden(){
+                $("#personalInfo > p > *").toggleClass("hidden");
+                $("#personalInfo > button").toggleClass("hidden");
+            }
+
+            function setValues(response){
+                $(".name").text(response.first_name);
+                $("#first_name").attr("value", response.first_name);
+                $(".genre").text(response.fav_genre);
+                $("#fav_genre option[value="+response.fav_genre+"]").attr('selected','selected');
+                $(".about").text(response.about_me);
+                $("#about_me").text(response.about_me);
+            }
+        </script>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
     </head>
-    <body>
+    <body class="columns_body create_event_margin ">
         <script>
             window.fbAsyncInit = function() {
                 FB.init({
@@ -70,93 +152,126 @@
         </script>
         <!--background image div-->
         <div class="create_event_background"></div>
-        <div class="container-fluid">
-            <!--header starts here-->
-            <div class="margin_bottom margin_top col-md-12 col-sm-12">
-                <!--top nav-->
-                <div class="topnav col-sm-12 col-md-12" id="myTopnav">
-                    <a href="#home" class="col-md-3">Home</a>
-                    <a href="#about" class="col-md-3">About</a>
-                    <a href="#wordPress" class="col-md-3">WordPress</a>
-                    <a href="#contact" class="col-md-3">Contact</a>
+        <div class="col-sm-12 col-md-12">
+            <!--Top menu bar-->
+            <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
+                <a href="#home" id="home" class="col-sm-3 col-md-3">Home</a>
+                <a href="#about" id="about"class="col-sm-3 col-md-3">About</a>
+                <a href="#word-press" id="word-press" class="col-sm-3 col-md-3">WordPress</a>
+                <a href="#contact" id="contact" class="col-sm-3 col-md-3">Contact</a>
+            </div>
+            <!--title and logo-->
+            <div class="col-sm-12 col-md-12">
+                <div class="col-sm-2 col-md-2">
+                    <img class="temp_logo display-inline" src="./imgs/temp logo.png"/>
                 </div>
-                <!--title for desktop-->
-                <div class="hidden-xs hidden-sm col-md-12">
-                    <img class="temp_logo col-sm-1 col-md-2 display-inline" src="./imgs/temp logo.png"/>
-                    <h1 class="font_lg col-md-10">Board Game Scout</h1>
+                <!--mobile title-->
+                <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-10">
+                    <h1 class="font_md">Board Game Scout</h1>
                 </div>
-                <!--title for mobile-->
-                <div class="hidden-md hidden-lg col-sm-12">
-                    <h3 class="font_rg col-xs-10">Board Game Scout</h3>
-                    <h4 class ="font_rg col-xs-12">Meet-up App for Fellow Boarders Near You!</h4>
+                <!--desktop title-->
+                <div class="hidden-sm visible-md visible-lg col-md-8">
+                    <h1 class="font_lg">Board Game Scout</h1>
                 </div>
-                <!--facebook_login_button-->
-                <div class="button_container col-sm-12 col-md-4 col-md-offset-8">
-                    <div class="col-sm-12 col-md-12 col-md-offset-2">
+                <!--button_container-->
+                <div class="button_container2 col-sm-12 col-md-12 col-md-offset-12">
+                    <!--facebook_login_button-->
+                    <div class="col-sm-12 col-md-12 col-md-offset-9">
                         <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
                         </fb:login-button>
                     </div>
                 </div>
             </div>
             <!--profile body-->
-            <div class="row col-sm-12">
+            <div class="col-sm-12 col-md-12">
                 <!--Profile-->
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-md-8">
+                    <h1 class="text-center col-sm-6 col-sm-offset-3 col-md-12">Player Profile</h1>
+                    <div class="col-sm-12 col-md-5">
+                        <img class="col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0" src="https://orig14.deviantart.net/919c/f/2011/359/9/0/profile_picture_by_aqsmorningview_stock-d4k81jt.jpg" alt="">
+                    </div>
+                    <!--Picture, Name, About INPUT-->
+                    <div id="personalInfo" class="tableB profile_info_div col-sm-12 col-md-7">
+                        <p>Name:
+                            <span class="name"></span>
+                            <input type="text" name="first_name" id="first_name" class="hidden" maxlength="30" size="10" placeholder=""><br/>
+                        </p>
+                        <p>Favorite Game Genre:
+                            <span class="genre"></span>
+                            <select name="fav_genre" id="fav_genre" class="hidden">
+                                <option value="Family">Family (Monopoly, Risk, Sorry)</option>
+                                <option value="Dexterity">Dexterity (Jenga, Operation, Twister)</option>
+                                <option value="Party">Party (Pictionary, Cards Against Humanity)</option>
+                                <option value="Abstract">Abstract (Chess, Blokus, YINSH)</option>
+                                <option value="Thematic">Thematic (Dune, Twilight Imperium)</option>
+                                <option value="Eurogames">Eurogames (Catan, Power Grid, Caylus)</option>
+                                <option value="Wargames">Wargames (Paths of Glory, Armada, Empires In Arms)</option>
+                            </select><br/>
+                        </p>
+                        <p>About Me:
+                            <span class="about"></span>
+                            <textarea type="text" name="about_me" id="about_me" class="hidden" placeholder=""></textarea><br/>
+                        </p>
+                        <button class="submitChanges hidden">Submit</button>
+                    </div>
+                    <button class="editInfo">Edit</button>
+                    <!--<div class="tableB profile_info_div col-sm-12 col-md-7">-->
+                        <!--<form class="form-group">-->
+                            <!--<span>Name:</span>-->
+                            <!--<input type="text" class="col-sm-10 col-md-10" placeholder="Full Name"/>-->
+                            <!--<span class="col-md-2">About:</span>-->
+                            <!--<input type="text" class="col-sm-10 col-md-10" placeholder="Tell Us About Yourself"/>-->
+                            <!--<span class="col-md-2">Favorite Genre:</span>-->
+                            <!--<input type="text" class="col-sm-10 col-md-10" placeholder="Favorite Genre of Games"/>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                </div>
+                <!--Games Chart-->
+                <div class="col-sm-12 col-md-4 margin_top">
+                    <h1 class="text-left col-md-12">Games Played</h1>
+                    <!--Games Played-->
                     <div class="col-sm-12 col-md-12">
-                        <h1 class="text-left">Player Profile</h1>
+                        <table class="table table-hover text-left">
+                            <thead>
+                                <tr>
+                                    <th>Game Name</th>
+                                    <th>Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Settlers of Catan</td>
+                                    <td>55</td>
+                                </tr>
+                                <tr>
+                                    <td>Charades</td>
+                                    <td>Countless</td>
+                                </tr>
+                                <tr>
+                                </tr>
+                                    <td>Monopoly FTW!!</td>
+                                    <td>9000++</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <!--Picture, Name, About -->
-                    <div class="row col-sm-12 col-md-12">
-                        <div class="col-md-6">
-                            <img class="col-md-12" src="https://orig14.deviantart.net/919c/f/2011/359/9/0/profile_picture_by_aqsmorningview_stock-d4k81jt.jpg" alt="">
-                        </div>
-                        <div class="col-md-12 ">
-                            <h4 class="col-md-1">Name:</h4><br>
-                            <h4 class="col-md-1">Favorite Game Genre:</h4><br>
-                            <h4 class="col-md-1">About </h4><br>
-                            <h4></h4>
-                            <h4></h4>
-                        </div>
-                    </div>
+                    <!--Bargraph of the games played-->
                 </div>
-                <!--Games Played-->
-                <div class="row col-sm-12 col-md-6">
-                    <div class="col-sm-12 col-md-6 text-center">
-                        <h3 class="title">Games Played</h3>
+                <!--footer-->
+                <div class="footer padding_unset col-md-12">
+                    <!--paypal_button-->
+                    <div class="margin_top col-sm-12 col-md-12">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form>
                     </div>
-                    <div class="col-md-6">
-                        <ul class="list-style-none">
-                            <li>
-                                Aenean sit amet erat nunc
-                            </li>
-                            <li>
-                                Eget porttitor lorem
-                            </li>
-                            <li>
-                                Lorem ipsum dolor sit amet
-                            </li>
-                            <li>
-                                Consectetur adipiscing elit
-                            </li>
-                            <li>
-                                Integer molestie lorem at massa
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--footer-->
-            <div class="footer col-md-12">
-                <!--paypal_button-->
-                <div class="col-sm-12 col-md-12">
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                    </form>
                 </div>
             </div>
         </div>
+        <!--<div class="create_event_background"></div>-->
+
     </body>
 </html>
