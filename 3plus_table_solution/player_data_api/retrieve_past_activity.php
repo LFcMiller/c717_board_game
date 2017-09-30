@@ -26,6 +26,8 @@ SELECT e.`game_name` AS game_name, COUNT(e.`event_ID`) AS frequency
 
 $past_activity_result = null;
 
+$output['data']['past_games'] = [];
+
 $past_activity_result = mysqli_query($conn, $past_activity_query);
 
 if(empty($past_activity_result)){
@@ -35,7 +37,8 @@ if(empty($past_activity_result)){
 } else {
     //this is the not empty part, where things get done
     if(mysqli_num_rows($past_activity_result)){
-        $output['data']['past_games'] = [];
+        //I made this key above. It needs to be there even and empty even if there is no past activity data
+//        $output['data']['past_games'] = [];
 
         while($row = mysqli_fetch_assoc($past_activity_result)){
             $output['data']['past_games'][] = $row;
