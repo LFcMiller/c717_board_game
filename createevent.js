@@ -1,8 +1,14 @@
+$(document).ready(()=>{
+    $(".shadowBox").on("click", displayModal);
+    $(".loginModal").on("click", displayModal);
+});
+
 var loggedIn = false;
 
 
 function sendData(){
   event.preventDefault();
+  displayModal();
   if(loggedIn){
     var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val()
     getLatLong(address).then(getCrossStreets).then(handleSuccess);
@@ -67,4 +73,9 @@ function handleSuccess(response) {
         console.log(errorString);
     }
   });
+}
+
+function displayModal () {
+    $(".shadowBox").toggleClass("hidden");
+    $(".loginModal").toggleClass("hidden");
 }
