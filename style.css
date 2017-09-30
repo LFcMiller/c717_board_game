@@ -241,6 +241,8 @@ form{
   height:100%;
   opacity:0.2;
   background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .create_event_margin{
@@ -417,7 +419,7 @@ form{
 /*nearby games, player , mobile*/
 @media (min-height: 315px) {
   .button_container2 {
-    position: relative;
+    position: absolute;
     transform: translate(0%);
     margin: 2%;
   }
