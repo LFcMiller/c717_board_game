@@ -20,7 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="facebook_login.js"></script>
 </head>
-<body class="container padding_unset col-sm-12 col-md-12 col-lg-12">
+<body class="">
     <div id="fb-root"></div>
       <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -75,62 +75,60 @@
 
     </script>
 <div class="create_event_background"></div>
-    <div class="home_page_body margin_top">
-        <div class="topnav margin_bottom row col-sm-12 col-md-12" id="myTopnav">
-            <a href="#home" class="col-md-3">Home</a>
-            <a href="#about" class="col-md-3">About</a>
-            <a href="#wordPress" class="col-md-3">WordPress</a>
-            <a href="#contact" class="col-md-3">Contact</a>
+    <div class="home_page_body margin_bottom">
+        <!--Top menu bar-->
+        <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
+            <a href="#home" id="home" class="col-sm-3 col-md-3">Home</a>
+            <a href="#about" id="about"class="col-sm-3 col-md-3">About</a>
+            <a href="#word-press" id="word-press" class="col-sm-3 col-md-3">WordPress</a>
+            <a href="#contact" id="contact" class="col-sm-3 col-md-3">Contact</a>
         </div>
-       <!--header-->
-        <header class=" row col-sm-12 col-md-12 col-md-12">
-            <div class="about_page col-md-12 col-sm-12">
-                <img class="temp_logo hidden-xs col-md-1 display-inline" src="./imgs/temp logo.png"/>
-                <h1 class="font_lg hidden-xs col-md-8 ">Board Game Scout</h1>
-                <h3 class="font_rg visible-xs hidden-md col-sm-10">Board Game Scout</h3>
-                <h4 class ="font_rg visible-xs hidden-md col-sm-12">Meet-up App for Fellow Boarders Near You!</h4>
-                <!--button_container-->
-                <div class="button_container col-sm-12 col-md-4 col-md-offset-8">
-                    <!--facebook_login_button-->
-                    <div class="col-sm-12 col-md-12 col-md-offset-2">
-                        <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
-                        </fb:login-button>
-                    </div>
+        <!--title and logo-->
+        <div class="col-md-12">
+            <div class="hidden-xs hidden-sm visible-md visible-lg col-md-2">
+                <img class="temp_logo display-inline" src="./imgs/temp logo.png"/>
+            </div>
+            <!--mobile title-->
+            <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-12">
+                <h1 class="font_lg">Board Game Scout</h1>
+                <h4 class ="font_rg">Meet-up App for Fellow Boarders Near You!</h4>
+            </div>
+            <!--desktop title-->
+            <div class="hidden-sm visible-md visible-lg col-md-8">
+                <h1 class="font_lg">Board Game Scout</h1>
+            </div>
+            <!--button_container-->
+            <div class="button_container col-sm-12 col-md-12 col-md-offset-12">
+                <!--facebook_login_button-->
+                <div class="col-sm-12 col-md-12 col-md-offset-9">
+                    <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
+                    </fb:login-button>
                 </div>
             </div>
-        </header>
+        </div>
         <!--about body column-->
-        <div class = "container margin_top col-sm-12 col-md-12 hidden-xs hidden-sm about_page">
+        <div class = "margin_top margin_bottom about_page col-sm-12 col-md-12 hidden-xs hidden-sm">
                 <h4 class="font_rg">Welcome to Board Game Scout! Find interesting board games and others looking to play with you!</h4>
         </div>
         <div class="margin_bottom col-sm-12 col-md-12">
             <!--find games near you column-->
-
-
-            <!--<div class="col-sm-6 col-md-6">-->
-                <!--<label class="margin_bottom col-sm-12 col-md-12 col-lg-12">Search:</label>-->
-                <!--<div class="col-sm-12 col-md-6 col-md-offset-3">-->
-                    <!--<input type="number" class="form-control margin_bottom " id="exampleInputZipCode" placeholder="ZIPCODE"/>-->
-                    <!--<a href="nearbyGames.html" class="col-sm-12 col-md-6 col-md-offset-3 btn btn-lg btn-primary">Join A Game</a>-->
-
-            <div class="index-boxes form-group col-sm-12 col-md-12 col-lg-12">
+            <div class="index-boxes form-group col-sm-12 col-md-6">
                 <label class="col-sm-12 col-md-12 col-lg-12">Search:</label>
                 <div class=" col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
                     <input type="number" class="form-control" id="exampleInputZipCode" placeholder="ZIPCODE"/>
                     <a href="nearbyGames.php" class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3 btn btn-md btn-primary">Find Games Near You</a>
-
                 </div>
             </div>
             <!--host a game near you -->
-            <div class="col-sm-6 col-md-6">
+            <div class="col-sm-12 col-md-6">
                 <h4>Assemble your fellows!</h4>
                 <a href="createevent.html" class="btn btn-lg btn-warning">Host Game Event</a>
             </div>
         </div>
         <!--footer-->
-        <div class="footer row col-md-12">
+        <div class="footer col-md-12">
             <!--paypal_button-->
-            <div class="col-sm-12 col-md-12">
+            <div class=" margin_top col-sm-12 col-md-12">
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                     <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="hosted_button_id"  value="XGJ7HXQVM8Z64">
