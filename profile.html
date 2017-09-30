@@ -18,6 +18,85 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        //profile page input editor script
+        <script>
+            $(document).ready(function(){
+                pullUserData().then(()=>{setValues()})
+                $(".submitChanges").on("click", submitData)
+                $(".editInfo").on("click", toggleHidden)
+            })
+
+            var response = {
+                first_name: "Jeff",
+                fav_genre: "Party",
+                about_me: "I have been playing board games forever. I am a total nerd.",
+                past_games: [
+                    {'Monopoly': 4},
+                    {'Sorry': 2},
+                    {'Settlers of Catan': 6}
+                ]
+            }
+
+            function pullUserData(){
+                var deferred = $.Deferred();
+                $.ajax({
+                    url: "./3plus_table_solution/player_input_decision_maker.php?action=retrievePublicProfile",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        fb_ID: 12345
+                    },
+                    success: deferred.resolve,
+                })
+                return deferred;
+            }
+
+            function updateUserData(){
+                var deferred = $.Deferred();
+                $.ajax({
+                    url: "./3plus_table_solution/player_input_decision_maker.php?action=updateProfile",
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        fb_ID: 12345,
+                        first_name: $("#first_name").val(),
+                        fav_genre: $("#fav_genre").val(),
+                        about_me: $("#about_me").val()
+                    },
+                    success: deferred.resolve,
+                })
+                return deferred;
+            }
+
+
+
+            function submitData(){
+                updateUserData().then(()=>{
+                    setValues();
+                    toggleHidden();
+                })
+
+            }
+
+            function toggleHidden(){
+                $("#personalInfo > p > *").toggleClass("hidden");
+                $("#personalInfo > button").toggleClass("hidden");
+            }
+
+            function setValues(response){
+                $(".name").text(response.first_name);
+                $("#first_name").attr("value", response.first_name);
+                $(".genre").text(response.fav_genre);
+                $("#fav_genre option[value="+response.fav_genre+"]").attr('selected','selected');
+                $(".about").text(response.about_me);
+                $("#about_me").text(response.about_me);
+            }
+        </script>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
     </head>
     <body class="columns_body create_event_margin ">
         <script>
@@ -112,16 +191,40 @@
                         <img class="col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0" src="https://orig14.deviantart.net/919c/f/2011/359/9/0/profile_picture_by_aqsmorningview_stock-d4k81jt.jpg" alt="">
                     </div>
                     <!--Picture, Name, About INPUT-->
-                    <div class="tableB profile_info_div col-sm-12 col-md-7">
-                        <form class="form-group">
-                            <span>Name:</span>
-                            <input type="text" class="col-sm-10 col-md-10" placeholder="Full Name"/>
-                            <span class="col-md-2">About:</span>
-                            <input type="text" class="col-sm-10 col-md-10" placeholder="Tell Us About Yourself"/>
-                            <span class="col-md-2">Favorite Genre:</span>
-                            <input type="text" class="col-sm-10 col-md-10" placeholder="Favorite Genre of Games"/>
-                        </form>
+                    <div id="personalInfo" class="tableB profile_info_div col-sm-12 col-md-7">
+                        <p>Name:
+                            <span class="name"></span>
+                            <input type="text" name="first_name" id="first_name" class="hidden" maxlength="30" size="10" placeholder=""><br/>
+                        </p>
+                        <p>Favorite Game Genre:
+                            <span class="genre"></span>
+                            <select name="fav_genre" id="fav_genre" class="hidden">
+                                <option value="Family">Family (Monopoly, Risk, Sorry)</option>
+                                <option value="Dexterity">Dexterity (Jenga, Operation, Twister)</option>
+                                <option value="Party">Party (Pictionary, Cards Against Humanity)</option>
+                                <option value="Abstract">Abstract (Chess, Blokus, YINSH)</option>
+                                <option value="Thematic">Thematic (Dune, Twilight Imperium)</option>
+                                <option value="Eurogames">Eurogames (Catan, Power Grid, Caylus)</option>
+                                <option value="Wargames">Wargames (Paths of Glory, Armada, Empires In Arms)</option>
+                            </select><br/>
+                        </p>
+                        <p>About Me:
+                            <span class="about"></span>
+                            <textarea type="text" name="about_me" id="about_me" class="hidden" placeholder=""></textarea><br/>
+                        </p>
+                        <button class="submitChanges hidden">Submit</button>
                     </div>
+                    <button class="editInfo">Edit</button>
+                    <!--<div class="tableB profile_info_div col-sm-12 col-md-7">-->
+                        <!--<form class="form-group">-->
+                            <!--<span>Name:</span>-->
+                            <!--<input type="text" class="col-sm-10 col-md-10" placeholder="Full Name"/>-->
+                            <!--<span class="col-md-2">About:</span>-->
+                            <!--<input type="text" class="col-sm-10 col-md-10" placeholder="Tell Us About Yourself"/>-->
+                            <!--<span class="col-md-2">Favorite Genre:</span>-->
+                            <!--<input type="text" class="col-sm-10 col-md-10" placeholder="Favorite Genre of Games"/>-->
+                        <!--</form>-->
+                    <!--</div>-->
                 </div>
                 <!--Games Chart-->
                 <div class="col-sm-12 col-md-4 margin_top">
