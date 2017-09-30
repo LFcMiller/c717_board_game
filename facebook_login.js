@@ -1,3 +1,4 @@
+var user_ID;
 
 function sendFacebookData(response){
   $.ajax({
