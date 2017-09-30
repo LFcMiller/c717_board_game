@@ -153,7 +153,8 @@
                             <option value="AM">AM</option>
                             <option value="PM">PM</option>
                         </select><br/>
-                        <button class="btn btn-lg btn-primary margin_top">SUBMIT FORM</button>
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#mySubmitEventModal">Submit Form</button>
                     </div>
                 </form>
             </div>
@@ -167,6 +168,25 @@
                         <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                     </form>
+                </div>
+            </div>
+            <!--Submit Event Modals-->
+            <div id="mySubmitEventModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Event Creation Submitted</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Thank You for submitting your event. An email confirmation will arrive shortly.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
