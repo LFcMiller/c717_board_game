@@ -1,3 +1,3 @@
 <?php
-$hidden_email ="boardgamedummy@gmail.com";
-$hidden_password = "TempPassword";
+$hidden_email ="boardgamescout@gmail.com";
+$hidden_password = "thefightingmongooses123";
