@@ -1,4 +1,5 @@
 <?php
+$output['debugging_messages'][]='In php mailer (the file, not the concept)';
 //include phpmailerautoload.php
 require 'phpmailer/PHPMailer/PHPMailerAutoload.php';
 require 'mailTemplates/mail_scripts/apply_script.php';
