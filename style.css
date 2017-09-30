@@ -82,7 +82,7 @@ div {
 }
 
 .home_page_body{
-  width:100vw;
+  width:99vw;
   height:100vh;
   display: inline-block;
 }
@@ -161,10 +161,10 @@ form{
   text-align: center;
 }
 
-@media (max-width:768px){
+@media (min-width:768px){
   .topnav {
-    font-size: large;
     margin: 0px 0px 0px 0px;
+    font-size: xx-large;
   }
 
 }
@@ -370,19 +370,45 @@ form{
   }
 }
 
-.button_container {
-  position: absolute;
-  transform: translateX(120%);
-  margin: 2%;
+
+/*/homepage, create event,contact us,desktop/*/
+
+@media (min-width: 768px) {
+  .button_container {
+    position: absolute;
+    /*transform: translateX(0%);*/
+    margin: 2%;
+  }
 }
 
-@media (max-width: 768px) {
+/*/homepage, create event,contact us, mobile/*/
+@media (max-width: 900px) {
   .button_container {
     position: relative;
     transform: translateX(0%);
     margin: 2%;
   }
 }
+
+/*nearby games, player, desktop*/
+
+@media (min-height: 550px) {
+  .button_container2 {
+    position: absolute;
+    transform: translateX(120%);
+    margin: 2%;
+  }
+}
+
+/*nearby games, player , mobile*/
+@media (min-height: 900px) {
+  .button_container2 {
+    position: relative;
+    transform: translate(33%,0%);
+    margin: 2%;
+  }
+}
+
 /******************************************************************/
 /*Beginning of player profile style*/
 
@@ -400,7 +426,27 @@ form{
 }
 .profile-display{
   display: -webkit-box;
+}
 
+.div_padding {
+  padding: 10px 5px 10px 5px;
+}
+
+.profile_info_div {
+  height: 30vh;
+}
+
+.profile-form {
+  height:inherit;
+}
+
+.profile-form > span {
+  padding: 2px 0px 2px 0px;
+  margin: 1%;
+}
+
+.profile-form > input {
+  padding: 2px 0px 2px 0px;
 }
 /******************************************************************/
 
