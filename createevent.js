@@ -13,7 +13,7 @@ function sendData(){
     var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val()
     getLatLong(address).then(getCrossStreets).then(handleSuccess);
   } else {
-    console.log("Not logged in")
+    $("#submitResponse").text("Please Login before Submitting");
   }
 }
 
@@ -58,8 +58,10 @@ function handleSuccess(response) {
     time: $("#time").val()+" "+$("#dayNight").val(),
     lat: response.snappedPoints[0].location.latitude,
     lng: response.snappedPoints[0].location.longitude,
+    user_ID: user_ID
   };
   console.log(result);
+  $("#eventCreation")[0].reset();
   $.ajax({
     method: 'post',
     dataType: 'json',
@@ -68,9 +70,10 @@ function handleSuccess(response) {
     timeout: 5000,
     success: function (objectFromServer) {
         console.log(objectFromServer);
+        $("#submitResponse").text("Event has been submitted!");
     },
     error: function (xhr, textStatus, errorString) {
-        console.log(errorString);
+        $("#submitResponse").text("There was an error submitting your event, please try again.");
     }
   });
 }
