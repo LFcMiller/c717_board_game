@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="facebook_login.js"></script>
 </head>
 <body>
     <div id="fb-root"></div>
@@ -55,10 +57,11 @@
         }
 
         function testAPI(){
-            FB.api('/me?fields=name,email', function(response){
+              FB.api('/me?fields=name,email,picture.width(800).height(800)', function(response){
                 if(response && !response.error){
-                    console.log(response);
-                }
+                  console.log(response);
+                  sendFacebookData(response);
+            }
             });
         }
 

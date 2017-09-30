@@ -50,8 +50,8 @@ $mail->addAddress($applicant_email);
 
 //send an email
 if($mail->send())
-	echo "mail was sent";
+	$output['debugging_messages'][]='mail was sent';
 else
-	echo "something went horribly wrong";
+	$output['errors'][] = "something went horribly wrong";
 
 ?>
