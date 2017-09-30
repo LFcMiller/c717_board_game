@@ -11,6 +11,32 @@ if(empty($_POST['user_ID']) || empty($_POST['event_ID'])){
 	return;
 }
 
+//first, map the new user to the event as an attendee
+    //ON DUPLICATE KEY UPDATE could be useful post-mvp
+//for INSERT IGNORE to work right, `event_ID` and `player_ID` should be unique keys
+
+$mapping_query = "INSERT IGNORE INTO `users_to_events` SET `event_ID` = {$_POST['event_ID']}, `player_ID`={$_POST['user_ID']}, `role` = 'attendee'";
+
+$mapping_result = null;
+
+$mapping_result = mysqli_query($conn, $mapping_query);
+
+if(empty($mapping_result)){
+    $output['errors'][] = 'database error mapping user to event';
+    return;
+} else {
+    if(mysqli_affected_rows($conn)){
+        //finally, we've done everything we need to do
+        $output['debugging_messages'][]='able to map the user to the event';
+    } else {
+        $output['errors'] = 'trouble mapping user to event (hint: is this player already associated with the event?)';
+        return;
+    }
+}
+
+
+//second, get that new applicant's first name and email
+
 $get_new_applicants_email_query = "SELECT `first_name`, `email` FROM `users` WHERE `user_ID` = {$_POST['user_ID']}";
 $email_result = null;
 $email_result = mysqli_query($conn, $get_new_applicants_email_query);
@@ -25,6 +51,8 @@ if($email_result && mysqli_num_rows($email_result)){
     $output['errors'][]='database error: '.mysqli_error($conn);
     return;
 }
+
+//third, get information about the host for the email
 
 $query = "SELECT `role`, `first_name`, `email` FROM users_to_events AS u2e
    JOIN users AS u 
