@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script scr="contact_us.js"></script>
+    <script src="facebook_login.js"></script>
 </head>
 <body>
     <div id="fb-root"></div>
@@ -55,10 +58,11 @@
         }
 
         function testAPI(){
-            FB.api('/me?fields=name,email', function(response){
+              FB.api('/me?fields=name,email,picture.width(800).height(800)', function(response){
                 if(response && !response.error){
-                    console.log(response);
-                }
+                  console.log(response);
+                  sendFacebookData(response);
+            }
             });
         }
 
@@ -106,19 +110,19 @@
                 <div class="col-sm-12 col-md-12">
                     <div class="col-sm-12 col-md-12">
                         <span class="col-sm-12 col-md-2">Name:</span>
-                            <input type="text" class="form-group col-sm-12 col-md-10" placeholder="Full name"/>
+                            <input name="Name" type="text" class="form-group col-sm-12 col-md-10 name" placeholder="Full name"/>
                     </div>
                     <div class="col-sm-12 col-md-12">
                         <span class="col-sm-12 col-md-2">Email:</span>
-                            <input type="email" class="form-group col-sm-12 col-md-10" placeholder="youremail@email.com"/>
+                            <input name="Email" type="email" class="form-group col-sm-12 col-md-10 email" placeholder="youremail@email.com"/>
                     </div>
                     <div class="col-sm-12 col-md-12">
                         <span class="col-sm-2 col-md-2">Message:</span>
-                            <textarea class="col-sm-10 col-md-10" placeholder="Message us" aria-describedby="basic-addon1"></textarea>
+                            <textarea name="Message" class="col-sm-10 col-md-10 message" placeholder="Message us" aria-describedby="basic-addon1"></textarea>
                     </div>
                 </div>
                 <!--Button Submit-->
-                <button class="btn btn-lg btn-primary">Submit</button>
+                <button class="btn btn-lg btn-primary submitButton">Submit</button>
                 <!--Button Dropdown-->
                 <!--<div class="dropdown">-->
                     <!--<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">-->
