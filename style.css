@@ -499,8 +499,15 @@ form{
   left: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
-  background-color: orange;
+  background-color: #29bc2c;
   height: 30%;
   width: 35%;
   text-align: center;
+  border-radius: 25px;
+}
+
+@media(max-width: 400px){
+  .loginModal {
+    width:inherit;
+  }
 }

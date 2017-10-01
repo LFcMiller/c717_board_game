@@ -1,6 +1,7 @@
 $(document).ready(()=>{
-    $(".shadowBox").on("click", displayModal);
-    $(".loginModal").on("click", displayModal);
+    $("#createEventBtn").on("click", displayModal);
+
+    // $(".loginModal").on("click", displayModal);
 });
 
 var loggedIn = false;
@@ -8,10 +9,9 @@ var loggedIn = false;
 
 function sendData(){
   event.preventDefault();
-  displayModal();
-  if(loggedIn){
-    var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val()
-    getLatLong(address).then(getCrossStreets).then(handleSuccess);
+    if(loggedIn){
+    var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val();
+      getLatLong(address).then(getCrossStreets).then(handleSuccess);
   } else {
     $("#submitResponse").text("Please Login before Submitting");
   }
@@ -79,6 +79,7 @@ function handleSuccess(response) {
 }
 
 function displayModal () {
+
     $(".shadowBox").toggleClass("hidden");
     $(".loginModal").toggleClass("hidden");
 }
