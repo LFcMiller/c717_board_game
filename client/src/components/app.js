@@ -1,12 +1,11 @@
 import React from 'react';
-import './app.css';
-import logo from './imgs/logo.svg';
+import { Route } from 'react-router-dom';
+import Nav from './nav';
 
 const App = () => (
     <div>
-        <div className="app">
-            <img src={logo} className="rotate"/>
-            <h1>Welcome to React!</h1>
+        <div className="app home_page_body margin_bottom">
+            <Nav/>
         </div>
     </div>
 );

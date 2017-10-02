@@ -42,11 +42,11 @@ if(empty($result)){
             $output['errors'][] = 'problem retrieving updated data';
         } else {
             if(mysqli_num_rows($result2)){
-                $output['data'] = [];
+//                $output['data'] = [];
                 $output['success'] = true;
 
                 while($row = mysqli_fetch_assoc($result2)){
-                    $output['data'][] = $row;
+                    $output['data'] = $row;
                 }
             } else {
                 $output['errors'][] = 'no data';
