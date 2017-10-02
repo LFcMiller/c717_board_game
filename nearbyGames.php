@@ -77,7 +77,7 @@
               FB.api('/me?fields=name,email,picture.width(800).height(800)', function(response){
                 if(response && !response.error){
                   console.log(response);
-                  sendFacebookData(response);
+                  sendFacebookData(response).then(response=>{processFacebookData(response)}, errorHandler);
             }
           });
         }
