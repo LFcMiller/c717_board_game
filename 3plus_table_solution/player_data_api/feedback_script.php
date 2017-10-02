@@ -15,7 +15,7 @@ if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['message'])){
 }
 
 $name = $_POST['name'];
-$applicant_email = $_POST['email'];
+$email = $_POST['email'];
 $message = $_POST['message'];
 
 $output['debugging_messages'][]='variables needed for the feedback email should be set now.';

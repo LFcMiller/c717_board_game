@@ -1,12 +1,13 @@
 <?php
 $output['debugging_messages'][]='In php_mailer.php';
 $output['debugging_messages'][]="I think that the action is {$_GET['action']}";
-//include phpmailerautoload.php
+
 require 'phpmailer/PHPMailer/PHPMailerAutoload.php';
 require_once 'php_mailer_connect.php';
-//require 'mailTemplates/mail_scripts/apply_script.php';
-//require 'mailTemplates/apply_mail_template.php';
 
+
+
+// require 'event_data_api/apply_script.php';
 //require 'player_data_api/feedback_script.php';
 
 
@@ -41,16 +42,27 @@ $mail->Subject = "BoarGameScout Event!";
 $mail->isHTML(true);
 
 //set the body
-$mail->Body = $apply_body;
+switch ($_GET['action']) {
+	case 'sendDevFeedback':
+		require 'mailTemplates/contact_mail_template.php';
+		$mail->Body = $contact_body;
+		$mail->addAddress($hidden_email);
+		break;
+	case 'applyToEvent':
+		require 'mailTemplates/apply_mail_template.php';
+		$mail->Body = $apply_body;
+		$mail->addAddress($applicant_email);
+		$output['debugging_messages'][]='I think that the $applicant_email is '.$applicant_email;
+		break;
+	default:
+		break;
+}
+
 
 
 
 // set who is sending an email
 $mail->setFrom($hidden_email, 'BoardGameScout');
-
-// set where we are sending email(recipiants)
-$mail->addAddress($applicant_email);
-$output['debugging_messages'][]='I think that the $applicant_email is '.$applicant_email;
 
 //send an email
 if($mail->send()) {
