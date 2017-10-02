@@ -268,14 +268,9 @@ ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.s
 			<table>
 				<tr>
 					<td>
-						<h3>Hi, {$host_name}!</h3>
+						<h3>Hello, {$host_name}!</h3>
 						<p class="lead">Someone has recently applied for your game!</p>
-						<p>The following user ... would like to participate in your game. Please accept or decline their request below. If you accept, the applicant they will receive an invitation asking for final confirmation. When the applicant confirms the invitation, they will recieve a final email containing the event location, as well as the host's contact email. </p>
-						<!-- Callout Panel -->
-						<p class="callout">
-							<a class="acceptButton" href="https://dev.boardgamescout.com/email.html">Accept</a> <a class="declineButton" href="#">Decline</a>	
-						</p><!-- /Callout Panel -->					
-												
+						<p>The BoardGameScout user {$applicant_name}, would like to participate in your game. Please contact them at {$applicant_email}  </p>		
 						<!-- social & contact -->
 						<table class="social" width="100%">
 							<tr>
@@ -299,7 +294,7 @@ ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.s
 											<td>				
 																			
 												<h5 class="">Contact Info:</h5>												
-                Email: <strong><a href="boardgamedummy@gmail.com">boardgamedummy@gmail.com</a></strong></p>
+                Email: <strong><a href="boardgamescout@gmail.com">boardgamescout@gmail.com</a></strong></p>
                 
 											</td>
 										</tr>

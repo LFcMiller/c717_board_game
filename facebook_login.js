@@ -1,5 +1,10 @@
+var user_ID;
+var profile_pic;
 
 function sendFacebookData(response){
+  var deferred = $.Deferred();
+  profile_pic = response.picture.data.url;
+  console.log("Profile Picture: ", profile_pic);  
   $.ajax({
       url: './3plus_table_solution/player_input_decision_maker.php?action=relateOrCreateUser',
       method: "POST",
@@ -9,16 +14,21 @@ function sendFacebookData(response){
         first_name: response.name,
         email: response.email
       },
-      success: function(response){
-        console.log('success!',response);
-        user_ID = response.data.user_ID;
-        return user_ID;
-      },
-      error: function(response){
-          console.log('errorrrrrrrrrrr:',response)
-
-      }
+      success: deferred.resolve,
+      error: deferred.reject
   });
+  return deferred;
+}
+
+function processFacebookData(response){
+  console.log('Facebook Success!',response);
+  user_ID = response.data.user_ID;
+  // profile_pic =
+  return user_ID;
+}
+
+function errorHandler(response){
+  console.log('Facebook Error:',response)
 }
 
 

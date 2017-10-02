@@ -18,7 +18,7 @@ $first_name = $_POST['first_name'];
 $email = $_POST['email'];
 $fb_ID = $_POST['fb_ID'];
 
-$new_person_query = "INSERT INTO `users` SET `first_name` = '$first_name', `email`='$email', `fb_ID`='$fb_ID'";
+$new_person_query = "INSERT INTO `users` SET `first_name` = '$first_name', `email`='$email', `fb_ID`='$fb_ID', `fav_genre`='Family'";
 //print($new_person_query);
 $result = mysqli_query($conn, $new_person_query);
 

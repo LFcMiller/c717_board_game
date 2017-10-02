@@ -41,6 +41,10 @@ switch($_GET['action']){
         include_once('player_data_api/retrieve_past_activity.php');
         break;
 
+    case 'sendDevFeedback':
+        include_once('../mailTemplates/mail_scripts/feedback_script.php');
+        break;
+
 
     default:
         array_push($output['errors'],'No action specified. (Hint: make sure you specify the \'action\' in the query string of your ajax url.)');

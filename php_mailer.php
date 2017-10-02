@@ -1,9 +1,12 @@
 <?php
-$output['debugging_messages'][]='In php mailer (the file, not the concept)';
+$output['debugging_messages'][]='In php_mailer.php';
 //include phpmailerautoload.php
 require 'phpmailer/PHPMailer/PHPMailerAutoload.php';
+require_once 'php_mailer_connect.php';
 require 'mailTemplates/mail_scripts/apply_script.php';
 require 'mailTemplates/apply_mail_template.php';
+
+
 
 
 //create an instance of php mailer
@@ -29,7 +32,7 @@ $mail->SMTPSecure = "ssl"; //or we can use TLS
 $mail->Port = 465; //or 587 if TLS
 
 //set the subject
-$mail->Subject = "Test Email";
+$mail->Subject = "BoarGameScout Event!";
 
 //set html to true
 $mail->isHTML(true);
@@ -40,15 +43,15 @@ $mail->Body = $apply_body;
 
 
 // set who is sending an email
-$mail->setFrom('boardgamedummy@gmail.com', 'BoardGameScout');
+$mail->setFrom($hidden_email, 'BoardGameScout');
 
 // set where we are sending email(recipiants)
-$mail->addAddress('violette.austin@yahoo.com');
+$mail->addAddress($applicant_email);
 
 //send an email
 if($mail->send())
-	echo "mail was sent";
+	$output['debugging_messages'][]='mail was sent';
 else
-	echo "something went horribly wrong";
+	$output['errors'][] = "something went horribly wrong";
 
 ?>

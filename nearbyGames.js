@@ -3,9 +3,6 @@ $(document).ready(()=>{
   $(".loginModal").on("click", displayModal);
 })
 
-function testFunction(){
-  console.log("test");
-}
 var testZip = "92618";
 var map;
 var markers = [];
@@ -23,7 +20,6 @@ function pullData(){
       zip: currentZip || testZip
     },
     success: function(response) {
-      event_ID = response.data[0].event_ID;
       console.log("Response: ", response);
       populatePage(response);
       populateMap(response);
@@ -43,7 +39,7 @@ function applyToEvent(event){
       dataType: "json",
       data: {
         user_ID: user_ID,
-        event_ID: event_ID
+        event_ID: eventList[$(event.target).attr("index")].event_ID
 
       },
       success: function(response){
@@ -64,30 +60,61 @@ function populatePage(response) {
   if (response.data.length > 0) {
     $(".gamesContainer").html("");
     eventList = response.data;
+    // for (var i = 0; i < response.data.length; i++) {
+    //   var gameDiv = $("<div>")
+    //     .addClass("gameName truncate col-xs-3")
+    //     .text(response.data[i].game_name);
+    //   var dateDiv = $("<div>")
+    //     .addClass("date col-xs-3")
+    //     .text(response.data[i].date);
+    //   var timeDiv = $("<div>")
+    //     .addClass("time col-xs-3")
+    //     .text(response.data[i].time);
+    //   var revealButton = $("<button>")
+    //     .addClass("btn btn-primary col-xs-3")
+    //     .text("Click To Expand")
+    //     .attr("index", i)
+    //     .on("click", event => {
+    //       $("div[reveal='" + $(event.target).attr("index") + "']").toggleClass(
+    //         "hidden"
+    //       );
+    //     });
+    //   var row1 = $("<div>")
+    //     .addClass("row1")
+    //     .attr("index", i)
+    //     .append(gameDiv, dateDiv, timeDiv, revealButton)
+    //     .on("click", handleMapFocus);
+    //   var detailsDiv = $("<div>")
+    //     .addClass("details col-xs-8")
+    //     .text(response.data[i].general_details);
+    //   var applyButton = $("<button>")
+    //     .addClass("btn btn-success apply")
+    //     .attr("index", i)
+    //     .text("Apply")
+    //     .on("click", applyToEvent);;
+    //   var row2 = $("<div>")
+    //     .addClass("row2 hidden")
+    //     .append(detailsDiv, applyButton)
+    //     .attr("reveal", i);
+    //   var gameContainerDiv = $("<div>").addClass("game col-xs-12");
+    //   gameContainerDiv.append(row1, row2);
+    //   $(".gamesContainer").append(gameContainerDiv);
+    // }
     for (var i = 0; i < response.data.length; i++) {
       var gameDiv = $("<div>")
-        .addClass("gameName truncate col-xs-3")
-        .text(response.data[i].game_name);
+        .addClass("gameName truncate col-xs-12")
+        .attr("index", i)
+        .text(response.data[i].game_name)
+        .on("click", (event)=>{
+          handleMapFocus(event)
+          displayAdditionalInfo($(event.target).attr("index"));
+        })
       var dateDiv = $("<div>")
         .addClass("date col-xs-3")
         .text(response.data[i].date);
       var timeDiv = $("<div>")
         .addClass("time col-xs-3")
         .text(response.data[i].time);
-      var revealButton = $("<button>")
-        .addClass("btn btn-primary col-xs-3")
-        .text("Click To Expand")
-        .attr("index", i)
-        .on("click", event => {
-          $("div[reveal='" + $(event.target).attr("index") + "']").toggleClass(
-            "hidden"
-          );
-        });
-      var row1 = $("<div>")
-        .addClass("row1")
-        .attr("index", i)
-        .append(gameDiv, dateDiv, timeDiv, revealButton)
-        .on("click", handleMapFocus);
       var detailsDiv = $("<div>")
         .addClass("details col-xs-8")
         .text(response.data[i].general_details);
@@ -95,19 +122,34 @@ function populatePage(response) {
         .addClass("btn btn-success apply")
         .attr("index", i)
         .text("Apply")
-        .on("click", applyToEvent);;
-      var row2 = $("<div>")
-        .addClass("row2 hidden")
-        .append(detailsDiv, applyButton)
-        .attr("reveal", i);
+        .on("click", applyToEvent);
       var gameContainerDiv = $("<div>").addClass("game col-xs-12");
-      gameContainerDiv.append(row1, row2);
+      gameContainerDiv.append(gameDiv);
       $(".gamesContainer").append(gameContainerDiv);
     }
   }
 }
 
+function displayAdditionalInfo(index){
+  var dateDiv = $("<div>")
+    .addClass("date col-xs-12")
+    .text("Date: "+eventList[index].date);
+  var timeDiv = $("<div>")
+    .addClass("time col-xs-12")
+    .text("Time: "+eventList[index].time);
+  var detailsDiv = $("<div>")
+    .addClass("details col-xs-12")
+    .text("Details: "+eventList[index].general_details);
+  var applyButton = $("<button>")
+    .addClass("btn btn-success apply")
+    .attr("index", index)
+    .text("Apply")
+    .on("click", applyToEvent);
+  $(".eventInfo").append(dateDiv, timeDiv, detailsDiv, applyButton);
+}
+
 function handleMapFocus(event) {
+  console.log(event);
   var marker = markers[$(event.currentTarget).attr("index")];
   map.setCenter({
     lat: parseFloat(marker.place.lat),
