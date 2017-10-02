@@ -34,7 +34,6 @@ if(empty($mapping_result)){
     }
 }
 
-
 //second, get that new applicant's first name and email
 
 $get_new_applicants_email_query = "SELECT `first_name`, `email` FROM `users` WHERE `user_ID` = {$_POST['user_ID']}";
@@ -68,7 +67,6 @@ $result = mysqli_query($conn, $query);
 $applicants = [];
 $host = null;
 
-
 if($result){
     $output['debugging_messages'][]='result was truthy!';
 	if(mysqli_num_rows($result)){
@@ -80,9 +78,11 @@ if($result){
 				$host_email = $host['email'];
                 $output['debugging_messages'][]='found the host! his name is '.$host_name;
                 $output['debugging_messages'][]='found the host! his email is '.$host_email;
-                //TODO: revisit this success
-                $output['success'] = true;
+                require_once 'php_mailer.php';
+                //when emailing is required for the action to be considered a success, $output['success'] should be set to true only upon the email being sent
+//                $output['success'] = true;
 			} else if($row['role']==='applicant'){
+			    //TODO: clean this whole thing up!
 //                $output['debugging_messages'][]='found someone who isnt the host';
 //                $output['debugging_messages']['non-hosts_I_found']+=1;
 //				$applicants[] = $row;

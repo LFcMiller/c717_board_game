@@ -32,8 +32,7 @@ switch($_GET['action']){
         include_once('event_data_api/create_new_event.php');
         break;
     case 'applyToEvent':
-        //TODO: I think we forgot to map the applicant to the event first
-        include_once('../php_mailer.php');
+        include_once('event_data_api/apply_script.php');
         break;
 
 

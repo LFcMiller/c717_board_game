@@ -1,4 +1,5 @@
 <?php
+//require_once '../php_mailer.php';
 
 $output['debugging_messages'][]='started feedback_script';
 
@@ -14,8 +15,11 @@ if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['message'])){
 }
 
 $name = $_POST['name'];
-$email = $_POST['email'];
+$applicant_email = $_POST['email'];
 $message = $_POST['message'];
 
 $output['debugging_messages'][]='variables needed for the feedback email should be set now.';
-$output['success'] = true;
+
+//print(getcwd());
+require_once 'php_mailer.php';
+
