@@ -97,10 +97,10 @@
             <!--header starts here-->
             <div class="margin_bottom margin_top col-sm-12 col-md-12">
                 <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
-                    <a href="#home" class="col-md-3">Home</a>
-                    <a href="#about" class="col-md-3">About</a>
-                    <a href="#wordPress" class="col-md-3">WordPress</a>
-                    <a href="#contact" class="col-md-3">Contact</a>
+                    <a href="/" id="home" class="col-sm-3 col-md-3">Home</a>
+                    <a href="/about" id="about"class="col-sm-3 col-md-3">About</a>
+                    <a href="/blog" id="blog" class="col-sm-3 col-md-3">Blog</a>
+                    <a href="/contact_us.html" id="contact" class="col-sm-3 col-md-3">Contact</a>
                 </div>
                 <!--title and logo-->
                 <div class="col-md-12">
