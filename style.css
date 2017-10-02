@@ -365,13 +365,14 @@ form{
     height: 80vh;
     color: black;
     overflow-y: scroll;
+    padding:0px;
   }
 }
 
 .info-and-map {
   padding-right: 0;
   padding-left: 0;
-  height: 84vh;
+  height: 69vh;
   overflow-y: scroll;
   background: rgba(255,255,255,0.2);
 }
@@ -504,6 +505,10 @@ select#fav_genre, input#first_name {
 }
 .gamesContainer {
   text-align: left;
+  padding: 0px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
 }
 .hidden {
   display: none;
@@ -536,4 +541,8 @@ select#fav_genre, input#first_name {
   .loginModal {
     width: inherit;
   }
+}
+
+.game {
+  padding:unset
 }
