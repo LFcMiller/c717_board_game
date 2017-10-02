@@ -363,7 +363,7 @@ form{
   .info-column-div {
     background-color: black;
     color: white;
-    height: 68vh;
+    height: 69vh;
     overflow-y: scroll;
     padding:0px;
     font-size: x-large;
@@ -484,13 +484,15 @@ form{
 }
 
 .profile_info_div {
-  height: 30vh;
+  height: auto;
   margin: 10px 0 10px 0;
+  font-size: x-large;
 }
 
 @media(max-width: 500px){
   .profile_info_div {
     height: auto;
+    font-size: initial;
   }
 }
 
