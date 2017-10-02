@@ -267,53 +267,40 @@ ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.s
 			<table>
 				<tr>
 					<td>
-						<h3>Hi, BoardGame Scout!</h3>
-						<p class="lead">Thank you for your Confirmation!</p>
-						<p>Below you will find the location of the event as well as the hosts contact email. Please remember to be respectful at any event and treat players with respect. If you have any comments or complaints please send us an email at boardgamedummy@gmail.com  Once again thank you for using BoardGameScout! Have fun! </p>
-							<!-- Callout Panel -->
-								<p class="callout">
-									Location:
-								</p><!-- /Callout Panel -->					
+						<h3>{$name} Sent us a message!</h3>
+						<p class="lead">Sent from: {$email}</p>
+						<p>{$message}</p>				
 						<!-- social & contact -->
 						<table class="social" width="100%">
 							<tr>
 								<td>
-									
 									<!-- column 1 -->
 									<table align="left" class="column">
 										<tr>
 											<td>				
-												
 												<h5 class="">Connect with Us:</h5>
 												<p class=""><a href="https://github.com/Learning-Fuze/c717_board_game" class="soc-btn tw">GitHub</a>
 												<a href="https://dev.boardgamescout.com/blog" class="soc-btn gp">Blog</a></p>
 											</td>
 										</tr>
 									</table><!-- /column 1 -->	
-									
 									<!-- column 2 -->
 									<table align="left" class="column">
 										<tr>
-											<td>				
-																			
+											<td>											
 												<h5 class="">Contact Info:</h5>												
                 Email: <strong><a href="boardgamedummy@gmail.com">boardgamedummy@gmail.com</a></strong></p>
-                
 											</td>
 										</tr>
 									</table><!-- /column 2 -->
-									
 									<span class="clear"></span>	
-									
 								</td>
 							</tr>
 						</table><!-- /social & contact -->
-						
 					</td>
 				</tr>
 			</table>
-			</div><!-- /content -->
-									
+			</div><!-- /content -->							
 		</td>
 		<td></td>
 	</tr>
