@@ -1,11 +1,17 @@
+$(document).ready(()=>{
+    $("#createEventBtn").on("click", displayModal);
+
+    // $(".loginModal").on("click", displayModal);
+});
+
 var loggedIn = false;
 
 
 function sendData(){
   event.preventDefault();
-  if(loggedIn){
-    var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val()
-    getLatLong(address).then(getCrossStreets).then(handleSuccess);
+    if(loggedIn){
+    var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val();
+      getLatLong(address).then(getCrossStreets).then(handleSuccess);
   } else {
     $("#submitResponse").text("Please Login before Submitting");
   }
@@ -70,4 +76,10 @@ function handleSuccess(response) {
         $("#submitResponse").text("There was an error submitting your event, please try again.");
     }
   });
+}
+
+function displayModal () {
+
+    $(".shadowBox").toggleClass("hidden");
+    $(".loginModal").toggleClass("hidden");
 }
