@@ -1,10 +1,13 @@
 <?php
 $output['debugging_messages'][]='In php_mailer.php';
+$output['debugging_messages'][]="I think that the action is {$_GET['action']}";
 //include phpmailerautoload.php
 require 'phpmailer/PHPMailer/PHPMailerAutoload.php';
 require_once 'php_mailer_connect.php';
-require 'mailTemplates/mail_scripts/apply_script.php';
-require 'mailTemplates/apply_mail_template.php';
+//require 'mailTemplates/mail_scripts/apply_script.php';
+//require 'mailTemplates/apply_mail_template.php';
+
+//require 'player_data_api/feedback_script.php';
 
 
 
@@ -47,11 +50,14 @@ $mail->setFrom($hidden_email, 'BoardGameScout');
 
 // set where we are sending email(recipiants)
 $mail->addAddress($applicant_email);
+$output['debugging_messages'][]='I think that the $applicant_email is '.$applicant_email;
 
 //send an email
-if($mail->send())
-	$output['debugging_messages'][]='mail was sent';
+if($mail->send()) {
+    $output['debugging_messages'][] = 'mail was sent';
+    $output['success'] = true;
+}
 else
-	$output['errors'][] = "something went horribly wrong";
+	$output['errors'][] = "problem sending email";
 
 ?>
