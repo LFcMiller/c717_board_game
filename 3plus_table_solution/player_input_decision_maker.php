@@ -33,8 +33,7 @@ switch($_GET['action']){
 
     case 'retrievePublicProfile':
         include_once('player_data_api/send_public_profile_info.php');
-        //probably put in the pastActivity part right here
-        //on second thought scratch that maybe put the pastActivity stuff inside of the retrieve past activity file itself
+        //retrieving past activity is included inside of send_public_profile_info.php itself
         break;
 
     case 'pastActivity':
@@ -42,7 +41,7 @@ switch($_GET['action']){
         break;
 
     case 'sendDevFeedback':
-        include_once('../mailTemplates/mail_scripts/feedback_script.php');
+        include_once('player_data_api/feedback_script.php');
         break;
 
 
