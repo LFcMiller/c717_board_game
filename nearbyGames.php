@@ -82,7 +82,6 @@
           });
         }
 
-
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}
@@ -130,13 +129,21 @@
                     <div class="gamesContainer column_height col-sm-12 col-md-12">
                         <h1 class="text-center ">Games Near You:</h1>
                         <h2>Sorry, there are currently no games in your area.</h2>
+                        <!-- <div class="game col-xs-12">
+                            <div class="gameName truncate col-xs-12" index="0">Monopoly</div>
+                        </div> -->
                     </div>
                 </div>
                     <div class="col-sm-12 col-md-8 " id="map"></div>
                 <div class="info-column-div col-sm-12 col-md-2">
                     <div class="info-column-div column_height col-sm-12 col-md-12">
                         <h1 class="text-center ">Games Info:</h1>
-                        <h2>Sorry, there are currently no games in your area.</h2>
+                        <div class="eventInfo">
+                            <!-- <div class="date col-xs-12">Date: 2017-10-28</div>
+                            <div class="time col-xs-12">Time: 5:00 PM</div>
+                            <div class="details col-xs-12">Details: experienced players preferred, college students preferred, parking available, food provided</div>
+                            <button class="btn btn-success apply" index="0">Apply</button> -->
+                        </div>
                     </div>
                 </div>
             </div>

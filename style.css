@@ -371,7 +371,7 @@ form{
 .info-and-map {
   padding-right: 0;
   padding-left: 0;
-  height: 99vh;
+  height: 84vh;
   overflow-y: scroll;
   background: rgba(255,255,255,0.2);
 }
