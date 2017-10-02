@@ -1,8 +1,8 @@
 $(".submitButton").on('click', function(){
 	$.ajax({
 		url: './3plus_table_solution/player_input_decision_maker.php?action=sendDevFeedback',
-		method: 'POST'
-		dataType: 'json'
+		method: 'POST',
+		dataType: 'json',
 		data: {
 			name: $(".name").val(),
 			email: $(".email").val(),
@@ -15,4 +15,4 @@ $(".submitButton").on('click', function(){
 			console.log('error with contact ajax',response);
 		}
 	})
-})
+});
