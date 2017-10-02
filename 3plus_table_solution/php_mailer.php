@@ -51,7 +51,7 @@ switch ($_GET['action']) {
 	case 'applyToEvent':
 		require 'mailTemplates/apply_mail_template.php';
 		$mail->Body = $apply_body;
-		$mail->addAddress($applicant_email);
+		$mail->addAddress($host_email);
 		$output['debugging_messages'][]='I think that the $applicant_email is '.$applicant_email;
 		break;
 	default:
