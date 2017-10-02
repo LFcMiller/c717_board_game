@@ -18,7 +18,7 @@ SELECT e.`game_name` AS game_name, COUNT(e.`event_ID`) AS frequency
 
 	WHERE u.`user_ID`={$_POST['user_ID']}
 	AND ue.`role` IN ('host','attendee')
-	AND e.`date`<CURDATE()
+	#AND e.`date`<CURDATE()
 
 	GROUP BY game_name
 ;
