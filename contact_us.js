@@ -8,7 +8,7 @@ function submitButtonInit(){
 		
 	console.log('contact ajax called');
 	$.ajax({
-		url: './3plus_table_solution/player_input_decision_maker.php?action=sendDevFeedback',
+		url: './back_end/player_input_decision_maker.php?action=sendDevFeedback',
 		method: 'POST',
 		dataType: 'json',
 		data: {
