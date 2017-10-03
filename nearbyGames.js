@@ -1,7 +1,3 @@
-$(document).ready(()=>{
-  $(".shadowBox").on("click", displayModal);
-  $(".loginModal").on("click", displayModal);
-})
 
 var testZip = "92618";
 var map;
@@ -31,8 +27,6 @@ function pullData(){
 function applyToEvent(event){
   if(loggedIn){
     console.log(eventList[$(event.target).attr("index")]);
-    $(".modalText").text("Your application has been submitted!");
-    displayModal();
     $.ajax({
       url: "./back_end/event_input_decision_maker.php?action=applyToEvent",
       method: "POST",
@@ -43,15 +37,19 @@ function applyToEvent(event){
 
       },
       success: function(response){
+        $(".modalText").text("Your application has been submitted!");
         console.log('email has been sent!',response);
+        $("#applyModal").modal();
       },
       error: function(response){
+        $(".modalText").text("There was an error submitting your application, please try again.");
         console.log('error with email ajax call',response);
+        $("#applyModal").modal();
       }
     })
   } else {
-    $(".modalText").text("Not Logged In");
-    displayModal();
+    $(".modalText").text("Applying to events requires a Facebook Login. Please log in and try again.");
+    $("#applyModal").modal("show");
   }
 }
 
@@ -221,7 +219,3 @@ function populateMap(response) {
   }
 }
 
-function displayModal () {
-  $(".shadowBox").toggleClass("hidden");
-  $(".loginModal").toggleClass("hidden");
-}

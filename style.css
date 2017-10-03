@@ -592,3 +592,6 @@ select#fav_genre, input#first_name {
   color: black;
 }
 
+#applyModal {
+  color: black;
+}
