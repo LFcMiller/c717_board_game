@@ -1,7 +1,3 @@
-$(document).ready(()=>{
-  $(".shadowBox").on("click", displayModal);
-  $(".loginModal").on("click", displayModal);
-})
 
 var testZip = "92618";
 var map;
@@ -31,8 +27,6 @@ function pullData(){
 function applyToEvent(event){
   if(loggedIn){
     console.log(eventList[$(event.target).attr("index")]);
-    $(".modalText").text("Your application has been submitted!");
-    displayModal();
     $.ajax({
       url: "./back_end/event_input_decision_maker.php?action=applyToEvent",
       method: "POST",
@@ -43,15 +37,19 @@ function applyToEvent(event){
 
       },
       success: function(response){
+        $(".modalText").text("Your application has been submitted!");
         console.log('email has been sent!',response);
+        $("#applyModal").modal();
       },
       error: function(response){
+        $(".modalText").text("There was an error submitting your application, please try again.");
         console.log('error with email ajax call',response);
+        $("#applyModal").modal();
       }
     })
   } else {
-    $(".modalText").text("Not Logged In");
-    displayModal();
+    $(".modalText").text("Applying to events requires a Facebook Login. Please log in and try again.");
+    $("#applyModal").modal();
   }
 }
 
@@ -60,46 +58,6 @@ function populatePage(response) {
   if (response.data.length > 0) {
     $(".gamesContainer").html("");
     eventList = response.data;
-    // for (var i = 0; i < response.data.length; i++) {
-    //   var gameDiv = $("<div>")
-    //     .addClass("gameName truncate col-xs-3")
-    //     .text(response.data[i].game_name);
-    //   var dateDiv = $("<div>")
-    //     .addClass("date col-xs-3")
-    //     .text(response.data[i].date);
-    //   var timeDiv = $("<div>")
-    //     .addClass("time col-xs-3")
-    //     .text(response.data[i].time);
-    //   var revealButton = $("<button>")
-    //     .addClass("btn btn-primary col-xs-3")
-    //     .text("Click To Expand")
-    //     .attr("index", i)
-    //     .on("click", event => {
-    //       $("div[reveal='" + $(event.target).attr("index") + "']").toggleClass(
-    //         "hidden"
-    //       );
-    //     });
-    //   var row1 = $("<div>")
-    //     .addClass("row1")
-    //     .attr("index", i)
-    //     .append(gameDiv, dateDiv, timeDiv, revealButton)
-    //     .on("click", handleMapFocus);
-    //   var detailsDiv = $("<div>")
-    //     .addClass("details col-xs-8")
-    //     .text(response.data[i].general_details);
-    //   var applyButton = $("<button>")
-    //     .addClass("btn btn-success apply")
-    //     .attr("index", i)
-    //     .text("Apply")
-    //     .on("click", applyToEvent);;
-    //   var row2 = $("<div>")
-    //     .addClass("row2 hidden")
-    //     .append(detailsDiv, applyButton)
-    //     .attr("reveal", i);
-    //   var gameContainerDiv = $("<div>").addClass("game col-xs-12");
-    //   gameContainerDiv.append(row1, row2);
-    //   $(".gamesContainer").append(gameContainerDiv);
-    // }
     for (var i = 0; i < response.data.length; i++) {
       var gameDiv = $("<div>")
         .addClass("gameName truncate col-xs-12")
@@ -222,7 +180,3 @@ function populateMap(response) {
   }
 }
 
-function displayModal () {
-  $(".shadowBox").toggleClass("hidden");
-  $(".loginModal").toggleClass("hidden");
-}
