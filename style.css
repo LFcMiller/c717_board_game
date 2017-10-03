@@ -193,24 +193,19 @@ form{
 }
 
   #home:hover{
-    background-color: rgba(0,160,210,.7);
     color: white;
-
   }
   #about:hover{
-    background-color: rgba(0,160,210,.7);
     color: white;
-
   }
   #blog:hover{
-    background-color: rgba(0,160,210,.7);
     color: white;
-
   }
   #contact:hover{
-    background-color: rgba(0,160,210,.7);
     color: white;
-
+  }
+  #profile:hover{
+    color: white;
   }
 
 
