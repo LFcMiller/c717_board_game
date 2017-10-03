@@ -361,6 +361,7 @@ form{
 /*desktop version*/
 @media (min-width: 992px) {
   .info-column-div {
+    text-align: left;
     background-color: black;
     color: white;
     height: 68vh;
@@ -533,6 +534,7 @@ select#fav_genre, input#first_name {
 
 
 .truncate {
+  text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
