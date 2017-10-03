@@ -163,11 +163,11 @@ form{
   background-color: rgba(0,0,0,0.7);
   color: white;
   width: 100vw;
-  height:10vh;
-  margin: 0px 0px 10px 0px;
-  padding: 0px;
+  #height:10vh;
+  #margin: 0px 0px 10px 0px;
+  #padding: 0px;
  font-size: large;
-  line-height: 9vh;
+  #line-height: 9vh;
   text-align: center;
 }
 
@@ -406,7 +406,7 @@ input,select,textarea {
 }
 
   .info-column-div{
-    background-color: black;
+    #background-color: black;
     color: white;
 
   }
@@ -414,7 +414,7 @@ input,select,textarea {
 /*mobile-version*/
 @media (max-width: 768px) {
   .info-column-div {
-    background-color: black;
+    #background-color: black;
     color: white;
     padding:1%;
     margin:0 auto;
@@ -425,14 +425,18 @@ input,select,textarea {
 @media (min-width: 992px) {
   .info-column-div {
     text-align: left;
-    background-color: black;
+    #background-color: black;
     color: white;
     height: 69vh;
     overflow-y: unset;
-    padding:0px;
+    #padding:0px;
     font-size: x-large;
     margin: 0 .5% 0 .5%;
   }
+}
+
+.details{
+  font-size: 16px;
 }
 
 /*desktop version*/
@@ -440,7 +444,7 @@ input,select,textarea {
   .gamesContainer {
     text-align: left;
     padding: 0px;
-    background-color: black;
+    #background-color: black;
     color: white;
   }
 }
@@ -450,7 +454,7 @@ input,select,textarea {
   .gamesContainer {
     text-align: left;
     padding: 0px;
-    background-color: black;
+    #background-color: black;
     color: white;
     height:auto;
     font-size: x-large;
@@ -639,7 +643,8 @@ select#fav_genre, input#first_name {
 }
 
 .game {
-  padding:unset
+  padding:unset;
+  cursor: pointer;
 }
 
 .date{
@@ -654,6 +659,10 @@ select#fav_genre, input#first_name {
 
 .header-scroll {
   overflow-y: unset;
+}
+
+#applyModal, #createEventModal {
+  color: black;
 }
 
 @media (max-width: 415px) {

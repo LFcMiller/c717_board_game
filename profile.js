@@ -60,12 +60,13 @@ function setUserValues(response){
   $("#about_me").text(response.data.about_me);
 
   var pastGames = response.data.past_games;
-
-  for(var i = 0; i < pastGames.length; i++){
-    var gameRow = $("<tr>");
-    var gameName = $("<td>").text(pastGames[i].game_name);
-    var gameCount = $("<td>").text(pastGames[i].frequency)
-    gameRow.append(gameName, gameCount);
-    $(".pastGamesTable").append(gameRow);
+  if(pastGames.length > 0){
+    for(var i = 0; i < pastGames.length; i++){
+      var gameRow = $("<tr>");
+      var gameName = $("<td>").text(pastGames[i].game_name);
+      var gameCount = $("<td>").text(pastGames[i].frequency)
+      gameRow.append(gameName, gameCount);
+      $(".pastGamesTable").append(gameRow);
+    }
   }
 }
