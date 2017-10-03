@@ -13,13 +13,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Create Event</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="facebook_login.js"></script>
-    <script src='createevent.js'></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.js"></script>    
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>   
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css"> 
+  <script src="facebook_login.js"></script>
+  <script src='createevent.js'></script>
 </head>
     <body class="columns_body create_event_margin">
         <script>
@@ -211,7 +211,6 @@
                         <button type="button" id="createEventBtn" class="btn btn-info btn-lg">Submit Form</button>
                     </div>
                 </form>
-                <h3 class="text-center" id="submitResponse"></h3>
             </div>
             <!--footer-->
             <div class="footer col-xs-12 col-md-12">
@@ -226,15 +225,26 @@
 
                 </div>
             </div>
-            <!--Submit Event Modals-->
-            <div class="shadowBox hidden">
+        </div>
+        <!--Modal for event submit-->
+        <div id="createEventModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+    
+                <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Board Game Scout</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="modalText"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+    
             </div>
-            <div class="loginModal hidden">
-                <h1 class="modalText">Thank You <br/> Your Application has been Submitted</h1>
-            </div>
-            <!--<div id="mySubmitEventModal hidden" class="modal fade" role="dialog">-->
-                    <!--<h1 class="modalText">Filler</h1>-->
-            <!--</div>-->
         </div>
     </body>
 </html>

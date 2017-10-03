@@ -1,8 +1,6 @@
 $(document).ready(()=>{
-    $("#createEventBtn").on("click", displayModal);
-
-    // $(".loginModal").on("click", displayModal);
-});
+  $("#createEventBtn").on("click", sendData);
+})
 
 var loggedIn = false;
 
@@ -13,7 +11,8 @@ function sendData(){
     var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val();
       getLatLong(address).then(getCrossStreets).then(handleSuccess);
   } else {
-    $("#submitResponse").text("Please Login before Submitting");
+    $(".modalText").text("Submitting an event requires a Facebook Login. Please log in and try again.");
+    $("#createEventModal").modal();
   }
 }
 
@@ -70,16 +69,12 @@ function handleSuccess(response) {
     timeout: 5000,
     success: function (objectFromServer) {
         console.log(objectFromServer);
-        $("#submitResponse").text("Event has been submitted!");
+        $(".modalText").text("Your event has been submitted! Any applications you receive will be sent to your email.");
+        $("#createEventModal").modal();
     },
     error: function (xhr, textStatus, errorString) {
-        $("#submitResponse").text("There was an error submitting your event, please try again.");
+        $(".modalText").text("There was an error submitting your event, please try again.");
+        $("#createEventModal").modal();
     }
   });
-}
-
-function displayModal () {
-
-    $(".shadowBox").toggleClass("hidden");
-    $(".loginModal").toggleClass("hidden");
 }
