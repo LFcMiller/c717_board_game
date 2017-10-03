@@ -171,6 +171,18 @@ form{
   text-align: center;
 }
 
+.topnav a {
+  width: 19%;
+  display: inline-block;
+}
+
+@media(max-width:415px) {
+  .topnav a {
+    width: 18%;
+    display: inline-block;
+  }
+}
+
 @media (min-width:768px){
   .topnav {
     margin: 0px auto;
