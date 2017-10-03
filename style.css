@@ -383,7 +383,7 @@ input,select,textarea {
 
 #map {
   height: 99%;
-  width: 64%;
+  /*width: 64%;*/
 }
 
 @media (max-width: 768px) {
@@ -419,7 +419,7 @@ input,select,textarea {
     overflow-y: unset;
     #padding:0px;
     font-size: x-large;
-    margin: 0 .5% 0 .5%;
+    /*margin: 0 .5% 0 .5%;*/
   }
 }
 
