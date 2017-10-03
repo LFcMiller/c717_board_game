@@ -402,7 +402,7 @@ input,select,textarea {
 /*mobile-version*/
 @media (max-width: 768px) {
   .info-column-div {
-    background-color: black;
+    #background-color: black;
     color: white;
     padding:1%;
     margin:0 auto;
@@ -415,12 +415,16 @@ input,select,textarea {
     text-align: left;
     #background-color: black;
     color: white;
-    #height: 69vh;
+    height: 69vh;
     overflow-y: unset;
     #padding:0px;
     font-size: x-large;
     margin: 0 .5% 0 .5%;
   }
+}
+
+.details{
+  font-size: 16px;
 }
 
 /*desktop version*/
@@ -438,7 +442,7 @@ input,select,textarea {
   .gamesContainer {
     text-align: left;
     padding: 0px;
-    background-color: black;
+    #background-color: black;
     color: white;
     height:auto;
     font-size: x-large;
