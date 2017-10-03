@@ -2,6 +2,8 @@ body{
   background-color: black;
   color: white;
   font-family: Futura, Arial, sans-serif;
+  height: 99vh;
+
 }
 .green {
   background-color: #149F71;
@@ -187,7 +189,7 @@ form{
   .topnav {
     margin: 0px auto;
     font-size: xx-large;
-
+    height: 8%;
   }
 
 }
