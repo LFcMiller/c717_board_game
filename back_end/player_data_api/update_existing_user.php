@@ -43,11 +43,13 @@ if(empty($result)){
         } else {
             if(mysqli_num_rows($result2)){
 //                $output['data'] = [];
-                $output['success'] = true;
-
                 while($row = mysqli_fetch_assoc($result2)){
                     $output['data'] = $row;
                 }
+                //make sure retrieve_past_activity.php is included AFTER first retrieving the user row data (thanks Collette!)
+                require_once('retrieve_past_activity.php');
+                $output['success'] = true;
+
             } else {
                 $output['errors'][] = 'no data';
             }
