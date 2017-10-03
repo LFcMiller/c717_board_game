@@ -18,6 +18,7 @@ function submitButtonInit(){
 		},
 		success: function(response){
 			console.log('success with contact ajax',response);
+			$(".responseText").text("Thank you for getting into contact with us! We'll get back to you soon.")
 		},
 		error: function(response){
 			console.log('error with contact ajax',response);
