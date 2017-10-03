@@ -6,7 +6,7 @@ function sendFacebookData(response){
   profile_pic = response.picture.data.url;
   console.log("Profile Picture: ", profile_pic);  
   $.ajax({
-      url: './3plus_table_solution/player_input_decision_maker.php?action=relateOrCreateUser',
+      url: './back_end/player_input_decision_maker.php?action=relateOrCreateUser',
       method: "POST",
       dataType: "json",
       data: {

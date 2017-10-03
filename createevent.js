@@ -65,7 +65,7 @@ function handleSuccess(response) {
   $.ajax({
     method: 'post',
     dataType: 'json',
-    url: "./3plus_table_solution/event_input_decision_maker.php?action=newEvent",
+    url: "./back_end/event_input_decision_maker.php?action=newEvent",
     data: result,
     timeout: 5000,
     success: function (objectFromServer) {

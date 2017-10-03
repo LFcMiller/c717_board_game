@@ -13,7 +13,7 @@ var loggedIn = false;
 
 function pullData(){
   $.ajax({
-    url: "./3plus_table_solution/event_input_decision_maker.php?action=readByZip",
+    url: "./back_end/event_input_decision_maker.php?action=readByZip",
     method: "POST",
     dataType: "json",
     data: {
@@ -34,7 +34,7 @@ function applyToEvent(event){
     $(".modalText").text("Your application has been submitted!");
     displayModal();
     $.ajax({
-      url: "./3plus_table_solution/event_input_decision_maker.php?action=applyToEvent",
+      url: "./back_end/event_input_decision_maker.php?action=applyToEvent",
       method: "POST",
       dataType: "json",
       data: {
@@ -131,6 +131,7 @@ function populatePage(response) {
 }
 
 function displayAdditionalInfo(index){
+  $(".eventInfo").empty();
   var dateDiv = $("<div>")
     .addClass("date col-xs-12")
     .text("Date: "+eventList[index].date);

@@ -6,7 +6,7 @@ $(document).ready(function(){
 function pullUserData(){
   var deferred = $.Deferred();
   $.ajax({
-    url: "./3plus_table_solution/player_input_decision_maker.php?action=retrievePublicProfile",
+    url: "./back_end/player_input_decision_maker.php?action=retrievePublicProfile",
     method: "POST",
     dataType: "json",
     data: {
@@ -21,7 +21,7 @@ function pullUserData(){
 function updateUserData(){
   var deferred = $.Deferred();
   $.ajax({
-    url: "./3plus_table_solution/player_input_decision_maker.php?action=updateProfile",
+    url: "./back_end/player_input_decision_maker.php?action=updateProfile",
     method: "POST",
     dataType: "json",
     data: {
