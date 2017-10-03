@@ -132,7 +132,7 @@
                 </div>
                     <!--map and info column for DESK-TOP-->
                     <div class="info-and-map col-sm-12 col-md-12">
-                        <div class="info-column-div col-sm-12 col-md-2">
+                        <div class="info-column-div col-sm-12 col-md-3">
                             <h2 class="text-center green">Games Near You:</h2>
                             <div class="gamesContainer column_height col-sm-12 col-md-12">
                                 <h2 class="containerTitle">Loading...</h2>
@@ -151,9 +151,9 @@
                                 <button class="btn btn-success apply" index="0">Apply</button> -->
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-8" id="map"></div>
+                        <div class="col-sm-12 col-md-6" id="map"></div>
                         <!--desktop info div-->
-                        <div class="info-column-div hidden-sm hidden-xs col-sm-12 col-md-2">
+                        <div class="info-column-div hidden-sm hidden-xs col-sm-12 col-md-3">
                             <div class="info-column-div column_height col-sm-12 col-md-12">
                                 <h1 class="text-center green">Games Info:</h1>
                                 <div class="eventInfo">
