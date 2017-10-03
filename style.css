@@ -87,12 +87,14 @@ div {
 
 .title_box{
   height: 10%;
+  margin-bottom: 40px;
 }
 
 /*mobile version*/
 @media(max-width:415px) {
   .title_box {
     height: auto;
+    margin-bottom: auto;
   }
 }
 
@@ -138,15 +140,15 @@ form{
 
 .footer{
   position: relative;
-  bottom: 0%;
+  bottom: 2%;
   left: 0;
   width: 100%;
-  height: 10%;
+  height: 5%;
 }
 
 @media(max-width: 768px){
   .footer{
-    position:fixed;
+    position: relative;
     bottom:-6%;
     left: 0;
     width:100%;
@@ -261,61 +263,80 @@ form{
 
 .event_host_div {
   display: inline-block;
-  width: 50%;
+  width: 60%;
   height:auto;
   border-radius: 25px;
   position: inherit;
   padding:2%;
-  background-color: rgba(255, 255, 255, 0.42);
-  opacity: 0.98;
+  background-color: #191919;
   color:black;
-  overflow-y: scroll;
 }
 
-@media(max-width:414px) {
+@media(max-width:415px) {
   .event_host_div {
     display: inline-block;
     width: 99%;
-    height: 50vh;
+    height: 99%;
     border-radius: 25px;
     position: relative;
-    opacity: 0.98;
+    background-color: rgba(0,0,0,.7);
     color:black;
     margin-top: 1%;
-    overflow-y: scroll;
   }
 }
 
-.form-horizontal > input {
+.form-horizontal{
   display: inline-block;
   width: 80%;
-  height:5%;
-  padding: 1%;
-  background-color: beige;
-  color: black;
-  font-size: inherit;
-  margin: 1%;
+  color: white;
 }
 
-.form-horizontal > select  {
-  display: inline-block;
-  width: 80%;
-  height:5%;
-  padding: 1%;
-  background-color: beige;
-  color: black;
-  font-size: inherit;
-  border-radius: 25px;
+@media(max-width:415px) {
+  .form-horizontal{
+    display: inline-block;
+    width: 99%;
+    height: auto;
+    color: white;
+  }
 }
 
-.form-horizontal > textarea {
+
+.form-event-pad {
+  padding-left: 31px;
+}
+
+@media(max-width:415px) {
+  .form-event-pad {
+    padding:inherit;
+    margin: 1%;
+  }
+}
+
+.app-form{
+  display:inline-flex;
+}
+
+span.app-form{
   display: inline-block;
-  width: 80%;
-  height: 20%;
-  font-size: inherit;
-  border-radius: 25px;
-  padding-left: 4%;
-  padding-right: 4%;
+  text-align: right;
+}
+
+@media(max-width:415px) {
+  span.app-form{
+    display: inline-block;
+    text-align: right;
+  }
+}
+
+input,select,textarea {
+  color:black;
+}
+
+@media(max-width:415px) {
+  input,select,textarea {
+    color:black;
+    margin:1%;
+  }
 }
 
 .title_ab_position{
@@ -325,6 +346,8 @@ form{
 .title_rel_position{
   position: relative;
 }
+
+
 /******************************************************************/
 /*Beginning of nearby games style*/
 .column_height{
@@ -443,7 +466,7 @@ form{
   background-color: black;
   color: white;
   height:auto;
-  font-size: large;
+  font-size: x-large;
 }
 
 /*/homepage, create event,contact us,desktop/*/
@@ -522,6 +545,7 @@ form{
 
 .profile_info_div > input, select, textarea {
   color: black;
+  background-color: white;
   width: -webkit-fill-available;
 }
 
@@ -620,4 +644,9 @@ select#fav_genre, input#first_name {
   .header-scroll {
     overflow-y: scroll;
   }
+}
+
+#eventCreation{
+  margin: 1%;
+  letter-spacing: 1px;
 }

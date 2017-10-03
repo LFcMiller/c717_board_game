@@ -112,7 +112,7 @@
                         <h3 class ="font_rg">Scroll Down for Game Map and Apply!</h3>
                     </div>
                     <!--desktop title-->
-                    <div class="hidden-sm visible-md visible-lg col-md-8">
+                    <div class="margin_bottom hidden-sm visible-md visible-lg col-md-8">
                         <h1 class="font_lg">Board Game Scout</h1>
                     </div>
                     <!--button_container-->
@@ -141,7 +141,7 @@
                         </div>
                         <!--mobile info div-->
                         <div class="info-column-div visible-sm visible-xs hidden-md hidden-lg col-xs-12 col-sm-12">
-                            <h1 class="text-center green">Games Info:</h1>
+                            <h2 class="text-center green">Games Info:</h2>
                             <div class="eventInfo">
                                 <!-- <div class="date col-xs-12">Date: 2017-10-28</div>
                                 <div class="time col-xs-12">Time: 5:00 PM</div>
