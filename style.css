@@ -410,6 +410,7 @@ input,select,textarea {
 /*desktop version*/
 @media (min-width: 992px) {
   .info-column-div {
+    text-align: left;
     background-color: black;
     color: white;
     height: 69vh;
@@ -583,6 +584,7 @@ select#fav_genre, input#first_name {
 
 
 .truncate {
+  text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

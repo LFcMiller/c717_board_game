@@ -109,24 +109,12 @@ function populatePage(response) {
           handleMapFocus(event)
           displayAdditionalInfo($(event.target).attr("index"));
         })
-      var dateDiv = $("<div>")
-        .addClass("date col-xs-3")
-        .text(response.data[i].date);
-      var timeDiv = $("<div>")
-        .addClass("time col-xs-3")
-        .text(response.data[i].time);
-      var detailsDiv = $("<div>")
-        .addClass("details col-xs-8")
-        .text(response.data[i].general_details);
-      var applyButton = $("<button>")
-        .addClass("btn btn-success apply")
-        .attr("index", i)
-        .text("Apply")
-        .on("click", applyToEvent);
       var gameContainerDiv = $("<div>").addClass("game col-xs-12");
       gameContainerDiv.append(gameDiv);
       $(".gamesContainer").append(gameContainerDiv);
     }
+  } else {
+    $(".containerTitle").text("Sorry, there are currently no games in your area.");
   }
 }
 
@@ -143,6 +131,7 @@ function displayAdditionalInfo(index){
     .text("Details: "+eventList[index].general_details);
   var applyButton = $("<button>")
     .addClass("btn btn-success apply col-xs-6 col-xs-offset-3")
+
     .attr("index", index)
     .text("Apply")
     .on("click", applyToEvent);
