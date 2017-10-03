@@ -92,9 +92,9 @@
         }(document, 'script', 'facebook-jssdk'));
       </script>
     <div class="create_event_background"></div>
-    <div class="row padding_unset">
+    <div class="header-scroll row padding_unset">
             <!--header starts here-->
-            <div class="margin_bottom col-sm-12 col-md-12">
+            <div class="col-sm-12 col-md-12">
                 <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
                     <a href="/" id="home" class="col-sm-3 col-md-3">Home</a>
                     <a href="/about" id="about"class="col-sm-3 col-md-3">About</a>
@@ -102,17 +102,17 @@
                     <a href="/contact_us.html" id="contact" class="col-sm-3 col-md-3">Contact</a>
                 </div>
                 <!--title and logo-->
-                <div class="col-sm-12 col-md-12">
+                <div class="title_box col-sm-12 col-md-12">
                     <div class="hidden-xs hidden-sm visible-md visible-lg col-md-2">
                         <img class="temp_logo display-inline" src="./imgs/temp logo.png"/>
                     </div>
                     <!--mobile title-->
                     <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-12">
-                        <h3 class="font_lg">Board Game Scout</h3>
+                        <h1 class="font_rg">Board Game Scout</h1>
                         <h3 class ="font_rg">Scroll Down for Game Map and Apply!</h3>
                     </div>
                     <!--desktop title-->
-                    <div class="hidden-sm visible-md visible-lg col-md-8">
+                    <div class="margin_bottom hidden-sm visible-md visible-lg col-md-8">
                         <h1 class="font_lg">Board Game Scout</h1>
                     </div>
                     <!--button_container-->
@@ -139,8 +139,19 @@
                                 </div> -->
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-8 " id="map"></div>
-                        <div class="info-column-div col-sm-12 col-md-2">
+                        <!--mobile info div-->
+                        <div class="info-column-div visible-sm visible-xs hidden-md hidden-lg col-xs-12 col-sm-12">
+                            <h2 class="text-center green">Games Info:</h2>
+                            <div class="eventInfo">
+                                <!-- <div class="date col-xs-12">Date: 2017-10-28</div>
+                                <div class="time col-xs-12">Time: 5:00 PM</div>
+                                <div class="details col-xs-12">Details: experienced players preferred, college students preferred, parking available, food provided</div>
+                                <button class="btn btn-success apply" index="0">Apply</button> -->
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-8" id="map"></div>
+                        <!--desktop info div-->
+                        <div class="info-column-div hidden-sm hidden-xs col-sm-12 col-md-2">
                             <div class="info-column-div column_height col-sm-12 col-md-12">
                                 <h1 class="text-center green">Games Info:</h1>
                                 <div class="eventInfo">

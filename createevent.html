@@ -85,7 +85,7 @@
                 <a href="/contact_us.html" id="contact" class="col-sm-3 col-md-3">Contact</a>
             </div>
             <!--title and logo-->
-            <div class="col-sm-12 col-md-12">
+            <div class="header-scroll col-sm-12 col-md-12">
                 <div class="col-sm-2 col-md-2">
                     <img class="temp_logo display-inline" src="./imgs/temp logo.png"/>
                 </div>
@@ -114,51 +114,99 @@
             </div>
            <!--form starts here-->
             <div class="event_host_div">
-                <form class="form-group" onsubmit="sendData();" id="eventCreation">
+                <form class="col-xs-12 col-md-12" onsubmit="sendData();" id="eventCreation">
                     <div class="form-horizontal">
-                        <input class="form-group" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
-                        <select title="playerCount" name="numPlayers" id="numPlayers" required>
-                            <option value="" disabled selected hidden>Players Desired</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                        </select><br/>
-                        <input type="text" name="address" id="address" placeholder="Street Address" required><br/>
-                        <input type="text" name="city" id="city" placeholder="City" required><br/>
-                        <input type="text" name="state" id="state" maxlength="2" size="2" placeholder="State" required><br/>
-                        <input type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
-                        <textarea class="form-group " name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
-                        <select title="month" name="month" id="month" required>
-                            <option value="" disabled selected hidden>Month</option>
-                            <option value="01">Jan</option>
-                            <option value="02">Feb</option>
-                            <option value="03">Mar</option>
-                            <option value="04">Apr</option>
-                            <option value="05">May</option>
-                            <option value="06">Jun</option>
-                            <option value="07">Jul</option>
-                            <option value="08">Aug</option>
-                            <option value="09">Sep</option>
-                            <option value="10">Oct</option>
-                            <option value="11">Nov</option>
-                            <option value="12">Dec</option>
-                        </select>
-                        <input type="text" name="day" id="day" maxlength="2" size="2" pattern="(0[1-9]|[12][0-9]|3[01])" placeholder="DD" required>
-                        <select title="text" name="year" id="year" required>
-                            <option value="" disabled selected hidden>Year</option>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                        </select><br/>
-                        <input type="text" name="time" id="time" maxlength="5" size="5" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]))" placeholder="HH:MM" required>
-                        <select title="dayNight" name="dayNight" id="dayNight">
-                            <option value="AM">AM</option>
-                            <option value="PM">PM</option>
-                        </select><br/>
+                        <!--Game name and players-->
+                        <div class="form-event-pad col-xs-12 col-md-12">
+                            <div class="col-xs-12 col-md-10">
+                                <span class="app-form col-md-2">Event:</span>
+                                <input class="app-form col-xs-12 col-md-10" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
+                            </div>
+                            <div class="col-xs-12 col-md-2">
+                                <span class="app-form col-md-12">Players:</span>
+                                <select title="playerCount" class="col-xs-6 col-xs-offset-3 col-md-12" name="numPlayers" id="numPlayers" required>
+                                    <option value="" disabled selected hidden>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>z
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                </select><br/>
+                            </div>
+                        </div>
+                        <!--Addresses-->
+                        <div class="margin_top margin_bottom col-xs-12 col-md-12">
+                            <div class="margin_top margin_bottom col-xs-12">
+                                <span class="app-form col-md-2">Street:</span>
+                                <input class="col-xs-12 col-md-10" type="text" name="address" id="address" placeholder="Street Address" required><br/>
+                            </div>
+                            <div class="margin_bottom col-xs-12">
+                                <span class="app-form col-md-2">City:</span>
+                                <input class="col-xs-12 col-md-10" type="text" name="city" id="city" placeholder="City" required><br/>
+                            </div>
+                            <div class="margin_bottom col-xs-12">
+                                <span class="app-form col-md-2">State:</span>
+                                <input class="col-xs-12 col-md-10" type="text" name="state" id="state" maxlength="2" size="2" placeholder="State" required><br/>
+                            </div>
+                            <div class="margin_bottom col-xs-12">
+                                <span class="app-form col-md-2">Zip Code:</span>
+                                <input class="col-xs-12 col-md-10" type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
+                            </div>
+                        </div>
+                        <!--Text Input-->
+                        <div class="margin_bottom col-xs-12 col-md-12">
+                            <span class="app-form col-md-2">Special Notes:</span>
+                            <textarea class="col-md-10" name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
+                        </div>
+                        <!--Time Input-->
+                        <div class="margin_top margin_bottom col-sm-12 col-md-12">
+                            <div class="col-xs-12 col-md-3">
+                                <span class="col-xs-12 col-md-12">Month:</span>
+                                <select class="col-xs-6 col-xs-offset-3 col-md-12" title="month" name="month" id="month" required>
+                                    <option value="" disabled selected hidden>Month</option>
+                                    <option value="01">Jan</option>
+                                    <option value="02">Feb</option>
+                                    <option value="03">Mar</option>
+                                    <option value="04">Apr</option>
+                                    <option value="05">May</option>
+                                    <option value="06">Jun</option>
+                                    <option value="07">Jul</option>
+                                    <option value="08">Aug</option>
+                                    <option value="09">Sep</option>
+                                    <option value="10">Oct</option>
+                                    <option value="11">Nov</option>
+                                    <option value="12">Dec</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-md-2">
+                                <span class="col-xs-12 col-md-12">Year:</span>
+                                <select class="col-xs-6 col-xs-offset-3 col-md-12" title="text" name="year" id="year" required>
+                                    <option value="" disabled selected hidden>Year</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                </select><br/>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <div class="col-xs-6 col-md-6">
+                                    <span class="col-xs-12 col-md-12">Day:</span>
+                                    <input type="text" name="day" id="day" maxlength="2" size="2" pattern="(0[1-9]|[12][0-9]|3[01])" placeholder="DD" required>
+                                </div>
+                                <div class="col-xs-6 col-md-6">
+                                    <span class="col-xs-12 col-md-12">Time:</span>
+                                    <input type="text" name="time" id="time" maxlength="5" size="5" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]))" placeholder="HH:MM" required>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <span class="col-xs-12 col-md-12">AM/PM:</span>
+                                <select class="col-xs-6 col-xs-offset-3 col-md-12" title="dayNight" name="dayNight" id="dayNight">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select><br/>
+                            </div>
+                        </div>
                         <!-- Trigger the modal with a button -->
                         <button type="button" id="createEventBtn" class="btn btn-info btn-lg">Submit Form</button>
                     </div>
@@ -166,9 +214,9 @@
                 <h3 class="text-center" id="submitResponse"></h3>
             </div>
             <!--footer-->
-            <div class="footer col-md-12">
+            <div class="footer col-xs-12 col-md-12">
                 <!--paypal_button-->
-                <div class="margin_top col-sm-12 col-md-12">
+                <div class="margin_top col-xs-12 col-md-12">
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                         <input type="hidden" name="cmd" value="_s-xclick">
                         <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
@@ -182,7 +230,7 @@
             <div class="shadowBox hidden">
             </div>
             <div class="loginModal hidden">
-                <h1 class="modalText">Hi</h1>
+                <h1 class="modalText">Thank You <br/> Your Application has been Submitted</h1>
             </div>
             <!--<div id="mySubmitEventModal hidden" class="modal fade" role="dialog">-->
                     <!--<h1 class="modalText">Filler</h1>-->
