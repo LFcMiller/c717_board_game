@@ -17,7 +17,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cambay" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
   <script src="facebook_login.js"></script>
   <script src='createevent.js'></script>
 </head>
@@ -76,14 +78,14 @@
         </script>
         <!--background pic with body starts here-->
         <div class="create_event_background"></div>
-        <div class="body_black">
+        <div class="body_black columns_body">
             <!--Top menu bar-->
-            <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
-                <a href="/" id="home" class="col-sm-3 col-md-3">Home</a>
-                <a href="/profile.html" id="profile" class="col-sm-3 col-md-3">Profile</a>
-                <a href="/about" id="about"class="col-sm-3 col-md-3">About</a>
-                <a href="/blog" target="_blank" id="blog" class="col-sm-3 col-md-3">Blog</a>
-                <a href="/contact_us.html" id="contact" class="col-sm-3 col-md-3">Contact</a>
+            <div class="topnav margin_bottom content-font col-sm-12 col-md-12" id="myTopnav">
+                <a href="/" id="home" class="">Home</a>
+                <a href="/profile.html" id="profile" class="">Profile</a>
+                <a href="/about" id="about" class="">About</a>
+                <a href="/blog" id="blog" class="">Blog</a>
+                <a href="/contact_us.html" id="contact" class="">Contact</a>
             </div>
             <!--title and logo-->
             <div class="header-scroll col-sm-12 col-md-12">
@@ -92,13 +94,13 @@
                 </div>
                 <!--mobile title-->
                 <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-10">
-                    <h1 class="font_md">Board Game Scout</h1>
-                    <h4 class ="font_rg">Host Application</h4>
+                    <h1 class="font_md header-font">Board Game Scout</h1>
+                    <h4 class ="font_rg content-font">Host Application</h4>
                 </div>
                 <!--desktop title-->
                 <div class="hidden-sm visible-md visible-lg col-md-8">
-                    <h1 class="font_lg">Board Game Scout</h1>
-                    <h4 class ="font_rg">Host Application</h4>
+                    <h1 class="font_lg header-font">Board Game Scout</h1>
+                    <h4 class ="font_rg content-font">Host Application</h4>
                 </div>
                 <!--button_container-->
                 <div class="button_container col-sm-12 col-md-12">
@@ -114,7 +116,7 @@
                 </div>
             </div>
            <!--form starts here-->
-            <div class="event_host_div">
+            <div class="event_host_div content-font">
                 <form class="col-xs-12 col-md-12" onsubmit="sendData();" id="eventCreation">
                     <div class="form-horizontal">
                         <!--Game name and players-->
