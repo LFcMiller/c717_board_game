@@ -642,6 +642,10 @@ select#fav_genre, input#first_name {
   overflow-y: unset;
 }
 
+#applyModal {
+  color: black;
+}
+
 @media (max-width: 415px) {
   .header-scroll {
     overflow-y: scroll;
