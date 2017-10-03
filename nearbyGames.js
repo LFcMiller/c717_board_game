@@ -131,6 +131,7 @@ function populatePage(response) {
 }
 
 function displayAdditionalInfo(index){
+  $(".eventInfo").empty();
   var dateDiv = $("<div>")
     .addClass("date col-xs-12")
     .text("Date: "+eventList[index].date);
