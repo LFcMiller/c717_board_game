@@ -113,6 +113,8 @@ function populatePage(response) {
       gameContainerDiv.append(gameDiv);
       $(".gamesContainer").append(gameContainerDiv);
     }
+  } else {
+    $(".containerTitle").text("Sorry, there are currently no games in your area.");
   }
 }
 
