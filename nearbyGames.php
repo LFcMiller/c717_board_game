@@ -133,7 +133,7 @@
                         <div class="info-column-div col-sm-12 col-md-2">
                             <h2 class="text-center green">Games Near You:</h2>
                             <div class="gamesContainer column_height col-sm-12 col-md-12">
-                                <h2>Sorry, there are currently no games in your area.</h2>
+                                <h2 class="containerTitle">Loading...</h2>
                                 <!-- <div class="game col-xs-12">
                                     <div class="gameName truncate col-xs-12" index="0">Monopoly</div>
                                 </div> -->
