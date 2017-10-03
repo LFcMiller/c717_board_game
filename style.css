@@ -128,9 +128,12 @@ div {
   padding:unset;
 }
 
+.search{
+  font-size: 19px;
+}
 
 .margin_bottom{
-  margin-bottom:2%;
+  margin-bottom:6%;
 }
 
 form{
