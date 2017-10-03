@@ -3,7 +3,6 @@ body{
   color: white;
   font-family: Futura, Arial, sans-serif;
   height: 99vh;
-
 }
 .green {
   background-color: #149F71;
@@ -171,6 +170,15 @@ form{
  font-size: large;
   #line-height: 9vh;
   text-align: center;
+
+}
+
+.header-font {
+  font-family: 'Bungee Inline', cursive;
+}
+
+.content-font {
+  font-family: 'Cambay', sans-serif;
 }
 
 .topnav a {
