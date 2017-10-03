@@ -142,7 +142,7 @@ function displayAdditionalInfo(index){
     .addClass("details col-xs-12")
     .text("Details: "+eventList[index].general_details);
   var applyButton = $("<button>")
-    .addClass("btn btn-success apply col-xs-12")
+    .addClass("btn btn-success apply col-xs-3")
     .attr("index", index)
     .text("Apply")
     .on("click", applyToEvent);
