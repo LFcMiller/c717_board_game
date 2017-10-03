@@ -643,7 +643,7 @@ select#fav_genre, input#first_name {
   overflow-y: unset;
 }
 
-#applyModal {
+#applyModal, #createEventModal {
   color: black;
 }
 
