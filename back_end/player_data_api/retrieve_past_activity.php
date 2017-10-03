@@ -1,12 +1,10 @@
 <?php
-
 if(empty($_POST['user_ID'])){
     $output['errors'][] = 'missing user_ID';
     return;
 }
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-
 //thanks, Tim!
 $past_activity_query =
     "
@@ -29,6 +27,7 @@ $past_activity_result = null;
 $output['data']['past_games'] = [];
 
 $past_activity_result = mysqli_query($conn, $past_activity_query);
+//print_r($past_activity_result);
 
 if(empty($past_activity_result)){
 //    $output['errors'][] = 'couldn\'t find past activity for this user';
