@@ -29,7 +29,8 @@ if(empty($mapping_result)){
         //finally, we've done everything we need to do
         $output['debugging_messages'][]='able to map the user to the event';
     } else {
-        $output['errors'] = 'trouble mapping user to event (hint: is this player already associated with the event?)';
+//        $output['errors'] = 'trouble mapping user to event (hint: is this player already associated with the event?)';
+        $output['errors'] = 'You\'re already attending this event!';
         return;
     }
 }
