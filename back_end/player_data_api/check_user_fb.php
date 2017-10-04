@@ -11,8 +11,15 @@ if(mysqli_connect_errno()){
     return;
 }
 
-$fb_ID = (int) $_POST['fb_ID'];
+$fb_ID = $_POST['fb_ID'];
+
+if(!ctype_digit($fb_ID)){
+    $output['errors'][] = 'expected fb_ID to be entirely numeric';
+    return;
+}
+
 $check_on_user_query = "SELECT `user_ID` FROM `users` WHERE `fb_ID` = $fb_ID";
+$output['debugging_messages'][] = 'check_on_user_query: '.$check_on_user_query;
 
 $result = null;
 $user_ID = null;
