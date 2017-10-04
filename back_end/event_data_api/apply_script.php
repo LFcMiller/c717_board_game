@@ -79,7 +79,7 @@ if($result){
 				$host_email = $host['email'];
                 $output['debugging_messages'][]='found the host! his name is '.$host_name;
                 $output['debugging_messages'][]='found the host! his email is '.$host_email;
-                require_once 'php_mailer.php';
+                require 'php_mailer.php';
                 //when emailing is required for the action to be considered a success, $output['success'] should be set to true only upon the email being sent
 //                $output['success'] = true;
 			} else if($row['role']==='applicant'){
