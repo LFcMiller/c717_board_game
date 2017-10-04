@@ -13,12 +13,15 @@ function pullData(){
     method: "POST",
     dataType: "json",
     data: {
-      zip: currentZip || testZip
+      zip: currentZip
     },
     success: function(response) {
-      console.log("Response: ", response);
-      populatePage(response);
-      populateMap(response);
+      if(response.data){
+        populatePage(response);
+        populateMap(response);
+      } else {
+        $(".containerTitle").text("Sorry, there are currently no games in your area.");
+      }
     }
   });
 }
@@ -55,24 +58,21 @@ function applyToEvent(event){
 
 
 function populatePage(response) {
-  if (response.data.length > 0) {
-    $(".gamesContainer").html("");
-    eventList = response.data;
-    for (var i = 0; i < response.data.length; i++) {
-      var gameDiv = $("<div>")
-        .addClass("gameName truncate col-xs-12")
-        .attr("index", i)
-        .text(response.data[i].game_name)
-        .on("click", (event)=>{
-          handleMapFocus(event)
-          displayAdditionalInfo($(event.target).attr("index"));
-        })
-      var gameContainerDiv = $("<div>").addClass("game col-xs-12");
-      gameContainerDiv.append(gameDiv);
-      $(".gamesContainer").append(gameContainerDiv);
-    }
-  } else {
-    $(".containerTitle").text("Sorry, there are currently no games in your area.");
+  console.log("Data response: ", response)
+  $(".gamesContainer").html("");
+  eventList = response.data;
+  for (var i = 0; i < response.data.length; i++) {
+    var gameDiv = $("<div>")
+      .addClass("gameName truncate col-xs-12")
+      .attr("index", i)
+      .text(response.data[i].game_name)
+      .on("click", (event)=>{
+        handleMapFocus(event)
+        displayAdditionalInfo($(event.target).attr("index"));
+      })
+    var gameContainerDiv = $("<div>").addClass("game col-xs-12");
+    gameContainerDiv.append(gameDiv);
+    $(".gamesContainer").append(gameContainerDiv);
   }
 }
 
@@ -127,7 +127,7 @@ function initMap() {
     url: "https://maps.googleapis.com/maps/api/geocode/json",
     method: "GET",
     data: {
-      address: testZip
+      address: currentZip
     },
     success: function(response) {
       var location = response.results[0].geometry.location;
