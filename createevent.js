@@ -8,12 +8,12 @@ var loggedIn = false;
 function sendData(){
   event.preventDefault();
     if(loggedIn){
-    var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val();
+      var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val();
       getLatLong(address).then(getCrossStreets).then(handleSuccess);
-  } else {
-    $(".modalText").text("Submitting an event requires a Facebook Login. Please log in and try again.");
-    $("#createEventModal").modal();
-  }
+    } else {
+      $(".modalText").text("Submitting an event requires a Facebook Login. Please log in and try again.");
+      $("#createEventModal").modal();
+    }
 }
 
 function getLatLong(address) {
