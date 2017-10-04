@@ -14,6 +14,60 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+            fjs.parentNode.insertBefore(js, fjs);
+
+        }(document, 'script', 'facebook-jssdk'));
+
+        //set up facebook JS SDK 
+        window.fbAsyncInit = function() {
+            FB.init({
+            appId            : '133764540588384',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.10'
+            });
+            
+            FB.getLoginStatus(function(response) {
+            console.log(response);
+                statusChangeCallback(response);
+            });
+
+        };
+
+        function statusChangeCallback(response){
+            if(response.status === 'connected'){
+            console.log('Logged in and authenticated');
+            loggedIn=true;
+            testAPI();
+            }else{
+            console.log('Not authenticated');
+            loggedIn=false;
+            }
+        }
+
+            function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+            }
+
+            function testAPI(){
+            FB.api('/me?fields=name,email,picture.width(800).height(800)', function(response){
+                if(response && !response.error){
+                console.log(response);
+                sendFacebookData(response).then(response=>{processFacebookData(response)}, errorHandler);
+            }
+        });
+        }
+
+    </script>
     <div id="root"></div>
     <script src="/bundle.js"></script>
 </body>

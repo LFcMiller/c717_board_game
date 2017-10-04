@@ -6,12 +6,12 @@ if(empty($_POST['user_ID'])){
 
 $keys_we_are_looking_for = /*don't forget facebook ID!*/ ['game_name','general_details', /*'numPlayers',*/ 'street_address', 'city', 'state','zip','date','time', 'lat', 'lng'];
 
-$post_event_data = [];
+$post_event_data_unesc = [];
 
 //this will look though the post data for each of the keys we are looking for.
 foreach($keys_we_are_looking_for as $key) {
     if(array_key_exists($key, $_POST)){
-        $post_event_data[$key] = $_POST[$key];
+        $post_event_data_unesc[$key] = $_POST[$key];
     }
     //Here is where I can make error statements about missing data from the front end.
     else
@@ -41,9 +41,6 @@ if(!mysqli_affected_rows($conn)){
 //just getting the user_ID from the associative array from the database (old code - used for when I was looking up the user based on fb_ID. It could come in handy in the future)
 //$user_ID = mysqli_fetch_assoc($user_table_result)['fb_ID'];
 
-
-//TODO: I also have to map the user who created the event to the created event as a host. To do that, I am planning on requiring the client to send their facebook id along with their event details.
-//TODO: Then use the facebook ID to get our user ID
 //print_r($post_data);
 
 //$output['data'][] = 'I see that you tried to add a game of '.$post_data['gameName'];
@@ -51,9 +48,20 @@ if(!mysqli_affected_rows($conn)){
 //second, create and store the event
 
 //take the human readable time from the front end and make it the way mySQL wants it
-$post_event_data['time'] = date('H:i:s', strtotime($post_event_data['time']));
+$post_event_data_unesc['time'] = date('H:i:s', strtotime($post_event_data_unesc['time']));
 
-$new_event_query = "INSERT INTO `events` SET `game_name` = '{$post_event_data['game_name']}', `general_details` = '{$post_event_data['general_details']}', `street_address` = '{$post_event_data['street_address']}', `city` = '{$post_event_data['city']}',`state`='{$post_event_data['state']}',`zip`='{$post_event_data['zip']}',`lat`='{$post_event_data['lat']}',`lng`='{$post_event_data['lng']}',`date`='{$post_event_data['date']}',`time`='{$post_event_data['time']}'";
+$new_event_query = "INSERT INTO `events` SET
+                    `game_name` = '".addslashes($post_event_data_unesc['game_name'])."',
+                    `general_details` = '".addslashes($post_event_data_unesc['general_details'])."',
+                    `street_address` = '".addslashes($post_event_data_unesc['street_address'])."',
+                    `city` = '".addslashes($post_event_data_unesc['city'])."',
+                    `state`='".addslashes($post_event_data_unesc['state'])."',
+                    `zip`='".addslashes($post_event_data_unesc['zip'])."',
+                    `lat`='".addslashes($post_event_data_unesc['lat'])."',
+                    `lng`='".addslashes($post_event_data_unesc['lng'])."',
+                    `date`='".addslashes($post_event_data_unesc['date'])."',
+                    `time`='".addslashes($post_event_data_unesc['time'])."'
+                    ;";
 //print($new_event_query);
 
 $result = null;
