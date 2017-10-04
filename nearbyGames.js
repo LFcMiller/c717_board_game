@@ -76,6 +76,8 @@ function populatePage(response) {
   }
 }
 
+//TODO: confirm that the tags aren't created as tags (cross-site scripting)
+
 function displayAdditionalInfo(index){
   $(".eventInfo").empty();
   var dateDiv = $("<div>")
