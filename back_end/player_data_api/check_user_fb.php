@@ -11,7 +11,8 @@ if(mysqli_connect_errno()){
     return;
 }
 
-$check_on_user_query = "SELECT `user_ID` FROM `users` WHERE `fb_ID` = {$_POST['fb_ID']}";
+$fb_ID = (int) $_POST['fb_ID'];
+$check_on_user_query = "SELECT `user_ID` FROM `users` WHERE `fb_ID` = $fb_ID";
 
 $result = null;
 $user_ID = null;
