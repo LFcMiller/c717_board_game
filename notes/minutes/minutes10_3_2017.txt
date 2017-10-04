@@ -1,0 +1,25 @@
+Greg says:
+on nearbyGames:
+in Games Near You list, we should list distance or how far away the game is
+
+for the part where we email ourselves:
+we can set a header for replyto
+fix 'BoarGameScout' and boardgamedummy in the email
+not mvp, but send both plain text AND html versions of the email
+use $AltBody in the phpmailer
+
+not MVP but have an indicator that things are submitting (like a spinning indicator)
+
+for create event, add suggestions for what to include in details
+
+fix facebook button cutoff
+
+put donate button in an actual footer
+
+if there are no games in the area, still put the map in the right area
+
+make the date nicer in nearbyGames
+
+look in to putting numbers on map circles
+
+if person is entering data and not logged in, keep the form fields saved and tell them they need to log in

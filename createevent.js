@@ -1,14 +1,19 @@
+$(document).ready(()=>{
+  $("#createEventBtn").on("click", sendData);
+})
+
 var loggedIn = false;
 
 
 function sendData(){
   event.preventDefault();
-  if(loggedIn){
-    var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val()
-    getLatLong(address).then(getCrossStreets).then(handleSuccess);
-  } else {
-    console.log("Not logged in")
-  }
+    if(loggedIn){
+      var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val();
+      getLatLong(address).then(getCrossStreets).then(handleSuccess);
+    } else {
+      $(".modalText").text("Submitting an event requires a Facebook Login. Please log in and try again.");
+      $("#createEventModal").modal();
+    }
 }
 
 function getLatLong(address) {
@@ -52,19 +57,24 @@ function handleSuccess(response) {
     time: $("#time").val()+" "+$("#dayNight").val(),
     lat: response.snappedPoints[0].location.latitude,
     lng: response.snappedPoints[0].location.longitude,
+    user_ID: user_ID
   };
   console.log(result);
+  $("#eventCreation")[0].reset();
   $.ajax({
     method: 'post',
     dataType: 'json',
-    url: "./3plus_table_solution/event_input_decision_maker.php?action=newEvent",
+    url: "./back_end/event_input_decision_maker.php?action=newEvent",
     data: result,
     timeout: 5000,
     success: function (objectFromServer) {
         console.log(objectFromServer);
+        $(".modalText").text("Your event has been submitted! Any applications you receive will be sent to your email.");
+        $("#createEventModal").modal();
     },
     error: function (xhr, textStatus, errorString) {
-        console.log(errorString);
+        $(".modalText").text("There was an error submitting your event, please try again.");
+        $("#createEventModal").modal();
     }
   });
 }
