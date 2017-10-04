@@ -60,6 +60,7 @@ function setUserValues(response){
   $("#about_me").text(response.data.about_me);
 
   var pastGames = response.data.past_games;
+  $(".pastGamesTable").empty();
   if(pastGames.length > 0){
     for(var i = 0; i < pastGames.length; i++){
       var gameRow = $("<tr>");

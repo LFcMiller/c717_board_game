@@ -40,8 +40,12 @@ function applyToEvent(event){
 
       },
       success: function(response){
-        $(".modalText").text("Your application has been submitted!");
-        console.log('email has been sent!',response);
+        if(response.success){
+          $(".modalText").text("Your application has been submitted!");
+        } else {
+          $(".modalText").text(response.errors[0]);
+        }
+        console.log('Email success response: ',response);
         $("#applyModal").modal();
       },
       error: function(response){

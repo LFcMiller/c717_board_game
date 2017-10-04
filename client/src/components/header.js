@@ -1,4 +1,5 @@
 import React from 'react';
+import Facebook from './facebook';
 
 export default () => {
   return (
@@ -13,12 +14,7 @@ export default () => {
       <div className="hidden-sm visible-md visible-lg col-md-8">
           <h1 className="font_lg">Board Game Scout</h1>
       </div>
-      {/* <div class="button_container col-sm-12 col-md-12 col-md-offset-12">
-          <div class="col-sm-12 col-md-3 col-md-offset-9">
-              <fb:login-button class="fb-login-button col-lg-2" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email,picture" onlogin="checkLoginState();">
-              </fb:login-button>
-          </div>
-      </div> */}
+      <Facebook/>
     </div>
   )
 }
