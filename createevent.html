@@ -123,11 +123,11 @@
                         <div class="form-event-pad col-xs-12 col-md-12">
                             <div class="col-xs-12 col-md-10">
                                 <span class="app-form col-md-2">Event:</span>
-                                <input class="app-form col-xs-12 col-md-10" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
+                                <input class="app-form col-xs-12 col-md-9" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
                             </div>
                             <div class="col-xs-12 col-md-2">
                                 <span class="app-form col-md-12">Players:</span>
-                                <select title="playerCount" class="col-xs-6 col-xs-offset-3 col-md-12" name="numPlayers" id="numPlayers" required>
+                                <select title="playerCount" class="col-xs-6 col-md-12" name="numPlayers" id="numPlayers" required>
                                     <option value="" disabled selected hidden>Select</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -162,7 +162,7 @@
                         <!--Text Input-->
                         <div class="margin_bottom col-xs-12 col-md-12">
                             <span class="app-form col-md-2">Special Notes:</span>
-                            <textarea class="col-md-10" name="textDetails" id="textDetails" placeholder="Tell potential players about parking, age restrictions, skill level desired, snacks/drinks available, etc." required></textarea><br/>
+                            <textarea class="text-width" name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
                         </div>
                         <!--Time Input-->
                         <div class="margin_top margin_bottom col-sm-12 col-md-12">
@@ -231,7 +231,6 @@
                 </div>
 
             </div>
-        </div>
         <!--Modal for event submit-->
         <div id="createEventModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
