@@ -326,7 +326,11 @@ form{
 
 
 .form-event-pad {
-  padding-left: 31px;
+  padding-left: 37px;
+}
+
+.text-width {
+  width: 80%;
 }
 
 @media(max-width:415px) {
