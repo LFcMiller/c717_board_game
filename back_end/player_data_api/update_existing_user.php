@@ -6,23 +6,23 @@ if(empty($_POST['user_ID'])){
 
 $keys_we_are_looking_for = ['first_name', 'fav_genre', 'about_me'];
 
-$things_to_update = [];
+$things_to_update_unesc = [];
 
 foreach($keys_we_are_looking_for as $key){
     if(array_key_exists($key, $_POST)){
-        $things_to_update[$key] = $_POST[$key];
+        $things_to_update_unesc[$key] = addslashes($_POST[$key]);
 //        print("I think the key is ".$key);
     }
 }
 
-if(empty($things_to_update)){
+if(empty($things_to_update_unesc)){
     $output['errors'][] = 'nothing to update';
     return;
 }
 
 $query = "UPDATE `users` SET";
 
-foreach($things_to_update as $key => $value){
+foreach($things_to_update_unesc as $key => $value){
     $queryArr[] = " `{$key}` = '{$value}'";
 }
 $query.= implode(',' , $queryArr)." WHERE `user_ID` = '{$_POST['user_ID']}';";

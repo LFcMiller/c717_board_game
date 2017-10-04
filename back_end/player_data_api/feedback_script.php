@@ -14,7 +14,7 @@ if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['message'])){
     return;
 }
 
-$name = $_POST['name'];
+$name = ($_POST['name']);
 $email = $_POST['email'];
 $message = $_POST['message'];
 

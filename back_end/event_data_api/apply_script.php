@@ -13,7 +13,7 @@ if(empty($_POST['user_ID']) || empty($_POST['event_ID'])){
 
 //first, map the new user to the event as an attendee
     //ON DUPLICATE KEY UPDATE could be useful post-mvp
-//for INSERT IGNORE to work right, `event_ID` and `player_ID` should be unique keys
+    //for INSERT IGNORE to work right, `event_ID` and `player_ID` should be unique keys
 
 $mapping_query = "INSERT IGNORE INTO `users_to_events` SET `event_ID` = {$_POST['event_ID']}, `player_ID`={$_POST['user_ID']}, `role` = 'attendee'";
 
