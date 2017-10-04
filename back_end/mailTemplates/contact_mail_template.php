@@ -289,7 +289,7 @@ ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.s
 										<tr>
 											<td>											
 												<h5 class="">Contact Info:</h5>												
-                Email: <strong><a href="boardgamedummy@gmail.com">boardgamedummy@gmail.com</a></strong></p>
+                Email: <strong><a href="boardgamescout@gmail.com">boardgamescout@gmail.com</a></strong></p>
 											</td>
 										</tr>
 									</table><!-- /column 2 -->

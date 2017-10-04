@@ -36,7 +36,7 @@ $mail->SMTPSecure = "ssl"; //or we can use TLS
 $mail->Port = 465; //or 587 if TLS
 
 //set the subject
-$mail->Subject = "BoarGameScout Event!";
+$mail->Subject = "BoardGameScout Event!";
 
 //set html to true
 $mail->isHTML(true);
