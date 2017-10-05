@@ -321,7 +321,7 @@ form{
   background-image: url("./imgs/boardgame.jpg");
   position: absolute;
   width:100vw;
-  height:115%;
+  height:200%;
   opacity:0.2;
   background-size:cover;
   background-repeat: no-repeat;
