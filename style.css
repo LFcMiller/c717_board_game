@@ -29,6 +29,8 @@ body{
 .navbar-nav li:last-child{
   float: right;
 }
+
+
 .donatePaypal{
   margin: 0;
   display: inline;
@@ -51,6 +53,13 @@ body{
 }
 .navbar-nav li:last-child{
   float: none;
+}
+.navbar-nav{
+    margin: 0;
+    width: 100%;
+  }
+.navbar-nav li{
+  margin-right: 0;
 }
 }
 
