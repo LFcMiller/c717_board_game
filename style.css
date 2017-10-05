@@ -2,7 +2,7 @@ body{
   background-color: black;
   color: white;
   font-family: Futura, Arial, sans-serif;
-  #height: 99vh;
+  /* height: 99vh; */
 }
 .green {
   background-color: #149F71;
@@ -124,13 +124,13 @@ div {
 .home_page_body{
   width:99vw;
   height: 99%;
-  #display: inline-block;
-  padding-top: 3%;
+  /* display: inline-block; */
+  padding-top: 5%;
 }
 
 @media screen and (max-width: 991px) {
   .home_page_body{
-  padding-top: 6%;
+  padding-top: 20%;
 }
 }
 
@@ -321,7 +321,7 @@ form{
   background-image: url("./imgs/boardgame.jpg");
   position: absolute;
   width:100vw;
-  height:100%;
+  height:115%;
   opacity:0.2;
   #bottom: -2%;
   #left: 0%;
