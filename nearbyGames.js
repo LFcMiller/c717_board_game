@@ -170,7 +170,7 @@ function populateMap(response) {
       lat: parseFloat(response.data[i].lat),
       lng: parseFloat(response.data[i].lng)
     };
-    (function(marker, pos) {
+    (function(marker, pos, index) {
       marker.addListener("click", function() {
         infowindow.setContent(marker.content);
         infowindow.setPosition(pos);
@@ -180,8 +180,9 @@ function populateMap(response) {
           strokeColor: "#35dd46",
           fillColor: "#35dd46"
         });
+        displayAdditionalInfo(index);
       });
-    })(marker, latLng);
+    })(marker, latLng, i);
     markers.push(marker);
   }
 }
