@@ -40,7 +40,7 @@
     ?>
 
   <script src="nearbyGames.js"></script>
-
+<link rel="icon" href="./imgs/board_game_scout_tab_logo.png">
 </head>
 <body class="container-fluid padding_unset body_black">
         <script>
