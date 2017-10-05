@@ -121,6 +121,7 @@
                 <!--desktop title-->
                 <div class="hidden-sm visible-md visible-lg col-md-12">
                     <h1 class="font_lg header-font">Board Game Scout</h1>
+                    <h4>Create An Event</h4>
                 </div>
                 <!--button_container-->
             </div>
@@ -129,14 +130,14 @@
                 <form class="col-xs-12 col-md-12" onsubmit="sendData();" id="eventCreation">
                     <div class="form-horizontal">
                         <!--Game name and players-->
-                        <div class="form-event-pad col-xs-12 col-md-12">
-                            <div class="col-xs-12 col-md-10">
-                                <span class="app-form col-md-2">Event:</span>
-                                <input class="app-form col-xs-12 col-md-9" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
+                        <div class="col-xs-12 col-md-12">
+                            <div class="form-group">
+                                <label class="col-xs-1">Event:</label>
+                                <input class="form-control" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
                             </div>
-                            <div class="col-xs-12 col-md-2">
-                                <span class="app-form col-md-12">Players:</span>
-                                <select title="playerCount" class="col-xs-6 col-md-12" name="numPlayers" id="numPlayers" required>
+                            <div class="form-group">
+                                <label class="col-xs-1">Players:</label>
+                                <select title="playerCount" class="form-control" name="numPlayers" id="numPlayers" required>
                                     <option value="" disabled selected hidden>Select</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -148,75 +149,70 @@
                                     <option value="8">8</option>
                                 </select><br/>
                             </div>
-                        </div>
-                        <!--Addresses-->
-                        <div class="margin_top margin_bottom col-xs-12 col-md-12">
-                            <div class="margin_top margin_bottom col-xs-12">
-                                <span class="app-form col-md-2">Street:</span>
-                                <input class="col-xs-12 col-md-10" type="text" name="address" id="address" placeholder="Street Address" required><br/>
+                            <!--Addresses-->
+                            <div class="form-group">
+                                <label class="col-xs-1">Street:</label>
+                                <input class="form-control" type="text" name="address" id="address" placeholder="Street Address" required><br/>
                             </div>
-                            <div class="margin_bottom col-xs-12">
-                                <span class="app-form col-md-2">City:</span>
-                                <input class="col-xs-12 col-md-10" type="text" name="city" id="city" placeholder="City" required><br/>
+                            <div class="form-group">
+                                <label class="col-xs-1">City:</label>
+                                <input class="form-control" type="text" name="city" id="city" placeholder="City" required><br/>
                             </div>
-                            <div class="margin_bottom col-xs-12">
-                                <span class="app-form col-md-2">State:</span>
-                                <input class="col-xs-12 col-md-10" type="text" name="state" id="state" maxlength="2" size="2" placeholder="State" required><br/>
+                            <div class="form-group">
+                                <label class="col-xs-1">State:</label>
+                                <input class="form-control" type="text" name="state" id="state" maxlength="2" size="2" placeholder="State" required><br/>
                             </div>
-                            <div class="margin_bottom col-xs-12">
-                                <span class="app-form col-md-2">Zip Code:</span>
-                                <input class="col-xs-12 col-md-10" type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
+                            <div class="form-group">
+                                <label class="col-xs-1">Zipcode:</label>
+                                <input class="form-control" type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
                             </div>
-                        </div>
-                        <!--Text Input-->
-                        <div class="margin_bottom col-xs-12 col-md-12">
-                            <span class="app-form col-md-2">Special Notes:</span>
-                            <textarea class="text-width" name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
-                        </div>
-                        <!--Time Input-->
-                        <div class="margin_top margin_bottom col-sm-12 col-md-12">
-                            <div class="col-xs-12 col-md-3">
-                                <span class="col-xs-12 col-md-12">Month:</span>
-                                <select class="col-xs-6 col-xs-offset-3 col-md-12" title="month" name="month" id="month" required>
-                                    <option value="" disabled selected hidden>Month</option>
-                                    <option value="01">Jan</option>
-                                    <option value="02">Feb</option>
-                                    <option value="03">Mar</option>
-                                    <option value="04">Apr</option>
-                                    <option value="05">May</option>
-                                    <option value="06">Jun</option>
-                                    <option value="07">Jul</option>
-                                    <option value="08">Aug</option>
-                                    <option value="09">Sep</option>
-                                    <option value="10">Oct</option>
-                                    <option value="11">Nov</option>
-                                    <option value="12">Dec</option>
-                                </select>
+                            <!--Text Input-->
+                            <div class="form-group">
+                                <label class="app-form col-xs-5">Special Notes:</label>
+                                <textarea class="form-control" name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
                             </div>
-                            <div class="col-xs-12 col-md-2">
-                                <span class="col-xs-12 col-md-12">Year:</span>
-                                <select class="col-xs-6 col-xs-offset-3 col-md-12" title="text" name="year" id="year" required>
-                                    <option value="" disabled selected hidden>Year</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2018">2018</option>
-                                </select><br/>
-                            </div>
-                            <div class="col-xs-12 col-md-4">
-                                <div class="col-xs-6 col-md-6">
-                                    <span class="col-xs-12 col-md-12">Day:</span>
-                                    <input type="text" name="day" id="day" maxlength="2" size="2" pattern="(0[1-9]|[12][0-9]|3[01])" placeholder="DD" required>
+                            <!--Time Input-->
+                            <div class="form-inline row margin_bottom">
+                                <label class="col-xs-2 control-label">Date:</label>
+                                <div class="col-xs-3">
+                                    <select class="form-control" title="month" name="month" id="month" required>
+                                        <option value="" disabled selected hidden>Month</option>
+                                        <option value="01">Jan</option>
+                                        <option value="02">Feb</option>
+                                        <option value="03">Mar</option>
+                                        <option value="04">Apr</option>
+                                        <option value="05">May</option>
+                                        <option value="06">Jun</option>
+                                        <option value="07">Jul</option>
+                                        <option value="08">Aug</option>
+                                        <option value="09">Sep</option>
+                                        <option value="10">Oct</option>
+                                        <option value="11">Nov</option>
+                                        <option value="12">Dec</option>
+                                    </select>
                                 </div>
-                                <div class="col-xs-6 col-md-6">
-                                    <span class="col-xs-12 col-md-12">Time:</span>
-                                    <input type="text" name="time" id="time" maxlength="5" size="5" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]))" placeholder="HH:MM" required>
+                                <div class="col-xs-3 xs-offset-1">
+                                    <input class="form-control" type="text" name="day" id="day" maxlength="2" size="2" pattern="(0[1-9]|[12][0-9]|3[01])" placeholder="DD" required>
+                                </div>
+                                <div class="col-xs-3 xs-offset-1">
+                                    <select class="form-control" title="text" name="year" id="year" required>
+                                        <option value="" disabled selected hidden>Year</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-md-3">
-                                <span class="col-xs-12 col-md-12">AM/PM:</span>
-                                <select class="col-xs-6 col-xs-offset-3 col-md-12" title="dayNight" name="dayNight" id="dayNight">
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
-                                </select><br/>
+                            <div class="form-inline row margin_bottom">
+                                <label class="col-xs-2 control-label">Time:</label>
+                                <div class="col-xs-3">
+                                    <input class="form-control" type="text" name="time" id="time" maxlength="5" size="5" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]))" placeholder="HH:MM" required>
+                                </div>
+                                <div class="col-xs-3 xs-offset-1">
+                                    <select class="form-control" title="dayNight" name="dayNight" id="dayNight">
+                                        <option value="AM">AM</option>
+                                        <option value="PM">PM</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <!-- Trigger the modal with a button -->
