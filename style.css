@@ -134,7 +134,7 @@ div {
 }
 
 .margin_bottom{
-  margin-bottom:6%;
+  margin-bottom:2%;
 }
 
 form{
@@ -373,6 +373,13 @@ input,select,textarea {
   position: relative;
 }
 
+.player-input {
+  left: -3%;
+}
+
+.margin-unset {
+  margin: 0;
+}
 
 /******************************************************************/
 /*Beginning of nearby games style*/
@@ -611,6 +618,7 @@ select#fav_genre, input#first_name {
 
 
 /******************************************************************/
+
 
 
 .truncate {
