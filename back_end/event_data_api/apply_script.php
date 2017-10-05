@@ -29,7 +29,8 @@ if(empty($mapping_result)){
         //finally, we've done everything we need to do
         $output['debugging_messages'][]='able to map the user to the event';
     } else {
-        $output['errors'] = 'trouble mapping user to event (hint: is this player already associated with the event?)';
+//        $output['errors'] = 'trouble mapping user to event (hint: is this player already associated with the event?)';
+        $output['errors'] = 'You\'re already attending this event!';
         return;
     }
 }
@@ -78,7 +79,7 @@ if($result){
 				$host_email = $host['email'];
                 $output['debugging_messages'][]='found the host! his name is '.$host_name;
                 $output['debugging_messages'][]='found the host! his email is '.$host_email;
-                require_once 'php_mailer.php';
+                require 'php_mailer.php';
                 //when emailing is required for the action to be considered a success, $output['success'] should be set to true only upon the email being sent
 //                $output['success'] = true;
 			} else if($row['role']==='applicant'){
