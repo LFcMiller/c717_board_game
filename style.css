@@ -60,6 +60,9 @@ body{
   margin-bottom: 1%;
 }
 
+.gamesNearYouButton{
+  margin-top: 1%;
+}
 
 .gamesList {
   height: 100vh;
