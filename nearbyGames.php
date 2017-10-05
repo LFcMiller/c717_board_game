@@ -135,12 +135,11 @@
                 <div class="title_box col-sm-12 col-md-12">
                     <!--mobile title-->
                     <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-12">
-                        <h1 class="font_rg header-font">Board Game Scout</h1>
-                        <h3 class ="font_rg header-font">Scroll Down for Game Map and Apply!</h3>
+                        <h1 class="header-font">Board Game Scout</h1>
                     </div>
                     <!--desktop title-->
-                    <div class="margin_bottom hidden-sm visible-md visible-lg col-md-8">
-                        <h1 class="font_lg header-font" >Board Game Scout</h1>
+                    <div class="hidden-sm visible-md visible-lg col-md-12">
+                        <h1 class="font_lg header-font">Board Game Scout</h1>
                     </div>
                 </div>
                     <!--map and info column for DESK-TOP-->
