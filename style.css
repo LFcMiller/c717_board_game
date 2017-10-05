@@ -764,3 +764,7 @@ select#fav_genre, input#first_name {
   margin: 1%;
   letter-spacing: 1px;
 }
+
+.submitButton{
+  margin-top: 1%;
+}
