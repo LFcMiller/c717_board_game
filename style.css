@@ -601,7 +601,7 @@ input,select,textarea {
 }
 
 .tableB {
-  border: 1px solid white;
+  #border: 1px solid white;
 }
 
 .table-hover thead:hover {
