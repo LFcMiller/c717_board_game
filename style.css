@@ -177,11 +177,7 @@ div {
 }
 
 .margin_bottom{
-<<<<<<< HEAD
   margin-bottom:2%;
-=======
-  margin-bottom:3%;
->>>>>>> 5898fd3a0e4fbe93b048f18113d0e082ac1e08a8
 }
 
 form{
@@ -403,7 +399,7 @@ input,select,textarea {
   color:black;
 }
 
-@media(max-width:415px) {
+@media(max-width: 420px){
   input,select,textarea {
     color:black;
     margin:1%;
@@ -418,14 +414,22 @@ input,select,textarea {
   position: relative;
 }
 
-.player-input {
-  left: -3%;
-}
 
 .margin-unset {
   margin: 0;
 }
 
+.time-input {
+  width: 100%;
+  padding-left: 128px;
+}
+
+@media(max-width:420px){
+  .time-input {
+    width: 100%;
+    padding-left: unset;
+  }
+}
 /******************************************************************/
 /*Beginning of nearby games style*/
 .column_height{
@@ -620,16 +624,17 @@ input,select,textarea {
 }
 
 @media(max-width: 500px){
-  .profile_info_div {
+  .profile_info_div{
     height: auto;
     font-size: initial;
+    width:auto;
   }
 }
 
 .profile_info_div > input, select, textarea {
   color: black;
   background-color: white;
-  width: -webkit-fill-available;
+  width: fit-content;
 }
 
 select#fav_genre, input#first_name {
