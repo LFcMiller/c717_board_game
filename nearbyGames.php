@@ -104,7 +104,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                   <img src="./imgs/board_game_scout_logo.png" width="30" height="30" alt="logo">
                 </a>
               </div>
