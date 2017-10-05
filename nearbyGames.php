@@ -95,21 +95,44 @@
         }(document, 'script', 'facebook-jssdk'));
       </script>
     <div class="create_event_background"></div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container" id="menuItemHeader">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menuItems" aria-expanded="false">
+                  <span class="sr-only">Toggle Navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                  <img src="./imgs/temp logo.png" width="30" height="30" alt="logo">
+                </a>
+              </div>
+
+              <div class="collapse navbar-collapse" id="menuItems">
+                <ul class="nav navbar-nav">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Profile</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><form class="donatePaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+                            ">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                        </form></li>
+                  <li><fb:login-button class="btn btn-outline-primary" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
+                            </fb:login-button></li>
+                </ul>
+              </div>
+            </div>
+        </nav>
     <div class="header-scroll row padding_unset">
             <!--header starts here-->
             <div class="col-sm-12 col-md-12">
-                <div class="topnav margin_bottom col-sm-12 col-md-12" id="myTopnav">
-                    <a href="/" id="home" class="col-sm-3 col-md-3">Home</a>
-                    <a href="/profile.html" id="profile" class="">Profile</a>
-                    <a href="/about" id="about"class="col-sm-3 col-md-3">About</a>
-                    <a href="/blog" target="_blank" id="blog" class="col-sm-3 col-md-3">Blog</a>
-                    <a href="/contact_us.html" id="contact" class="col-sm-3 col-md-3">Contact</a>
-                </div>
                 <!--title and logo-->
                 <div class="title_box col-sm-12 col-md-12">
-                    <div class="hidden-xs hidden-sm visible-md visible-lg col-md-2">
-                        <img class="temp_logo display-inline" src="./imgs/temp logo.png"/>
-                    </div>
                     <!--mobile title-->
                     <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-12">
                         <h1 class="font_rg header-font">Board Game Scout</h1>
@@ -118,18 +141,6 @@
                     <!--desktop title-->
                     <div class="margin_bottom hidden-sm visible-md visible-lg col-md-8">
                         <h1 class="font_lg header-font" >Board Game Scout</h1>
-                    </div>
-                    <!--button_container-->
-                    <div class="button_container col-sm-12 col-md-11">
-                        <!--facebook_login_button-->
-                        <div class="col-sm-12 col-md-2 col-md-offset-10">
-                            <!--this was the previous fb button that was not working. kept for comparison purpose-->
-                            <!--<fb:login-button class="fb-login-button col-md-1" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email,picture" onlogin="checkLoginState();">-->
-                            <!--</fb:login-button>-->
-                            <!--this button works!!!!!-->
-                            <fb:login-button class="fb-login-button col-lg-2 fb_iframe_widget" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();" login_text="
-                        " fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=133764540588384&amp;auto_logout_link=true&amp;button_type=continue_with&amp;container_width=279&amp;locale=en_US&amp;login_text=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;max_rows=1&amp;scope=public_profile%2Cemail&amp;sdk=joey&amp;show_faces=false&amp;size=large&amp;use_continue_as=false"><span style="vertical-align: bottom; width: 171px; height: 40px;"><iframe name="f1c8511f428535c" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:login_button Facebook Social Plugin" src="https://www.facebook.com/v2.10/plugins/login_button.php?app_id=133764540588384&amp;auto_logout_link=true&amp;button_type=continue_with&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FZ2duorNoYeF.js%3Fversion%3D42%23cb%3Df1f0d3420b5872c%26domain%3Ddev.boardgamescout.com%26origin%3Dhttps%253A%252F%252Fdev.boardgamescout.com%252Ff33a7e53affa3fc%26relation%3Dparent.parent&amp;container_width=279&amp;locale=en_US&amp;login_text=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;max_rows=1&amp;scope=public_profile%2Cemail&amp;sdk=joey&amp;show_faces=false&amp;size=large&amp;use_continue_as=false" style="border: none; visibility: visible; width: 171px; height: 40px;" class=""></iframe></span></fb:login-button>
-                        </div>
                     </div>
                 </div>
                     <!--map and info column for DESK-TOP-->
@@ -168,19 +179,6 @@
                         </div>
                     </div>
                 </div>
-        <!--footer-->
-        <div class="footer col-md-12">
-            <!--paypal_button-->
-            <div class="col-sm-12 col-md-12">
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-                    ">
-                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                </form>
-            </div>
-        </div>
     </div>
     <div id="applyModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
