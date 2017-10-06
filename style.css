@@ -73,6 +73,12 @@ body{
   margin-top: 1%;
 }
 
+.no-spin-button-number input[type=number]::-webkit-inner-spin-button,
+.no-spin-button-number input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .gamesList {
   height: 100vh;
   overflow: scroll;
