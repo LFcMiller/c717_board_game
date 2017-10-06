@@ -34,6 +34,6 @@ if(empty($result)){
         $output['data']['user_ID'] = mysqli_insert_id($conn);
     }
     else{
-        $output['errors'] = 'I tried inserting a new user but something went wrong';
+        $output['errors'][] = 'I tried inserting a new user but something went wrong';
     }
 }
