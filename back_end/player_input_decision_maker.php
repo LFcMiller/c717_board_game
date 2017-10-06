@@ -1,22 +1,18 @@
 <?php
-//if(empty($_GET['action']/* check if the get superglobal variable 'action' is empty*/)){
-//    exit('no action specified');
-//}
 
-//require the mysql_connect.php file.  Make sure you properly configured it!
-require_once('mysqlConnect.php');
+// check if the get superglobal variable 'action' is empty
+if(empty($_GET['action'])){
+    $output['errors'][] = 'no action specified';
+    die(json_encode($output));
+}
+
+//connect to the database
+require_once('database_connect_script.php');
 
 $output = [
     'success'=> false, //we assume we will fail
     'errors'=>[]
 ];
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-if (!$conn){
-    $output['errors'][] = 'problem connecting to database: '.mysqli_connect_error();
-    die(print(json_encode($output)));
-}
 
 switch($_GET['action']){
     case 'relateOrCreateUser':
