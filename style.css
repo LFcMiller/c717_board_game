@@ -73,6 +73,12 @@ body{
   margin-top: 1%;
 }
 
+.no-spin-button-number input[type=number]::-webkit-inner-spin-button,
+.no-spin-button-number input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .gamesList {
   height: 100vh;
   overflow: scroll;
@@ -307,7 +313,7 @@ form{
   }
   .contact_form{
     display: table-caption;
-    transform: translateX(26%);
+    /* transform: translateX(26%); */
   }
 }
 
@@ -321,7 +327,7 @@ form{
   background-image: url("./imgs/boardgame.jpg");
   position: absolute;
   width:100vw;
-  height:115%;
+  height:200%;
   opacity:0.2;
   background-size:cover;
   background-repeat: no-repeat;
@@ -769,4 +775,8 @@ select#fav_genre, input#first_name {
 #eventCreation{
   margin: 1%;
   letter-spacing: 1px;
+}
+
+.submitButton{
+  margin-top: 1%;
 }

@@ -62,7 +62,7 @@ function applyToEvent(event){
 
 
 function populatePage(response) {
-  console.log("Data response: ", response)
+  console.log("Data response: ", response);
   $(".gamesContainer").html("");
   eventList = response.data;
   for (var i = 0; i < response.data.length; i++) {
@@ -71,9 +71,9 @@ function populatePage(response) {
       .attr("index", i)
       .text(response.data[i].game_name)
       .on("click", (event)=>{
-        handleMapFocus(event)
+        handleMapFocus(event);
         displayAdditionalInfo($(event.target).attr("index"));
-      })
+      });
     var gameContainerDiv = $("<div>").addClass("game col-xs-12");
     gameContainerDiv.append(gameDiv);
     $(".gamesContainer").append(gameContainerDiv);
@@ -86,13 +86,13 @@ function displayAdditionalInfo(index){
   $(".eventInfo").empty();
   var dateDiv = $("<div>")
     .addClass("date col-xs-12")
-    .text("Date: "+eventList[index].date);
+    .text("Date: " + beautifyDate(eventList[index].date));
   var timeDiv = $("<div>")
     .addClass("time col-xs-12")
-    .text("Time: "+eventList[index].time);
+    .text("Time: " + eventList[index].time);
   var detailsDiv = $("<div>")
     .addClass("details col-xs-12")
-    .text("Details: "+eventList[index].general_details);
+    .text("Details: " + eventList[index].general_details);
   var applyButton = $("<button>")
     .addClass("btn btn-success apply col-xs-6 col-xs-offset-3")
 
@@ -100,6 +100,65 @@ function displayAdditionalInfo(index){
     .text("Apply")
     .on("click", applyToEvent);
   $(".eventInfo").append(dateDiv, timeDiv, detailsDiv, applyButton);
+}
+
+function beautifyDate(uglyDate){
+    var outputDate = '';
+    var splitDate = uglyDate.split('-');
+    switch(splitDate[1]){
+        case '01':
+            outputDate += 'Jan';
+            break;
+
+        case '02':
+            outputDate += 'Feb';
+            break;
+
+        case '03':
+            outputDate += 'Mar';
+            break;
+
+        case '04':
+            outputDate += 'Apr';
+            break;
+
+        case '05':
+            outputDate += 'May';
+            break;
+
+        case '06':
+            outputDate += 'Jun';
+            break;
+
+        case '07':
+            outputDate += 'July';
+            break;
+
+        case '08':
+            outputDate += 'Aug';
+            break;
+
+        case '09':
+            outputDate += 'Sept';
+            break;
+
+        case '10':
+            outputDate += 'Oct';
+            break;
+
+        case '11':
+            outputDate += 'Nov';
+            break;
+
+        case '12':
+            outputDate += 'Dec';
+            break;
+
+        default:
+            outputDate += 'Err';
+    }
+
+    return outputDate + ' ' + parseInt(splitDate[2]);
 }
 
 function handleMapFocus(event) {
@@ -170,7 +229,7 @@ function populateMap(response) {
       lat: parseFloat(response.data[i].lat),
       lng: parseFloat(response.data[i].lng)
     };
-    (function(marker, pos) {
+    (function(marker, pos, index) {
       marker.addListener("click", function() {
         infowindow.setContent(marker.content);
         infowindow.setPosition(pos);
@@ -180,8 +239,9 @@ function populateMap(response) {
           strokeColor: "#35dd46",
           fillColor: "#35dd46"
         });
+        displayAdditionalInfo(index);
       });
-    })(marker, latLng);
+    })(marker, latLng, i);
     markers.push(marker);
   }
 }

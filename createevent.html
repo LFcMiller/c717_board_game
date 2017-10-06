@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="style.css">
   <script src="facebook_login.js"></script>
   <script src='createevent.js'></script>
+  <link rel="icon" href="./imgs/board_game_scout_tab_logo.png">
 </head>
     <body class="columns_body create_event_margin">
     <div class="create_event_background"></div>
@@ -46,10 +47,16 @@
                 if(response.status === 'connected'){
                     console.log('Logged in and authenticated');
                     loggedIn=true;
+                    if($("#profile").hasClass("hidden")){
+                        $("#profile").toggleClass("hidden");
+                    }
                     testAPI();
                 }else{
                     console.log('Not authenticated');
                     loggedIn=false;
+                    if(!$("#profile").hasClass("hidden")){
+                        $("#profile").toggleClass("hidden");
+                    }
                 }
             }
 
@@ -87,17 +94,17 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                  <img src="./imgs/temp logo.png" width="30" height="30" alt="logo">
+                <a class="navbar-brand" href="/">
+                  <img src="./imgs/board_game_scout_logo.png" width="30" height="30" alt="logo">
                 </a>
               </div>
 
               <div class="collapse navbar-collapse" id="menuItems">
                 <ul class="nav navbar-nav">
                   <li><a href="/">Home</a></li>
-                  <li><a href="/profile.html">Profile</a></li>
+                  <li id="profile"><a href="/profile.html">Profile</a></li>
                   <li><a href="/blog" target="_blank">Blog</a></li>
-                  <li><a href="/contact_us.html" target="_blank">Contact</a></li>
+                  <li><a href="/contact_us.html">Contact</a></li>
                   <li><form class="donatePaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                             <input type="hidden" name="cmd" value="_s-xclick">
                             <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
@@ -121,6 +128,7 @@
                 <!--desktop title-->
                 <div class="hidden-sm visible-md visible-lg col-md-12">
                     <h1 class="font_lg header-font">Board Game Scout</h1>
+                    <h4>Create An Event</h4>
                 </div>
             </div>
            <!--form starts here-->
@@ -128,14 +136,14 @@
                 <form onsubmit="sendData();" id="eventCreation">
                     <div class="form-horizontal">
                         <!--Game name and players-->
-                        <div class="form-event-pad col-xs-12 col-md-12">
-                            <div class="col-xs-12 col-md-10">
-                                <span class="app-form col-md-2">Event:</span>
-                                <input class="app-form col-xs-12 col-md-9" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
+                        <div class="col-xs-12 col-md-12">
+                            <div class="form-group">
+                                <label class="col-xs-1">Event:</label>
+                                <input class="form-control" type="text" name="gameName" id="gameName" placeholder="Name of Game" required><br/>
                             </div>
-                            <div class="col-xs-12 col-md-2">
-                                <span class="app-form">Players:</span>
-                                <select title="playerCount" class="" name="numPlayers" id="numPlayers" required>
+                            <div class="form-group">
+                                <label class="col-xs-1">Players:</label>
+                                <select title="playerCount" class="form-control" name="numPlayers" id="numPlayers" required>
                                     <option value="" disabled selected hidden>Select</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -147,81 +155,70 @@
                                     <option value="8">8</option>
                                 </select><br/>
                             </div>
-                        </div>
-                        <!--Addresses-->
-                        <div class="margin_top margin_bottom col-xs-12 col-md-12">
-                            <div class="margin_top margin_bottom col-xs-12">
-                                <span class="app-form col-md-2">Street:</span>
-                                <input class="col-xs-12 col-md-10" type="text" name="address" id="address" placeholder="Street Address" required><br/>
+                            <!--Addresses-->
+                            <div class="form-group">
+                                <label class="col-xs-1">Street:</label>
+                                <input class="form-control" type="text" name="address" id="address" placeholder="Street Address" required><br/>
                             </div>
-                            <div class="margin_bottom col-xs-12">
-                                <span class="app-form col-md-2">City:</span>
-                                <input class="col-xs-12 col-md-10" type="text" name="city" id="city" placeholder="City" required><br/>
+                            <div class="form-group">
+                                <label class="col-xs-1">City:</label>
+                                <input class="form-control" type="text" name="city" id="city" placeholder="City" required><br/>
                             </div>
-                            <div class="margin_bottom col-xs-12">
-                                <span class="app-form col-md-2">State:</span>
-                                <input class="col-xs-12 col-md-10" type="text" name="state" id="state" maxlength="2" size="2" placeholder="State" required><br/>
+                            <div class="form-group">
+                                <label class="col-xs-1">State:</label>
+                                <input class="form-control" type="text" name="state" id="state" maxlength="2" size="2" placeholder="State" required><br/>
                             </div>
-                            <div class="margin_bottom col-xs-12">
-                                <span class="app-form col-md-2">Zip Code:</span>
-                                <input class="col-xs-12 col-md-10" type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
+                            <div class="form-group">
+                                <label class="col-xs-1">Zipcode:</label>
+                                <input class="form-control" type="text" name="zipcode" id="zipcode" placeholder="Zipcode" required><br/>
                             </div>
-                        </div>
-                        <!--Text Input-->
-                        <div class="margin_bottom col-xs-12 col-md-12">
-                            <span class="app-form col-md-2">Special Notes:</span>
-                            <textarea class="text-width" name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
-                        </div>
-                        <!--Time Input-->
-                        <div class="time-input margin_top margin_bottom col-xs-12 col-md-12">
-                            <!--Time and Day-->
-                            <div class="col-xs-12 col-md-3 col-md-offset-2 margin_bottom">
-                                <!--Time-->
-                                <div class="time-column margin_bottom">
-                                    <span>Time:</span>
-                                    <input type="text" name="time" id="time" maxlength="5" size="6" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]))" placeholder="HH:MM" required><br/>
+                            <!--Text Input-->
+                            <div class="form-group">
+                                <label class="app-form col-xs-5">Special Notes:</label>
+                                <textarea class="form-control" name="textDetails" id="textDetails" placeholder="Details about event." required></textarea><br/>
+                            </div>
+                            <!--Time Input-->
+                            <div class="form-inline row margin_bottom">
+                                <label class="col-xs-2 control-label">Date:</label>
+                                <div class="col-xs-3">
+                                    <select class="form-control" title="month" name="month" id="month" required>
+                                        <option value="" disabled selected hidden>Month</option>
+                                        <option value="01">Jan</option>
+                                        <option value="02">Feb</option>
+                                        <option value="03">Mar</option>
+                                        <option value="04">Apr</option>
+                                        <option value="05">May</option>
+                                        <option value="06">Jun</option>
+                                        <option value="07">Jul</option>
+                                        <option value="08">Aug</option>
+                                        <option value="09">Sep</option>
+                                        <option value="10">Oct</option>
+                                        <option value="11">Nov</option>
+                                        <option value="12">Dec</option>
+                                    </select>
                                 </div>
-                                    <!--AM / PM-->
-                                <div class="time-column margin_bottom">
-                                    <span>AM/PM:</span>
-                                    <select class="" title="dayNight" name="dayNight" id="dayNight">
+                                <div class="col-xs-3 xs-offset-1">
+                                    <input class="form-control" type="text" name="day" id="day" maxlength="2" size="2" pattern="(0[1-9]|[12][0-9]|3[01])" placeholder="DD" required>
+                                </div>
+                                <div class="col-xs-3 xs-offset-1">
+                                    <select class="form-control" title="text" name="year" id="year" required>
+                                        <option value="" disabled selected hidden>Year</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-inline row margin_bottom">
+                                <label class="col-xs-2 control-label">Time:</label>
+                                <div class="col-xs-3">
+                                    <input class="form-control" type="text" name="time" id="time" maxlength="5" size="5" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]))" placeholder="HH:MM" required>
+                                </div>
+                                <div class="col-xs-3 xs-offset-1">
+                                    <select class="form-control" title="dayNight" name="dayNight" id="dayNight">
                                         <option value="AM">AM</option>
                                         <option value="PM">PM</option>
-                                    </select><br/>
+                                    </select>
                                 </div>
-                            </div>
-                            <!--Day-->
-                            <div class="col-xs-12 col-md-2">
-                                <span class="col-xs-12 col-md-12">Day:</span>
-                                <input type="text" name="day" id="day" maxlength="2" size="3" pattern="(0[1-9]|[12][0-9]|3[01])" placeholder="DD" required>
-                            </div>
-                            <!--Month-->
-                            <div class="col-xs-12 col-md-3">
-                                <span class="col-xs-12 col-md-12">Month:</span>
-                                <select class="col-xs-12 col-md-12" title="month" name="month" id="month" required>
-                                    <option value="" disabled selected hidden>Month</option>
-                                    <option value="01">Jan</option>
-                                    <option value="02">Feb</option>
-                                    <option value="03">Mar</option>
-                                    <option value="04">Apr</option>
-                                    <option value="05">May</option>
-                                    <option value="06">Jun</option>
-                                    <option value="07">Jul</option>
-                                    <option value="08">Aug</option>
-                                    <option value="09">Sep</option>
-                                    <option value="10">Oct</option>
-                                    <option value="11">Nov</option>
-                                    <option value="12">Dec</option>
-                                </select>
-                            </div>
-                            <!--Year-->
-                            <div class="col-xs-12 col-md-2">
-                                <span class="col-xs-12 col-md-12">Year:</span>
-                                <select class="col-xs-12 col-md-12" title="text" name="year" id="year" required>
-                                    <option value="" disabled selected hidden>Year</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2018">2018</option>
-                                </select><br/>
                             </div>
                         </div>
                         <!-- Trigger the modal with a button -->

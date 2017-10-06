@@ -4,7 +4,7 @@ if(empty($_POST['user_ID'])){
     return;
 }
 
-$keys_we_are_looking_for = /*don't forget facebook ID!*/ ['game_name','general_details', /*'numPlayers',*/ 'street_address', 'city', 'state','zip','date','time', 'lat', 'lng'];
+$keys_we_are_looking_for = ['game_name','general_details', /*'num_players',*/ 'street_address', 'city', 'state','zip','date','time', 'lat', 'lng'];
 
 $post_event_data_unesc = [];
 
@@ -79,7 +79,7 @@ if(empty($result)){
         $new_event_ID = mysqli_insert_id($conn);
         $output['data']['event_ID'] = $new_event_ID;
     } else{
-        $output['errors'] = 'trouble inserting the event';
+        $output['errors'][] = 'trouble inserting the event';
         return;
     }
 }
@@ -98,6 +98,6 @@ if(empty($result)){
         //finally, we've done everything we need to do
         $output['success'] = true;
     } else {
-        $output['errors'] = 'trouble mapping user to event';
+        $output['errors'][] = 'trouble mapping user to event';
     }
 }

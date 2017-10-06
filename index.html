@@ -23,6 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="facebook_login.js"></script>
+    <link rel="icon" href="./imgs/board_game_scout_tab_logo.png">
 </head>
 <body class="">
     <div id="fb-root"></div>
@@ -52,14 +53,20 @@
           };
 
           function statusChangeCallback(response){
-            if(response.status === 'connected'){
-              console.log('Logged in and authenticated');
-              loggedIn=true;
-              testAPI();
-            }else{
-              console.log('Not authenticated');
-              loggedIn=false;
-            }
+              if(response.status === 'connected'){
+                  console.log('Logged in and authenticated');
+                  loggedIn=true;
+                  if($("#profile").hasClass("hidden")){
+                      $("#profile").toggleClass("hidden");
+                  }
+                  testAPI();
+              }else{
+                  console.log('Not authenticated');
+                  loggedIn=false;
+                  if(!$("#profile").hasClass("hidden")){
+                      $("#profile").toggleClass("hidden");
+                  }
+              }
           }
 
             function checkLoginState() {
@@ -88,15 +95,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">
-          <img src="./imgs/temp logo.png" width="30" height="30" alt="logo">
+        <a class="navbar-brand" href="/">
+          <img src="./imgs/board_game_scout_logo.png" width="30" height="30" alt="logo">
         </a>
       </div>
 
       <div class="collapse navbar-collapse" id="menuItems">
         <ul class="nav navbar-nav">
           <li><a href="/">Home</a></li>
-          <li><a href="/profile.html">Profile</a></li>
+          <li id="profile"><a href="/profile.html">Profile</a></li>
           <li><a href="/blog" target="_blank">Blog</a></li>
           <li><a href="/contact_us.html">Contact</a></li>
           <li><form class="donatePaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -135,8 +142,8 @@
             <div class="index-boxes form-group col-sm-12 col-md-6">
                 <label class="col-sm-12 col-md-12 col-lg-12 search">Search:</label>
                 <div class=" col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
-                    <form action="nearbyGames.php">
-                        <input type="text" class="form-control" id="exampleInputZipCode" placeholder="ZIPCODE" pattern=".{3,}" required name="zip"/>
+                    <form class="no-spin-button-number" action="nearbyGames.php">
+                        <input type="number" class="form-control" id="exampleInputZipCode" placeholder="ZIPCODE" pattern=".{3,}" required name="zip"/>
                         <button class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3 btn btn-md btn-primary gamesNearYouButton">Games Near You</button>
                     </form>
                 </div>

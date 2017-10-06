@@ -40,7 +40,7 @@
     ?>
 
   <script src="nearbyGames.js"></script>
-
+<link rel="icon" href="./imgs/board_game_scout_tab_logo.png">
 </head>
 <body class="container-fluid padding_unset body_black">
         <script>
@@ -60,14 +60,20 @@
         };
 
         function statusChangeCallback(response){
-          if(response.status === 'connected'){
-            console.log('Logged in and authenticated');
-            loggedIn=true;
-            testAPI();
-          }else{
-            console.log('Not authenticated');
-            loggedIn=false;
-          }
+            if(response.status === 'connected'){
+                console.log('Logged in and authenticated');
+                loggedIn=true;
+                if($("#profile").hasClass("hidden")){
+                    $("#profile").toggleClass("hidden");
+                }
+                testAPI();
+            }else{
+                console.log('Not authenticated');
+                loggedIn=false;
+                if(!$("#profile").hasClass("hidden")){
+                    $("#profile").toggleClass("hidden");
+                }
+            }
         }
 
         function checkLoginState(){
@@ -104,15 +110,15 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                  <img src="./imgs/temp logo.png" width="30" height="30" alt="logo">
+                <a class="navbar-brand" href="/">
+                  <img src="./imgs/board_game_scout_logo.png" width="30" height="30" alt="logo">
                 </a>
               </div>
 
               <div class="collapse navbar-collapse" id="menuItems">
                 <ul class="nav navbar-nav">
                   <li><a href="/">Home</a></li>
-                  <li><a href="/profile.html">Profile</a></li>
+                  <li id="profile"><a href="/profile.html">Profile</a></li>
                   <li><a href="/blog" target="_blank">Blog</a></li>
                   <li><a href="/contact_us.html">Contact</a></li>
                   <li><form class="donatePaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
