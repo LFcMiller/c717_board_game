@@ -295,7 +295,7 @@ form{
   }
   .contact_form{
     display: table-caption;
-    transform: translateX(26%);
+    /* transform: translateX(26%); */
   }
 }
 
