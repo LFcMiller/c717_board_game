@@ -4,7 +4,7 @@ if(empty($_POST['user_ID'])){
     return;
 }
 
-$keys_we_are_looking_for = /*don't forget facebook ID!*/ ['game_name','general_details', /*'numPlayers',*/ 'street_address', 'city', 'state','zip','date','time', 'lat', 'lng'];
+$keys_we_are_looking_for = ['game_name','general_details', /*'num_players',*/ 'street_address', 'city', 'state','zip','date','time', 'lat', 'lng'];
 
 $post_event_data_unesc = [];
 
