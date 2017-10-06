@@ -96,7 +96,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">
-          <img src="./imgs/board_game_scout_logo.png" width="30" height="30" alt="logo">
+          <img src="./imgs/nav-bar-tile.png" width="40" height="40" alt="logo">
         </a>
       </div>
 
@@ -129,32 +129,43 @@
             </div>
             <!--desktop title-->
             <div class="hidden-sm visible-md visible-lg col-md-12">
+                <img src="./imgs/white-piece-tile.png" width="100" height="100" alt="logo">
                 <h1 class="font_lg header-font">Board Game Scout</h1>
             </div>
             <!--button_container-->
         </div>
         <!--about body column-->
         <div class = "margin_top margin_bottom about_page col-sm-12 col-md-12 hidden-xs hidden-sm">
-                <h4 class="font_rg">Welcome to Board Game Scout! Find interesting board games and others looking to play with you!</h4>
+            <h4 class="font_rg">Welcome to Board Game Scout! Find interesting board games and others looking to play with you!</h4>
         </div>
+        <!--find games near you column-->
         <div class="margin_bottom col-sm-12 col-md-12">
-            <!--find games near you column-->
-            <div class="index-boxes form-group col-sm-12 col-md-6">
-                <label class="col-sm-12 col-md-12 col-lg-12 search">Search:</label>
-                <div class=" col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
-                    <form class="no-spin-button-number" action="nearbyGames.php">
-                        <input type="number" class="form-control" id="exampleInputZipCode" placeholder="ZIPCODE" pattern=".{3,}" required name="zip"/>
-                        <button class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3 btn btn-md btn-primary gamesNearYouButton">Games Near You</button>
-                    </form>
+            <div class="index-boxes form-group col-sm-12 col-md-12">
+                <div class="col-md-6">
+                    <label class="col-sm-12 col-md-12 col-lg-12 search">Search:</label>
+                    <div class=" col-sm-12 col-md-6 col-md-offset-3">
+                        <form class="no-spin-button-number" action="nearbyGames.php">
+                            <input type="number" class="form-control" id="exampleInputZipCode" placeholder="ZIPCODE" pattern=".{3,}" required name="zip"/>
+                            <button class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3 btn btn-md btn-primary gamesNearYouButton">Games Near You</button>
+                        </form>
+                    </div>
+                </div>
+                <!--host a game near you -->
+                <div class="col-sm-12 col-md-6">
+                    <h4>Assemble your fellows!</h4>
+                    <a href="createevent.html" class="btn btn-lg btn-warning">Host Game Event</a>
                 </div>
             </div>
-            <!--host a game near you -->
-            <div class="col-sm-12 col-md-6">
-                <h4>Assemble your fellows!</h4>
-                <a href="createevent.html" class="btn btn-lg btn-warning">Host Game Event</a>
-            </div>
         </div>
-        <!--footer-->
+        <!--find,host,img container-->
+        <!--<div class="img-box">-->
+            <!--image row column-->
+            <div class="img-box hidden-xs hidden-sm">
+                <img class="img-container" src="imgs/join-game-tile.png" />
+                <img class="img-container" src="imgs/main-logo.png" />
+                <img class="img-container" src="imgs/host-game-tile.png"/>
+            </div>
+        <!--</div>-->
     </div>
 </body>
 </html>

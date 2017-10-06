@@ -22,7 +22,13 @@ body{
 }
 .nav {
   width: 95%;
+  margin-top: .5%;
 }
+
+.navbar {
+  height: 7%;
+}
+
 .navbar-nav li{
   margin-right: 5%;
 }
@@ -780,3 +786,25 @@ select#fav_genre, input#first_name {
 .submitButton{
   margin-top: 1%;
 }
+
+.img-container{
+  display: inline-block;
+  position: relative;
+  width: 400px;
+  height: 500px;
+  margin-right: 2%;
+}
+
+.img-box {
+  position: absolute;
+  width: 99vw;
+  bottom: -4%;
+  left: 0;
+}
+
+
+
+
+
+
+
