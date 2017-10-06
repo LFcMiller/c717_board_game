@@ -29,6 +29,8 @@ body{
 .navbar-nav li:last-child{
   float: right;
 }
+
+
 .donatePaypal{
   margin: 0;
   display: inline;
@@ -52,6 +54,13 @@ body{
 .navbar-nav li:last-child{
   float: none;
 }
+.navbar-nav{
+    margin: 0;
+    width: 100%;
+  }
+.navbar-nav li{
+  margin-right: 0;
+}
 }
 
 .title {
@@ -60,6 +69,9 @@ body{
   margin-bottom: 1%;
 }
 
+.gamesNearYouButton{
+  margin-top: 1%;
+}
 
 .gamesList {
   height: 100vh;
@@ -177,7 +189,7 @@ div {
 }
 
 .margin_bottom{
-  margin-bottom:3%;
+  margin-bottom:2%;
 }
 
 form{
@@ -277,7 +289,7 @@ form{
     border-radius: 25px;
     background-color: rgba(0, 0, 0, .6);
     margin: 10px 0 5px 0;
-    padding: 5px 0 10px 5px;
+    padding: 0;
     transform: translateX(50%);
   }
 }
@@ -289,7 +301,7 @@ form{
     color: white;
     border-radius:25px;
     background-color: rgba(0,0,0,.6);
-    margin: 10px 5px 10px 5px;
+    margin: unset;
     padding: 0;
     transform: translateX(0%);
   }
@@ -311,8 +323,6 @@ form{
   width:100vw;
   height:200%;
   opacity:0.2;
-  #bottom: -2%;
-  #left: 0%;
   background-size:cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -331,9 +341,9 @@ form{
   width: 60%;
   height:auto;
   border-radius: 25px;
-  position: inherit;
+  position: relative;
   padding:2%;
-  background-color: #191919;
+  background-color: rgba(0,0,0,.7);
   color:black;
 }
 
@@ -367,7 +377,7 @@ form{
 
 
 .form-event-pad {
-  padding-left: 37px;
+  padding-left: 39px;
 }
 
 .text-width {
@@ -401,7 +411,7 @@ input,select,textarea {
   color:black;
 }
 
-@media(max-width:415px) {
+@media(max-width: 420px){
   input,select,textarea {
     color:black;
     margin:1%;
@@ -416,6 +426,27 @@ input,select,textarea {
   position: relative;
 }
 
+
+.margin-unset {
+  margin: 0;
+}
+
+.time-input {
+  width: 100%;
+  padding-left: 15px;
+}
+
+@media(max-width:420px){
+  .time-input {
+    width: 100%;
+    /*padding-left: 128px;*/
+
+  }
+}
+
+.time-column {
+  width:100%;
+}
 
 /******************************************************************/
 /*Beginning of nearby games style*/
@@ -589,7 +620,7 @@ input,select,textarea {
 }
 
 .tableB {
-  border: 1px solid white;
+  #border: 1px solid white;
 }
 
 .table-hover thead:hover {
@@ -611,16 +642,17 @@ input,select,textarea {
 }
 
 @media(max-width: 500px){
-  .profile_info_div {
+  .profile_info_div{
     height: auto;
     font-size: initial;
+    width:auto;
   }
 }
 
 .profile_info_div > input, select, textarea {
   color: black;
   background-color: white;
-  width: -webkit-fill-available;
+  width: fit-content;
 }
 
 select#fav_genre, input#first_name {
@@ -654,6 +686,7 @@ select#fav_genre, input#first_name {
 
 
 /******************************************************************/
+
 
 
 .truncate {
@@ -736,4 +769,8 @@ select#fav_genre, input#first_name {
 #eventCreation{
   margin: 1%;
   letter-spacing: 1px;
+}
+
+.submitButton{
+  margin-top: 1%;
 }
