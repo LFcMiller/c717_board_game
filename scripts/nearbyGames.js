@@ -105,7 +105,6 @@ function populatePage(response) {
 /**
  * Function to display additional event info upon click of event in event list or on map
  * @param {number} index
- * @param {} name
  * @return {Object} 
  */
 //TODO: confirm that the tags aren't created as tags (cross-site scripting)
@@ -133,50 +132,22 @@ function displayAdditionalInfo(index){
  * @return {string} 
  */
 function reformatDate(unformattedDate){
-    var outputDate = '';
     var splitDate = unformattedDate.split('-'); //split received date on hyphens
-    switch(splitDate[1]){ //reformat numeric month into abbreviated month name
-        case '01':
-            outputDate += 'Jan';
-            break;
-        case '02':
-            outputDate += 'Feb';
-            break;
-        case '03':
-            outputDate += 'Mar';
-            break;
-        case '04':
-            outputDate += 'Apr';
-            break;
-        case '05':
-            outputDate += 'May';
-            break;
-        case '06':
-            outputDate += 'Jun';
-            break;
-        case '07':
-            outputDate += 'July';
-            break;
-        case '08':
-            outputDate += 'Aug';
-            break;
-        case '09':
-            outputDate += 'Sept';
-            break;
-        case '10':
-            outputDate += 'Oct';
-            break;
-        case '11':
-            outputDate += 'Nov';
-            break;
-        case '12':
-            outputDate += 'Dec';
-            break;
-        default:
-            outputDate += 'Err';
+    var dateObject = { //lookup object for month abbreviations
+      '01':'Jan',
+      '02':'Feb',
+      '03':'Mar',
+      '04':'Apr',
+      '05':'May',
+      '06':'Jun',
+      '07':'July',
+      '08':'Aug',
+      '09':'Sept',
+      '10':'Oct',
+      '11':'Nov',
+      '12':'Dec'
     }
-
-    return outputDate + ' ' + parseInt(splitDate[2]); //return Abbreviated month and day
+    return dateObject[splitDate[1]] + ' ' + parseInt(splitDate[2]); //return Abbreviated month and day
 }
 /**
  * Function to focus on and highlight marker on map that correlates to event in focus 
