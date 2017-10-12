@@ -195,6 +195,7 @@ function initMap() {
       address: currentZip
     },
     success: function(response) {
+      console.log(response)
       var location = response.results[0].geometry.location; //set location of map to geolocation of zipcode passed into ajax call
       infowindow = new google.maps.InfoWindow(); //create infowindow
       map = new google.maps.Map(document.getElementById("map"), { //create map centered on location
