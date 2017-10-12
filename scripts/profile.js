@@ -1,8 +1,12 @@
 $(document).ready(function(){
-  $(".submitChanges").on("click", submitData)
-  $(".editInfo").on("click", toggleHidden)
+  $(".submitChanges").on("click", submitData) //add click handler to submit profile revisions
+  $(".editInfo").on("click", toggleHidden) //add click handler to toggle edit mode or display mode
 })
-
+/**
+ * Ajax call to pull data related to user from database
+ * @param none
+ * @return {Promise} 
+ */
 function pullUserData(){
   var deferred = $.Deferred();
   $.ajax({
@@ -17,7 +21,11 @@ function pullUserData(){
   })
   return deferred;
 }
-
+/**
+ * Function to update user data in database after editing
+ * @param none
+ * @return {Promise} 
+ */
 function updateUserData(){
   var deferred = $.Deferred();
   $.ajax({
@@ -34,24 +42,36 @@ function updateUserData(){
   })
   return deferred;
 }
-
+/**
+ * Function to submit user data after editing by user
+ * @param none
+ * @return {undefined} 
+ */
 function submitData(){
-  updateUserData().then((response)=>{
-    setUserValues(response);
-    toggleHidden();
+  updateUserData().then((response)=>{ //update user data in database, then
+    setUserValues(response); //set user value in DOM elements
+    toggleHidden(); //toggle state from edit mode to display mode
   })
   
 }
-
+/**
+ * Function to toggle between edit mode and display mode in DOM
+ * @param none
+ * @return {undefined} 
+ */
 function toggleHidden(){
   $("#personalInfo > p > *").toggleClass("hidden");
   $("#personalInfo > button").toggleClass("hidden");
 }
-
+/**
+ * Function to insert user data into elements on DOM and set inputs' initial values
+ * @param {Object} response
+ * @return {undefined} 
+ */
 function setUserValues(response){
-  console.log("User information: ",response);
-  $(".profilePicture").attr("src", profile_pic);
+  $(".profilePicture").attr("src", profile_pic); //set profile picture URL
 
+  //set User data displays and initial input values on edit mode
   $(".name").text(response.data.first_name);
   $("#first_name").attr("value", response.data.first_name);
   $(".genre").text(response.data.fav_genre);
@@ -59,9 +79,9 @@ function setUserValues(response){
   $(".about").text(response.data.about_me);
   $("#about_me").text(response.data.about_me);
 
-  var pastGames = response.data.past_games;
-  $(".pastGamesTable").empty();
-  if(pastGames.length > 0){
+  var pastGames = response.data.past_games; //save past games to variable
+  $(".pastGamesTable").empty(); //clear any existing data about previous games
+  if(pastGames.length > 0){ //if prior games exist, create entries for them in table on DOM
     for(var i = 0; i < pastGames.length; i++){
       var gameRow = $("<tr>");
       var gameName = $("<td>").text(pastGames[i].game_name);

@@ -16,7 +16,7 @@
   <title>Nearby Games</title>
   <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="facebook_login.js"></script>
+  <script src="scripts/facebook_login.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cambay" rel="stylesheet">
 
@@ -39,7 +39,7 @@
     }
     ?>
 
-  <script src="nearbyGames.js"></script>
+  <script src="scripts/nearbyGames.js"></script>
 <link rel="icon" href="./imgs/board_game_scout_tab_logo.png">
 </head>
 <body class="container-fluid padding_unset body_black">
