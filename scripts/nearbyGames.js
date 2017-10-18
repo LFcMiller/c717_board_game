@@ -146,8 +146,8 @@ function reformatDate(unformattedDate){
       '10':'Oct',
       '11':'Nov',
       '12':'Dec'
-    }
-    return dateObject[splitDate[1]] + ' ' + parseInt(splitDate[2]); //return Abbreviated month and day
+    };
+    return dateObject[splitDate[1]] + ' ' + parseInt(splitDate[2]); //return abbreviated month and day
 }
 /**
  * Function to focus on and highlight marker on map that correlates to event in focus 

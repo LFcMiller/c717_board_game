@@ -1,7 +1,7 @@
 $(document).ready(function(){
-  $(".submitChanges").on("click", submitData) //add click handler to submit profile revisions
-  $(".editInfo").on("click", toggleHidden) //add click handler to toggle edit mode or display mode
-})
+  $(".submitChanges").on("click", submitData); //add click handler to submit profile revisions
+  $(".editInfo").on("click", toggleHidden); //add click handler to toggle edit mode or display mode
+});
 /**
  * Ajax call to pull data related to user from database
  * @param none
@@ -18,7 +18,7 @@ function pullUserData(){
     },
     success: deferred.resolve,
     error: deferred.reject
-  })
+  });
   return deferred;
 }
 /**
@@ -39,7 +39,7 @@ function updateUserData(){
       about_me: $("#about_me").val()
     },
     success: deferred.resolve,
-  })
+  });
   return deferred;
 }
 /**
@@ -85,7 +85,7 @@ function setUserValues(response){
     for(var i = 0; i < pastGames.length; i++){
       var gameRow = $("<tr>");
       var gameName = $("<td>").text(pastGames[i].game_name);
-      var gameCount = $("<td>").text(pastGames[i].frequency)
+      var gameCount = $("<td>").text(pastGames[i].frequency);
       gameRow.append(gameName, gameCount);
       $(".pastGamesTable").append(gameRow);
     }
