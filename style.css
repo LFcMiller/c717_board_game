@@ -802,6 +802,27 @@ select#fav_genre, input#first_name {
   left: 0;
 }
 
+/*This is the start of the tiles styling for BGS v2.0*/
+.tile{
+  background-size: 500px 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  height:500px;
+  width:47vw;
+}
+
+.input-div{
+  bottom: -36%;
+}
+
+.join{
+  background-image: url("imgs/join-game.svg");
+}
+
+.host{
+  background-image: url("imgs/host-game.svg");
+}
 
 
 
