@@ -812,6 +812,16 @@ select#fav_genre, input#first_name {
   width:47vw;
 }
 
+@media(max-width:400px){
+  .tile{
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    height: 500px;
+    width: 100vw;}
+}
+
 .input-div{
   bottom: -36%;
 }
