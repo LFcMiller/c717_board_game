@@ -1,14 +1,14 @@
-$(document).ready(function(){
-  $(".submitChanges").on("click", submitData) //add click handler to submit profile revisions
-  $(".editInfo").on("click", toggleHidden) //add click handler to toggle edit mode or display mode
+$(document).ready(() => {
+  $(".submitChanges").on("click", submitData); //add click handler to submit profile revisions
+  $(".editInfo").on("click", toggleHidden); //add click handler to toggle edit mode or display mode
 })
 /**
  * Ajax call to pull data related to user from database
  * @param none
  * @return {Promise} 
  */
-function pullUserData(){
-  var deferred = $.Deferred();
+const pullUserData = () => {
+  let deferred = $.Deferred();
   $.ajax({
     url: "./back_end/player_input_decision_maker.php?action=retrievePublicProfile",
     method: "POST",
@@ -26,8 +26,8 @@ function pullUserData(){
  * @param none
  * @return {Promise} 
  */
-function updateUserData(){
-  var deferred = $.Deferred();
+const updateUserData = () => {
+  let deferred = $.Deferred();
   $.ajax({
     url: "./back_end/player_input_decision_maker.php?action=updateProfile",
     method: "POST",
@@ -47,8 +47,8 @@ function updateUserData(){
  * @param none
  * @return {undefined} 
  */
-function submitData(){
-  updateUserData().then((response)=>{ //update user data in database, then
+const submitData = () => {
+  updateUserData().then(response => { //update user data in database, then
     setUserValues(response); //set user value in DOM elements
     toggleHidden(); //toggle state from edit mode to display mode
   })
@@ -59,7 +59,7 @@ function submitData(){
  * @param none
  * @return {undefined} 
  */
-function toggleHidden(){
+const toggleHidden = () => {
   $("#personalInfo > p > *").toggleClass("hidden");
   $("#personalInfo > button").toggleClass("hidden");
 }
@@ -68,7 +68,7 @@ function toggleHidden(){
  * @param {Object} response
  * @return {undefined} 
  */
-function setUserValues(response){
+const setUserValues = response => {
   $(".profilePicture").attr("src", profile_pic); //set profile picture URL
 
   //set User data displays and initial input values on edit mode
@@ -79,13 +79,13 @@ function setUserValues(response){
   $(".about").text(response.data.about_me);
   $("#about_me").text(response.data.about_me);
 
-  var pastGames = response.data.past_games; //save past games to variable
+  let pastGames = response.data.past_games; //save past games to variable
   $(".pastGamesTable").empty(); //clear any existing data about previous games
   if(pastGames.length > 0){ //if prior games exist, create entries for them in table on DOM
-    for(var i = 0; i < pastGames.length; i++){
-      var gameRow = $("<tr>");
-      var gameName = $("<td>").text(pastGames[i].game_name);
-      var gameCount = $("<td>").text(pastGames[i].frequency)
+    for(let i = 0; i < pastGames.length; i++){
+      let gameRow = $("<tr>");
+      let gameName = $("<td>").text(pastGames[i].game_name);
+      let gameCount = $("<td>").text(pastGames[i].frequency)
       gameRow.append(gameName, gameCount);
       $(".pastGamesTable").append(gameRow);
     }

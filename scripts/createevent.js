@@ -5,16 +5,16 @@ $(document).ready(()=>{
  * Global Variable to store whether user is cyrrently logged in or not
  * @Global {Boolean}
  */
-var loggedIn = false;
+let loggedIn = false;
 /**
  * Function to begin promise chain to pull lat and long of nearest cross-streets from event address, then send information to back-end.
  * @param none
  * @return {undefined}
  */
-function sendData(){
+const sendData = () => {
   event.preventDefault();
     if(loggedIn){
-      var address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val(); //concatenate address inputs into proper format
+      let address = $("#address").val()+", "+$("#city").val()+", "+$("#state").val(); //concatenate address inputs into proper format
       getLatLong(address).then(getCrossStreets).then(handleSuccess); //get geolocation of address, then get geolocation of cross-streets next to address, then send data to back-end
     } else {
       $(".modalText").text("Submitting an event requires a Facebook Login. Please log in and try again."); //add error text to modal
@@ -26,8 +26,8 @@ function sendData(){
  * @param {string} address
  * @return {promise}
  */
-function getLatLong(address) {
-  var deferred = $.Deferred();
+const getLatLong = address => {
+  let deferred = $.Deferred();
   $.ajax({
     url: 'https://maps.googleapis.com/maps/api/geocode/json',
     method: "GET",
@@ -44,8 +44,8 @@ function getLatLong(address) {
  * @param {object} response
  * @return {promise}
  */
-function getCrossStreets(response) {
-  var deferred = $.Deferred();
+const getCrossStreets = response => {
+  let deferred = $.Deferred();
   $.ajax({
     url: 'https://roads.googleapis.com/v1/nearestRoads',
     method: "GET",
@@ -62,8 +62,8 @@ function getCrossStreets(response) {
  * @param {object} response
  * @return {undefined}
  */
-function handleSuccess(response) {
-  var result = { //group data from inputs on page, along with latitude and longitude from response
+const handleSuccess = response => {
+  let result = { //group data from inputs on page, along with latitude and longitude from response
     game_name: $("#gameName").val(),
     num_players: $("#numPlayers").val(),
     street_address: $("#address").val(),
@@ -84,11 +84,11 @@ function handleSuccess(response) {
     url: "./back_end/event_input_decision_maker.php?action=newEvent",
     data: result,
     timeout: 5000,
-    success: function (objectFromServer) {
+    success: objectFromServer => {
         $(".modalText").text("Your event has been submitted! Any applications you receive will be sent to your email."); //put sucess response text in modal
         $("#createEventModal").modal();
     },
-    error: function (xhr, textStatus, errorString) {
+    error: (xhr, textStatus, errorString) => {
         $(".modalText").text("There was an error submitting your event, please try again."); //put error response text in modal
         $("#createEventModal").modal();
     }
