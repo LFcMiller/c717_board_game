@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $(".submitChanges").on("click", submitData)
-  $(".editInfo").on("click", toggleHidden)
+  $(".editInfo").on("click", toggleHidden);
+  $("#fav_genre").on('change', changeIcon);
 })
 
 function pullUserData(){
@@ -14,7 +15,7 @@ function pullUserData(){
     },
     success: deferred.resolve,
     error: deferred.reject
-  })
+  });
   return deferred;
 }
 
@@ -31,7 +32,7 @@ function updateUserData(){
       about_me: $("#about_me").val()
     },
     success: deferred.resolve,
-  })
+  });
   return deferred;
 }
 
@@ -59,6 +60,8 @@ function setUserValues(response){
   $(".about").text(response.data.about_me);
   $("#about_me").text(response.data.about_me);
 
+
+
   var pastGames = response.data.past_games;
   $(".pastGamesTable").empty();
   if(pastGames.length > 0){
@@ -71,3 +74,46 @@ function setUserValues(response){
     }
   }
 }
+
+//this is an array of all the tiles with their genre
+
+//factory function to create tile with src and title
+var createTile = function(src, title, value){
+  var img = {
+    src: src,
+    title: title,
+    value: value
+  };
+  return img;
+};
+
+
+var tileDictionary = {};
+
+tileDictionary.Abstract = createTile("imgs/abstract-tile.svg","abstract","Abstract");
+tileDictionary.Dexterity = createTile("imgs/dexterity-tile.svg","dexterity","Dexterity");
+tileDictionary.Eurogames = createTile("imgs/euro-tile.svg","euro","Eurogames");
+tileDictionary.Family = createTile("imgs/family-tile.svg","family","Family");
+tileDictionary.Thematic = createTile("imgs/theme-tile.svg","theme","Thematic");
+tileDictionary.Wargames = createTile("imgs/war-tile.svg","war","Wargames");
+tileDictionary.Party = createTile("imgs/positive-logo.svg","party","Party");
+
+// console.log(createTile);
+//
+// if($("#fav_genre option[value="+response.data.fav_genre+"]") === tileArray.img.value()) {
+//     $("#genre_tile").attr(src,title);
+//
+// }
+
+function changeIcon(){
+  var type = $(this).val();
+
+  if(tileDictionary[type]) {
+      $("#genre_tile").attr('src', tileDictionary[type].src).attr('alt',tileDictionary[type].title);
+  }
+
+};
+
+
+
+
