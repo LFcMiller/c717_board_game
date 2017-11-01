@@ -2,19 +2,19 @@
  * Global variable to store id of user received from database after lookup using Facebook ID
  * @Global {String}
  */
-var user_ID;
+let user_ID;
 /**
  * Global variable to store the url for user's profile picture
  * @Global {String}
  */
-var profile_pic;
+let profile_pic;
 /**
  * Function to send Facebook Login data to databse to check if user already exists
  * @param {Object} response
  * @return {Promise} 
  */
-function sendFacebookData(response){
-  var deferred = $.Deferred();
+const sendFacebookData = response => {
+  let deferred = $.Deferred();
   profile_pic = response.picture.data.url;
   $.ajax({
       url: './back_end/player_input_decision_maker.php?action=relateOrCreateUser',
@@ -35,8 +35,7 @@ function sendFacebookData(response){
  * @param {Object} response
  * @return {Number} user_ID 
  */
-function processFacebookData(response){
-  console.log('Facebook Success!',response);
+const processFacebookData = response => {
   user_ID = response.data.user_ID;
   // profile_pic =
   return user_ID;
@@ -46,8 +45,8 @@ function processFacebookData(response){
  * @param {Object} response
  * @return {undefined} 
  */
-function errorHandler(response){
-  console.log('Facebook Error:',response)
+const errorHandler = response => {
+  console.log('Facebook Error:', response)
 }
 
 
