@@ -1,6 +1,6 @@
 $(document).ready(()=>{
   $("#createEventBtn").on("click", sendData); //apply click handler to submit button on DOM
-})
+});
 /**
  * Global Variable to store whether user is cyrrently logged in or not
  * @Global {Boolean}
@@ -36,7 +36,7 @@ const getLatLong = address => {
       key: 'AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE'
     },
     success: deferred.resolve
-  })
+  });
   return deferred;
 }
 /**
@@ -54,7 +54,7 @@ const getCrossStreets = response => {
       key: 'AIzaSyDxsAjsSwsaBzaz-xNaLnDUQEjr_BIsiCE'
     },
     success: deferred.resolve
-  })
+  });
   return deferred;
 }
 /**

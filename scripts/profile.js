@@ -18,7 +18,7 @@ const pullUserData = () => {
     },
     success: deferred.resolve,
     error: deferred.reject
-  })
+  });
   return deferred;
 }
 /**
@@ -39,7 +39,7 @@ const updateUserData = () => {
       about_me: $("#about_me").val()
     },
     success: deferred.resolve,
-  })
+  });
   return deferred;
 }
 /**
