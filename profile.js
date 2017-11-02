@@ -96,14 +96,8 @@ tileDictionary.Eurogames = createTile("imgs/euro-tile.svg","euro","Eurogames");
 tileDictionary.Family = createTile("imgs/family-tile.svg","family","Family");
 tileDictionary.Thematic = createTile("imgs/theme-tile.svg","theme","Thematic");
 tileDictionary.Wargames = createTile("imgs/war-tile.svg","war","Wargames");
-tileDictionary.Party = createTile("imgs/positive-logo.svg","party","Party");
+tileDictionary.Party = createTile("imgs/party-tile.svg","party","Party");
 
-// console.log(createTile);
-//
-// if($("#fav_genre option[value="+response.data.fav_genre+"]") === tileArray.img.value()) {
-//     $("#genre_tile").attr(src,title);
-//
-// }
 
 function changeIcon(){
   var type = $(this).val();
