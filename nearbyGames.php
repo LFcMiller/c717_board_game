@@ -42,7 +42,7 @@
   <script src="scripts/nearbyGames.js"></script>
     <link rel="icon" href="./imgs/negative-logo.svg">
 </head>
-<body class="container-fluid padding_unset body_black">
+<body class="create_event_background">
         <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -96,7 +96,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
       </script>
-    <div class="create_event_background"></div>
+<!--    <div class="create_event_background"></div>-->
     <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container" id="menuItemHeader">
               <div class="navbar-header">
@@ -130,7 +130,7 @@
               </div>
             </div>
         </nav>
-    <div class="header-scroll row padding_unset">
+    <div class="columns_body header-scroll row padding_unset">
             <!--header starts here-->
             <div class="col-sm-12 col-md-12">
                 <!--title and logo-->
