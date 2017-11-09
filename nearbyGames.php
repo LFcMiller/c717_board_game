@@ -40,7 +40,7 @@
     ?>
 
   <script src="scripts/nearbyGames.js"></script>
-<link rel="icon" href="./imgs/board_game_scout_tab_logo.png">
+    <link rel="icon" href="./imgs/negative-logo.svg">
 </head>
 <body class="container-fluid padding_unset body_black">
         <script>
@@ -107,7 +107,7 @@
                   <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">
-                  <img src="./imgs/board_game_scout_logo.png" width="30" height="30" alt="logo">
+                    <img src="./imgs/negative-logo.svg" width="30" height="30" alt="logo">
                 </a>
               </div>
 

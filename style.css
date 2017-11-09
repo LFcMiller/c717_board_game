@@ -130,8 +130,7 @@ div {
 .home_page_body{
   width:99vw;
   height: 99%;
-  /* display: inline-block; */
-  padding-top: 5%;
+  padding-top: 6%;
 }
 
 @media screen and (max-width: 991px) {
@@ -779,4 +778,42 @@ select#fav_genre, input#first_name {
 
 .submitButton{
   margin-top: 1%;
+}
+
+/*This is the start of the tiles styling for BGS v2.0*/
+.tile{
+  background-size: 500px 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  height:500px;
+  width:47vw;
+}
+
+@media(max-width:400px){
+  .tile{
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    height: 500px;
+    width: 100vw;}
+}
+
+.input-div{
+  bottom: -36%;
+}
+
+.join{
+  background-image: url("imgs/join-game.svg");
+}
+
+.host{
+  background-image: url("imgs/host-game.svg");
+}
+
+.label-align {
+  transform: translateY(39%);
+  height: inherit;
+
 }

@@ -1,6 +1,8 @@
 $(document).ready(() => {
-  $(".submitChanges").on("click", submitData); //add click handler to submit profile revisions
+$(".submitChanges").on("click", submitData); //add click handler to submit profile revisions
   $(".editInfo").on("click", toggleHidden); //add click handler to toggle edit mode or display mode
+$("#fav_genre").on('change', changeIcon);
+
 })
 /**
  * Ajax call to pull data related to user from database
@@ -91,3 +93,36 @@ const setUserValues = response => {
     }
   }
 }
+
+//Soy: this is an array of all the tiles with their genre
+//factory function to create tile with src and title
+//added "$("#fav_genre").on('change', changeIcon);" on document.ready
+var createTile = function(src, title, value){
+    var img = {
+        src: src,
+        title: title,
+        value: value
+    };
+    return img;
+};
+
+
+var tileDictionary = {};
+
+tileDictionary.Abstract = createTile("imgs/abstract-tile.svg","abstract","Abstract");
+tileDictionary.Dexterity = createTile("imgs/dexterity-tile.svg","dexterity","Dexterity");
+tileDictionary.Eurogames = createTile("imgs/euro-tile.svg","euro","Eurogames");
+tileDictionary.Family = createTile("imgs/family-tile.svg","family","Family");
+tileDictionary.Thematic = createTile("imgs/theme-tile.svg","theme","Thematic");
+tileDictionary.Wargames = createTile("imgs/war-tile.svg","war","Wargames");
+tileDictionary.Party = createTile("imgs/party-tile.svg","party","Party");
+
+
+function changeIcon(){
+    var type = $(this).val();
+
+    if(tileDictionary[type]) {
+        $("#genre_tile").attr('src', tileDictionary[type].src).attr('alt',tileDictionary[type].title);
+    }
+
+};
