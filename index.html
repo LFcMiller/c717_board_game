@@ -25,7 +25,7 @@
     <script src="scripts/facebook_login.js"></script>
     <link rel="icon" href="./imgs/negative-logo.svg">
 </head>
-<body class="">
+<body class=" create_event_background">
     <div id="fb-root"></div>
       <script>(function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -81,8 +81,7 @@
         }
 
     </script>
-<div class="create_event_background"></div>
-<nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container" id="menuItemHeader">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menuItems" aria-expanded="false">
@@ -102,22 +101,24 @@
           <li id="profile"><a href="/profile.html">Profile</a></li>
           <li><a href="/blog" target="_blank">Blog</a></li>
           <li><a href="/contact_us.html">Contact</a></li>
-          <li><form class="donatePaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <li>
+              <form class="donatePaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                     <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
                     ">
                     <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                </form></li>
+              </form>
+          </li>
           <li><fb:login-button class="btn btn-outline-primary" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();">
                     </fb:login-button></li>
         </ul>
       </div>
     </div>
   </nav>
-    <div class="home_page_body margin_bottom">
+    <div class="">
         <!--title and logo-->
-        <div class="col-md-12">
+        <div class="home_page_title col-sm-12 col-md-12">
             <!--mobile title-->
             <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-12">
                 <h1 class="header-font">Board Game Scout</h1>
@@ -128,21 +129,20 @@
                 <img src="./imgs/color-logo.svg" width=200" height="200" alt="logo">
                 <h1 class="font_lg header-font">Board Game Scout</h1>
             </div>
-            <!--button_container-->
-        </div>
-        <!--about body column-->
-        <div class = "margin_top margin_bottom about_page col-sm-12 col-md-12 hidden-xs hidden-sm">
+            <!--about body column-->
+            <div class="about_page col-sm-12 col-md-12 hidden-xs hidden-sm">
                 <h4 class="font_rg">Welcome to Board Game Scout! Find interesting board games and others looking to play with you!</h4>
+            </div>
         </div>
-        <div class="margin_bottom col-sm-12 col-md-12">
+        <div class="padding_unset col-sm-12 col-md-12">
             <!--find games near you column-->
             <div class="index-boxes form-group join tile col-sm-12 col-md-6">
                 <div class="label-align col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
                     <label class="col-sm-12 col-md-12 col-lg-12 search">Search:</label>
                     <div class=" col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
                         <form class="no-spin-button-number" action="nearbyGames.php">
-                            <input type="number" class="form-control" id="exampleInputZipCode" placeholder="ZIPCODE" pattern=".{3,}" required name="zip"/>
-                            <button class="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3 btn btn-md btn-primary gamesNearYouButton">Games Near You</button>
+                            <input type="number" class="form-control text-center" id="exampleInputZipCode" placeholder="ZIPCODE" pattern=".{3,}" required name="zip"/>
+                            <button class="btn btn-md btn-primary gamesNearYouButton">Games Near You</button>
                         </form>
                     </div>
                 </div>
