@@ -16,7 +16,7 @@
   <title>Nearby Games</title>
   <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="facebook_login.js"></script>
+  <script src="scripts/facebook_login.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cambay" rel="stylesheet">
 
@@ -39,8 +39,8 @@
     }
     ?>
 
-  <script src="nearbyGames.js"></script>
     <link rel="icon" href="./imgs/negative-logo.svg">
+  <script src="scripts/nearbyGames.js"></script>
 </head>
 <body class="container-fluid padding_unset body_black">
         <script>
@@ -54,21 +54,18 @@
 
             FB.AppEvents.logPageView();
             FB.getLoginStatus(function(response) {
-              console.log(response);
                 statusChangeCallback(response);
             });
         };
 
         function statusChangeCallback(response){
             if(response.status === 'connected'){
-                console.log('Logged in and authenticated');
                 loggedIn=true;
                 if($("#profile").hasClass("hidden")){
                     $("#profile").toggleClass("hidden");
                 }
                 testAPI();
             }else{
-                console.log('Not authenticated');
                 loggedIn=false;
                 if(!$("#profile").hasClass("hidden")){
                     $("#profile").toggleClass("hidden");
@@ -85,7 +82,6 @@
         function testAPI(){
               FB.api('/me?fields=name,email,picture.width(800).height(800)', function(response){
                 if(response && !response.error){
-                  console.log(response);
                   sendFacebookData(response).then(response=>{processFacebookData(response)}, errorHandler);
             }
           });

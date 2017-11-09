@@ -23,9 +23,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
 
         <!--profile page input editor script-->
-        <script src="facebook_login.js"></script>
-        <script src="profile.js"></script>
         <link rel="icon" href="./imgs/negative-logo.svg">
+        <script src="scripts/facebook_login.js"></script>
+        <script src="scripts/profile.js"></script>
     </head>
     <body class="columns_body create_event_margin ">
         <script>
@@ -39,21 +39,18 @@
 
                 FB.AppEvents.logPageView();
                 FB.getLoginStatus(function(response) {
-                    console.log(response);
                     statusChangeCallback(response);
                 });
             };
 
             function statusChangeCallback(response){
                 if(response.status === 'connected'){
-                    console.log('Logged in and authenticated');
                     loggedIn=true;
                     if($("#profile").hasClass("hidden")){
                         $("#profile").toggleClass("hidden");
                     }
                     testAPI();
                 }else{
-                    console.log('Not authenticated');
                     loggedIn=false;
                     if(!$("#profile").hasClass("hidden")){
                         $("#profile").toggleClass("hidden");
@@ -70,7 +67,6 @@
             function testAPI(){
               FB.api('/me?fields=name,email,picture.width(800).height(800)', function(response){
                     if(response && !response.error){
-                    console.log(response);
                     sendFacebookData(response).then(response=>{
                         processFacebookData(response);
                         pullUserData().then((response)=>{setUserValues(response)}, (response)=>{console.log(response)})

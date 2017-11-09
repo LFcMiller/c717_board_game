@@ -50,7 +50,7 @@ body{
   }
   .navbar-nav li{
   margin-right: 2%;
-}
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -66,7 +66,7 @@ body{
   }
 .navbar-nav li{
   margin-right: 0;
-}
+  }
 }
 
 .title {
@@ -143,7 +143,7 @@ div {
 @media screen and (max-width: 991px) {
   .home_page_body{
   padding-top: 20%;
-}
+  }
 }
 
 .title_box{
@@ -765,7 +765,7 @@ select#fav_genre, input#first_name {
 @media(max-width:991px) {
   .header-scroll {
     padding-top: 8%;
-}
+  }
 }
 
 #applyModal, #createEventModal {
