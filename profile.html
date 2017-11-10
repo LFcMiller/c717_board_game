@@ -27,7 +27,7 @@
         <script src="scripts/facebook_login.js"></script>
         <script src="scripts/profile.js"></script>
     </head>
-    <body class="columns_body create_event_margin ">
+    <body class="create_event_background">
         <script>
             window.fbAsyncInit = function() {
                 FB.init({
@@ -83,8 +83,6 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <!--background image div-->
-        <div class="create_event_background"></div>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container" id="menuItemHeader">
               <div class="navbar-header">
@@ -95,7 +93,7 @@
                   <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">
-                    <img src="./imgs/negative-logo.svg" width="40" height="40" alt="logo">
+                    <img src="./imgs/negative-logo.svg" width="30" height="30" alt="logo">
                 </a>
               </div>
 
@@ -121,7 +119,6 @@
         <div class="columns_body col-sm-12 col-md-12">
             <!--title and logo-->
             <div class="col-sm-12 col-md-12">
-                <img src="./imgs/positive-logo.svg" id="genre_tile" class="genre-tile" width="200" height="200" alt="logo">
                 <!--mobile title-->
                 <div class="margin_bottom visible-xs visible-sm hidden-md col-sm-12">
                     <h1 class="header-font">Board Game Scout</h1>
@@ -130,6 +127,7 @@
                 <div class="hidden-sm visible-md visible-lg col-md-12">
                     <h1 class="font_lg header-font">Board Game Scout</h1>
                 </div>
+                <img src="./imgs/positive-logo.svg" id="genre_tile" class="genre-tile" width="200" height="200" alt="logo">
             </div>
                 <!--Profile-->
                 <div class="profile_overflow col-sm-12 col-md-12">
